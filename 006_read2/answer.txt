@@ -1,5 +1,5 @@
 In the loop with i = 0, a = 5
-In the loop with i = 0, a = 7
+In the loop with i = 1, a = 7
 a = 27
 x = 2
 In another function(2, 9)
