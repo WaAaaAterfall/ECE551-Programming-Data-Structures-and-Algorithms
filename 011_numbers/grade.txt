@@ -1,10 +1,8 @@
-Grading at 09/05/2022:13:38:33.588727
-For commit ID 16da1c18e770527d892945abcf2fe636be360b1c
-Grading at Mon Sep  5 09:38:33 AM EDT 2022
-I expected to find a file called 'answers.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-answer.txt
-README
+Grading at 09/05/2022:13:43:54.420426
+For commit ID 6f17de555fa32a326d3149d14dec46820bb1f306
+Grading at Mon Sep  5 09:43:54 AM EDT 2022
+Line_2_did_not_match
+Line_3_did_not_match
+Your file did not match the expected ouput
 
 Overall Grade: FAILED
