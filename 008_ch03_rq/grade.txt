@@ -1,0 +1,12 @@
+Grading at 09/05/2022:01:19:41.096551
+For commit ID 568c60f3b737c3a1bbd93ae4e3e7089747b4c025
+Grading at Sun Sep  4 09:19:40 PM EDT 2022
+Reading your quiz answers from answers.txt
+You got 2 questions incorrect.
+You might want to review these concepts:
+------------
+The basics of data types
+The custom data types
+------------
+
+Overall Grade: FAILED
