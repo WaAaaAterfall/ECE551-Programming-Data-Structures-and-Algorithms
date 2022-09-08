@@ -1,10 +1,6 @@
-Grading at 09/08/2022:02:28:23.506750
-For commit ID ece14ef5bd4b40384f8a81f133696d97a5ded63f
-Grading at Wed Sep  7 10:28:23 PM EDT 2022
-I expected to find a file called 'answer.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-answers.txt
-README
+Grading at 09/08/2022:12:58:51.535045
+For commit ID d77893646a816f26112af096153cacf7c0a4eb46
+Grading at Thu Sep  8 08:58:51 AM EDT 2022
+Your file matched the expected output
 
-Overall Grade: FAILED
+Overall Grade: PASSED
