@@ -7,10 +7,10 @@ struct _retire_info {
 };
 typedef struct _retire_info retire_info;
 
-void retirement(int startAge,          //in months
-                double initial,        //initial saving in dollars
-                retire_info working,   //info about working
-                retire_info retire) {  // info about being retired
+void retirement(int startAge,           //in months
+                double initial,         //initial saving in dollars
+                retire_info working,    //info about working
+                retire_info retired) {  // info about being retired
   int working_months = working.months;
   double current_balance = initial;
   int current_age = startAge;
