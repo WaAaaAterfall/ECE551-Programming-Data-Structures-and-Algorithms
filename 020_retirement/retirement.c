@@ -23,15 +23,15 @@ void retirement(int startAge,           //in months
     current_balance += (current_balance * working.rate_of_return);
     current_balance += working.contribution;
   }
-  int retire_months = retire.months;
+  int retire_months = retired.months;
   for (int j = 0; j < retire_months; j++) {
     printf("age %3d month %2d you have $%.2f\n",
            current_age / 12,
            current_age % 12,
            current_balance);
     current_age++;
-    current_balance += current_balance * retire.rate_of_return;
-    current_balance += retire.contribution;
+    current_balance += current_balance * retired.rate_of_return;
+    current_balance += retired.contribution;
   }
 }
 
