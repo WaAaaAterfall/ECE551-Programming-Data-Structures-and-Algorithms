@@ -10,12 +10,12 @@ void swap_char(char * a, char * b) {
 void reverse(char * str) {
   //WRITE ME!
   size_t n = 0;
-  if (str == NULL || str[0] == '\0') {
+  if (str == NULL || *str == '\0') {
     n = 0;
   }
   else {
     size_t index = 0;
-    while (str[index] != '\0') {
+    while (*(str + index) != '\0') {
       n++;
       index++;
     }
@@ -26,9 +26,9 @@ void reverse(char * str) {
   else {
     size_t left = 0, right = n - 1;
     while (left < right) {
-      char temp = str[left];
-      str[left] = str[right];
-      str[right] = temp;
+      char temp = *(str + left);
+      *(str + left) = *(str + right);
+      *(str + right) = temp;
       left++;
       right--;
     }
