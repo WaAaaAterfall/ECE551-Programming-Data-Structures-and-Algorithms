@@ -1,0 +1,19 @@
+Grading at 09/27/2022:01:01:27.045025
+For commit ID c24b5e7e6526f27f1a6469ed0f7a0acb3d879c0a
+Grading at Mon Sep 26 09:01:26 PM EDT 2022
+Attempting to compile test.c
+gcc -Wall -std=gnu99 -pedantic -c test.c
+gcc -o test test.o
+compiled
+I expected to find a file called 'answer.txt' but it did not exist
+(or was not a regular file)
+Here are the files that I can find:
+answers.txt
+Makefile
+README
+test
+test.c
+test.o
+Your output did not match what we expected.
+
+Overall Grade: F
