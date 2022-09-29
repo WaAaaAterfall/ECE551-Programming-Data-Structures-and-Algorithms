@@ -12,7 +12,12 @@ int getLetterI(double * count, int sum) {
       indexOfMostFre = i;
     }
   }
-  return indexOfMostFre;
+  if (maxFreq < 0.15 && maxFreq > 0.13) {
+    return indexOfMostFre;
+  }
+  else {
+    return 4;
+  }
 }
 
 void calculate_count(int * count, double * record, FILE * f) {
