@@ -12,12 +12,7 @@ int getLetterI(double * count, int sum) {
       indexOfMostFre = i;
     }
   }
-  if (maxFreq < 0.15 && maxFreq > 0.07) {
-    return indexOfMostFre;
-  }
-  else {
-    return 4;
-  }
+  return indexOfMostFre;
 }
 
 void calculate_count(int * count, double * record, FILE * f) {
@@ -47,17 +42,19 @@ int main(int argc, char ** argv) {
   calculate_count(c, count_record, f);
   if (count == 0) {
     printf("Empty File\n");
-    return EXIT_FAILURE;
+    printf("%d\n", 0);
   }
-  int indexOfMostFre = getLetterI(count_record, count);
-  int res = indexOfMostFre - 4;
-  if (res < 0) {
-    res += 26;
-  }
-  printf("%d", res);
-  if (fclose(f) != 0) {
-    perror("Failed to closse the input File!");
-    return EXIT_FAILURE;
+  else {
+    int indexOfMostFre = getLetterI(count_record, count);
+    int res = indexOfMostFre - 4;
+    if (res < 0) {
+      res += 26;
+    }
+    printf("%d", res);
+    if (fclose(f) != 0) {
+      perror("Failed to closse the input File!");
+      return EXIT_FAILURE;
+    }
   }
   return EXIT_SUCCESS;
 }
