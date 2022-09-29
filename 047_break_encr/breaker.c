@@ -45,7 +45,11 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   int indexOfMostFre = getLetterI(count_record, count);
-  printf("%d", (indexOfMostFre - 4));
+  int res = indexOfMostFre - 4;
+  if (res < 0) {
+    res *= -1;
+  }
+  printf("%d", res);
   if (fclose(f) != 0) {
     perror("Failed to closse the input File!");
     return EXIT_FAILURE;
