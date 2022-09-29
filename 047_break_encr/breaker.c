@@ -28,7 +28,7 @@ void calculate_count(int * count, double * record, FILE * f) {
 
 int main(int argc, char ** argv) {
   if (argc != 2) {
-    printf("Wrong argument number!\n");
+    fprintf(stderr, "Useage: encrypt key inputFileName\n");
     return EXIT_FAILURE;
   }
   FILE * f = fopen(argv[1], "r");
@@ -46,5 +46,9 @@ int main(int argc, char ** argv) {
   }
   int indexOfMostFre = getLetterI(count_record, count);
   printf("%d", (indexOfMostFre - 4));
+  if (fclose(f) != 0) {
+    perror("Failed to closse the input File!");
+    return EXIT_FAILURE;
+  }
   return EXIT_SUCCESS;
 }
