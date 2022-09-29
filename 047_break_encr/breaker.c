@@ -12,7 +12,7 @@ int getLetterI(double * count, int sum) {
       indexOfMostFre = i;
     }
   }
-  if (maxFreq < 0.15 && maxFreq > 0.13) {
+  if (maxFreq < 0.15 && maxFreq > 0.07) {
     return indexOfMostFre;
   }
   else {
@@ -52,7 +52,7 @@ int main(int argc, char ** argv) {
   int indexOfMostFre = getLetterI(count_record, count);
   int res = indexOfMostFre - 4;
   if (res < 0) {
-    res *= -1;
+    res += 26;
   }
   printf("%d", res);
   if (fclose(f) != 0) {
