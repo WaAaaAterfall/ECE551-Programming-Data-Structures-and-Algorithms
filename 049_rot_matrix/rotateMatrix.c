@@ -28,11 +28,9 @@ int main(int argc, char ** argv) {
       return EXIT_FAILURE;
     }
     if (c == '\n') {
-      if (line_count != 10) {
-        if (row_count != 10) {
-          fprintf(stderr, "The number of elements in each row is not 10.\n");
-          return EXIT_FAILURE;
-        }
+      if (row_count != 10) {
+        fprintf(stderr, "The number of elements in each row is not 10.\n");
+        return EXIT_FAILURE;
       }
       line_count++;
       row_count = 0;
@@ -40,6 +38,10 @@ int main(int argc, char ** argv) {
     else {
       row_count++;
     }
+  }
+  if (line_count > 10) {
+    fprintf(stderr, "The file contains more than 10 lines.");
+    return EXIT_FAILURE;
   }
   if (line_count < 10) {
     fprintf(stderr, "The num of lines is smaller than 10.\n");
