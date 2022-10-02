@@ -13,18 +13,7 @@ int main(int argc, char ** argv) {
     perror("Could not open file\n");
     return EXIT_FAILURE;
   }
-  char row0[11] = {-1};
-  char row1[11] = {-1};
-  char row2[11] = {-1};
-  char row3[11] = {-1};
-  char row4[11] = {-1};
-  char row5[11] = {-1};
-  char row6[11] = {-1};
-  char row7[11] = {-1};
-  char row8[11] = {-1};
-  char row9[11] = {-1};
-  char * matrix[10] = {row0, row1, row2, row3, row4, row5, row6, row7, row8, row9};
-  char matr[10][12] = {0};
+  char matr[10][10] = {0};
   char revert[10][11] = {0};
   int c;
   int row_count = 0;
