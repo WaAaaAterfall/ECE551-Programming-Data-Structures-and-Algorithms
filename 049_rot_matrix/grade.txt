@@ -1,12 +1,23 @@
-Grading at 10/02/2022:21:26:44.732851
-For commit ID 9ac8f89e0a80329ac8962198ce075e1872595246
-Grading at Sun Oct  2 05:26:44 PM EDT 2022
+Grading at 10/02/2022:21:28:38.244239
+For commit ID af448a8f5f9bd32ae6e1465017cdafa082770ccd
+Grading at Sun Oct  2 05:28:33 PM EDT 2022
 Attempting to compile rotateMatrix.c
-rotateMatrix.c: In function ‘main’:
-rotateMatrix.c:26:10: error: unused variable ‘matrix’ [-Werror=unused-variable]
-   26 |   char * matrix[10] = {row0, row1, row2, row3, row4, row5, row6, row7, row8, row9};
-      |          ^~~~~~
-cc1: all warnings being treated as errors
-The code did not compile!
+testcase1 passed
+#################################################
+testcase2:
+testcase2 passed
+#################################################
+testcase3:
+testcase3 passed
+#################################################
+testcase4:
+testcase4 passed
+#################################################
+testcase5:
+testcase5 failed, your program didn't indicate this is a failure case
+#################################################
+testcase6:
+Your file matched the expected output
+testcase6 passed
 
-Overall Grade: F
+Overall Grade: B
