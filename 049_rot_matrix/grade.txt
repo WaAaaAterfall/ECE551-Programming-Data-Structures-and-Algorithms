@@ -1,0 +1,12 @@
+Grading at 10/02/2022:21:26:44.732851
+For commit ID 9ac8f89e0a80329ac8962198ce075e1872595246
+Grading at Sun Oct  2 05:26:44 PM EDT 2022
+Attempting to compile rotateMatrix.c
+rotateMatrix.c: In function ‘main’:
+rotateMatrix.c:26:10: error: unused variable ‘matrix’ [-Werror=unused-variable]
+   26 |   char * matrix[10] = {row0, row1, row2, row3, row4, row5, row6, row7, row8, row9};
+      |          ^~~~~~
+cc1: all warnings being treated as errors
+The code did not compile!
+
+Overall Grade: F
