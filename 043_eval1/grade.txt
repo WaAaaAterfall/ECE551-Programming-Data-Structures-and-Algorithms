@@ -1,6 +1,6 @@
-Grading at 10/03/2022:21:38:02.307334
-For commit ID 75977d9701d0984c869f49464cc64936cc96509f
-Grading at Mon Oct  3 05:37:59 PM EDT 2022
+Grading at 10/03/2022:21:50:35.475838
+For commit ID 878f4fdb33a80d23e4f42e19b302242209c54233
+Grading at Mon Oct  3 05:50:31 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -18,6 +18,12 @@ The wrong char is what?
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv
 Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
