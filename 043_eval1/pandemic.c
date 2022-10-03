@@ -55,7 +55,6 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
     *record = total / (double)n_days;
   }
   else {
-    printf("I'm in!");
     unsigned * first = data;
     unsigned * tail = data;
     unsigned count = 0;
@@ -113,4 +112,17 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
+  for (unsigned j = 0; j < n_days; j++) {
+    int country_max = 0;
+    unsigned maxRecord = 0;
+    for (size_t i = 0; i < n_countries; i++) {
+      unsigned * currCountryData = *(data + i);
+      if (*(currCountryData + j) > maxRecord) {
+        maxRecord = *(currCountryData + j);
+        country_max = i;
+      }
+    }
+    country_t country_name = *(countries + country_max);
+    printf("%s has the most daily cases with %u.\n", country_name.name, maxRecord);
+  }
 }
