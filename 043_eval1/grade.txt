@@ -1,6 +1,6 @@
-Grading at 10/03/2022:20:19:05.605482
-For commit ID 30a0dfd86d0932d78de30ed6a2bcad433debacf9
-Grading at Mon Oct  3 04:19:02 PM EDT 2022
+Grading at 10/03/2022:20:22:15.268205
+For commit ID feb5d5aff9d8866ed0567f9e924cd74537d37a20
+Grading at Mon Oct  3 04:22:12 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -14,8 +14,7 @@ Test case printCountries invalid.csv
 The counry is Tatooin
 The wrong char is what?
 
-.The population in the file is not a number
-Your program did not indicate a failure case
+.Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv
 Your program successfully indicated a failure case
