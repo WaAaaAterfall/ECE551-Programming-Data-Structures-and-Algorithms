@@ -1,6 +1,6 @@
-Grading at 10/03/2022:20:22:15.268205
-For commit ID feb5d5aff9d8866ed0567f9e924cd74537d37a20
-Grading at Mon Oct  3 04:22:12 PM EDT 2022
+Grading at 10/03/2022:21:38:02.307334
+For commit ID 75977d9701d0984c869f49464cc64936cc96509f
+Grading at Mon Oct  3 05:37:59 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -54,7 +54,6 @@ Line_28_did_not_match
 Line_29_did_not_match
 Line_30_did_not_match
 Line_31_did_not_match
-Line_32_did_not_match
 Your file did not match the expected ouput
 
 You have FAILED one or more of your test cases
