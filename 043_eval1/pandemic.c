@@ -26,14 +26,14 @@ country_t parseLine(char * line) {
   }
   char * num_pointer = point;
   if (num_pointer == NULL || *num_pointer == '\n') {
-    printf("There is no number for population!");
+    fprintf(stderr, "There is no number for population!");
     exit(EXIT_FAILURE);
   }
   while (*num_pointer != '\n' && num_pointer != NULL) {
     if (isdigit(*num_pointer) == 0) {
       printf("The counry is %s\n", ans.name);
       printf("The wrong char is %s\n.", (num_pointer++));
-      printf("The population in the file is not a number\n");
+      fprintf(stderr, "The population in the file is not a number\n");
       exit(EXIT_FAILURE);
     }
     num_pointer++;
