@@ -19,16 +19,12 @@ int main(int argc, char ** argv) {
   int row_count = 0;
   int line_count = 0;
   while ((c = fgetc(f)) != EOF) {
-    if ((int)c == 255) {
+    if ((int)c == 255) {  //Illegal input
       fprintf(stderr, "The file contains illegal input char.\n");
       return EXIT_FAILURE;
     }
-    if (line_count > 10) {
-      fprintf(stderr, "The num of lines is larger than 10.\n");
-      return EXIT_FAILURE;
-    }
     if (c == '\n') {
-      if (row_count != 10) {
+      if (row_count != 10) {  //Contains less or more than 10 char in one line
         fprintf(stderr, "The number of elements in each row is not 10.\n");
         return EXIT_FAILURE;
       }
@@ -39,11 +35,11 @@ int main(int argc, char ** argv) {
       row_count++;
     }
   }
-  if (line_count > 10) {
+  if (line_count > 10) {  //More than 10 rows
     fprintf(stderr, "The file contains more than 10 lines.");
     return EXIT_FAILURE;
   }
-  if (line_count < 10) {
+  if (line_count < 10) {  //less than 10 rows
     fprintf(stderr, "The num of lines is smaller than 10.\n");
     return EXIT_FAILURE;
   }

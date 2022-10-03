@@ -25,7 +25,6 @@ country_t parseLine(char * line) {
     point++;
   }
   char * num_pointer = point;
-  printf("The char of the population %s\n", num_pointer);
   if (num_pointer == NULL || *num_pointer == '\n') {
     printf("There is no number for population!");
     exit(EXIT_FAILURE);
@@ -46,6 +45,40 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
+  unsigned total = 0;
+  double * record = avg;
+  if (n_days <= 7) {
+    while (data != NULL) {
+      total += *data;
+      data++;
+    }
+    *record = total / (double)n_days;
+  }
+  else {
+    printf("I'm in!");
+    unsigned * first = data;
+    unsigned * tail = data;
+    unsigned count = 0;
+    while (count < 7) {
+      total += *tail;
+      tail++;
+      count++;
+    }
+    *record = total / 7.0;
+    record++;
+    while (count < n_days - 1) {
+      total -= *first;
+      total += *tail;
+      first++;
+      tail++;
+      *record = total / 7.0;
+      record++;
+      count++;
+    }
+    total -= *first;
+    total += *tail;
+    *record = total / 7.0;
+  }
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
