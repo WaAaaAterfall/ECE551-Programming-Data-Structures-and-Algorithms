@@ -83,6 +83,29 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
+  unsigned add = 0;
+  size_t count = 0;
+  double proportion = 100000 / (double)pop;
+  if (n_days == 0) {
+    cum = NULL;
+    return;
+  }
+  else if (n_days == 1) {
+    *cum = *data * proportion;
+    return;
+  }
+  else {
+    while (count < n_days - 1) {
+      add += *data;
+      *cum = add * proportion;
+      cum++;
+      count++;
+      data++;
+    }
+    add += *data;
+    *cum = add * proportion;
+    return;
+  }
 }
 
 void printCountryWithMax(country_t * countries,
