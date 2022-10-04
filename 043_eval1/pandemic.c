@@ -102,6 +102,13 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
   unsigned add = 0;
   size_t count = 0;
   double proportion = 100000 / (double)pop;
+  if (data == NULL) {
+    fprintf(stderr, "No data in the file!");
+    exit(EXIT_FAILURE);
+  }
+  if (pop == 0) {
+    cum = NULL;
+  }
   if (n_days == 0) {
     cum = NULL;
     return;
