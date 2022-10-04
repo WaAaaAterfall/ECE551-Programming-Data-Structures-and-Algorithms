@@ -1,6 +1,6 @@
 #error
 printCountries invalid.csv
-printDailyMax population.csv
+printCountries step1test1
 
 #success
 printCumulative population.csv daily_cases.csv

@@ -9,37 +9,53 @@
 country_t parseLine(char * line) {
   //WRITE ME
   country_t ans;
-  char * point = line;
+  char * line_pointer = line;
   const char * split = ",";
   int count = 0;
   char * name = ans.name;
-  while (*point != ',') {
-    count++;
-    char current_char = *point;
-    *name = current_char;
-    name++;
-    point++;
+
+  if (*line == '\n' || line == NULL) {
+    fprintf(stderr, "Nothing in the file.");
+    exit(EXIT_FAILURE);
+  }
+
+  while (*line_pointer != ',') {
+    if (*line_pointer == '\0') {
+      fprintf(stderr, "The country does not have the population number.");
+      exit(EXIT_FAILURE);
+    }
+    else if (*line_pointer == '\n') {
+      fprintf(stderr,
+              "The country does not have the population number/There is no comma.");
+      exit(EXIT_FAILURE);
+    }
+    else {
+      count++;
+      char current_char = *line_pointer;
+      *name = current_char;
+      name++;
+      line_pointer++;
+    }
   }
   *name = '\0';
-  strsep(&point, split);
-  while (*point == ' ') {
-    point++;
+
+  strsep(&line_pointer, split);
+  while (*line_pointer == ' ') {
+    line_pointer++;
   }
-  char * num_pointer = point;
+  char * num_pointer = line_pointer;
   if (num_pointer == NULL || *num_pointer == '\n') {
-    fprintf(stderr, "There is no number for population!");
+    fprintf(stderr, "There is no number for population after the comma!");
     exit(EXIT_FAILURE);
   }
   while (*num_pointer != '\n' && num_pointer != NULL) {
     if (isdigit(*num_pointer) == 0) {
-      printf("The counry is %s\n", ans.name);
-      printf("The wrong char is %s\n.", (num_pointer++));
       fprintf(stderr, "The population in the file is not a number\n");
       exit(EXIT_FAILURE);
     }
     num_pointer++;
   }
-  int population = atoi(point);
+  int population = atoi(line_pointer);
   ans.population = population;
   return ans;
 }
