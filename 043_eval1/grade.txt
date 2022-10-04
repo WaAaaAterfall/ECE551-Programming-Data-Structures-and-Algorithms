@@ -1,6 +1,6 @@
-Grading at 10/04/2022:02:02:22.934463
-For commit ID 3db89d9b2ae59c755be4e8c8b1e1303c58fbe246
-Grading at Mon Oct  3 10:02:18 PM EDT 2022
+Grading at 10/04/2022:02:04:51.456363
+For commit ID 88258791c90fbfd417c0b02b117790c84926f959
+Grading at Mon Oct  3 10:04:44 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -13,8 +13,23 @@ Running your test cases
 Test case printCountries invalid.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printCountries step1test1
+Test case printCountries step1test2
 Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries step1test3
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries step1test4
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries step1test5
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries step1test6
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries step1test1
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCumulative population.csv daily_cases.csv
 Your file matched the expected output
