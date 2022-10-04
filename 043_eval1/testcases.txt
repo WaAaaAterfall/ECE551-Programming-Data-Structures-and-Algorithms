@@ -4,6 +4,7 @@ printCountries step1test2
 printCountries step1test4
 printCountries step1test5
 printCountries step1test6
+printCumulative population.csv, step3cases1
 
 #success
 printCountries step1test1
