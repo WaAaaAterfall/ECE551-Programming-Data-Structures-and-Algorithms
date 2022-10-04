@@ -1,6 +1,6 @@
-Grading at 10/04/2022:00:58:58.588987
-For commit ID 7f40845d21362dcb32188eb993ec37f9f2a590a3
-Grading at Mon Oct  3 08:58:53 PM EDT 2022
+Grading at 10/04/2022:02:02:22.934463
+For commit ID 3db89d9b2ae59c755be4e8c8b1e1303c58fbe246
+Grading at Mon Oct  3 10:02:18 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -11,13 +11,10 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o prin
 Running your test cases
 +-----------------------------------------------------------------------+
 Test case printCountries invalid.csv
-The counry is Tatooin
-The wrong char is what?
-
-.Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv
 Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries step1test1
+Our printCountries does not consider this an error case
 +-----------------------------------------------------------------------+
 Test case printCumulative population.csv daily_cases.csv
 Your file matched the expected output
@@ -31,7 +28,7 @@ Your file matched the expected output
 Test case printDailyMax population.csv daily_cases.csv
 Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
