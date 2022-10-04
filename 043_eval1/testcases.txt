@@ -5,6 +5,7 @@ printCountries step1test3
 printCountries step1test4
 printCountries step1test5
 printCountries step1test6
+printCountries step1test7
 
 #success
 printCountries step1test1
