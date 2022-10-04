@@ -1,14 +1,14 @@
 #error
 printCountries invalid.csv
 printCountries step1test2
-printCountries step1test3
 printCountries step1test4
 printCountries step1test5
 printCountries step1test6
-printCountries step1test7
 
 #success
 printCountries step1test1
+printCountries step1test3
+printCountries step1test7
 printCumulative population.csv daily_cases.csv
 printRunningAvg population.csv daily_cases.csv
 printCountries population.csv
