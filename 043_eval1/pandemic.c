@@ -1,3 +1,4 @@
+
 #include "pandemic.h"
 
 #include <ctype.h>
@@ -112,9 +113,9 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
+  int country_max = 0;
+  unsigned maxRecord = 0;
   for (unsigned j = 0; j < n_days; j++) {
-    int country_max = 0;
-    unsigned maxRecord = 0;
     for (size_t i = 0; i < n_countries; i++) {
       unsigned * currCountryData = *(data + i);
       if (*(currCountryData + j) > maxRecord) {
@@ -122,7 +123,7 @@ void printCountryWithMax(country_t * countries,
         country_max = i;
       }
     }
-    country_t country_name = *(countries + country_max);
-    printf("%s has the most daily cases with %u\n", country_name.name, maxRecord);
   }
+  country_t country_name = *(countries + country_max);
+  printf("%s has the most daily cases with %u\n", country_name.name, maxRecord);
 }
