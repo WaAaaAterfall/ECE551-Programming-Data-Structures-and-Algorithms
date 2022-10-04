@@ -13,10 +13,10 @@ country_t parseLine(char * line) {
   const char * split = ",";
   int count = 0;
   char * name = ans.name;
+  ans.population = 0;
 
   if (*line == '\n' || line == NULL) {
-    fprintf(stderr, "Nothing in the file.");
-    exit(EXIT_FAILURE);
+    return ans;
   }
 
   while (*line_pointer != ',') {
