@@ -11,14 +11,13 @@ country_t parseLine(char * line) {
   country_t ans;
   char * line_pointer = line;
   const char * split = ",";
-  int count = 0;
+  int country_length = 0;
   char * name = ans.name;
   ans.population = 0;
 
   if (*line == '\n' || line == NULL) {
     return ans;
   }
-
   while (*line_pointer != ',') {
     if (*line_pointer == '\0') {
       fprintf(stderr, "The country does not have the population number.");
@@ -30,7 +29,11 @@ country_t parseLine(char * line) {
       exit(EXIT_FAILURE);
     }
     else {
-      count++;
+      country_length++;
+      if (country_length >= MAX_NAME_LEN - 1) {
+        fprintf(stderr, "Too many character in the country name.");
+        exit(EXIT_FAILURE);
+      }
       char current_char = *line_pointer;
       *name = current_char;
       name++;
@@ -65,10 +68,13 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   unsigned total = 0;
   double * record = avg;
   if (n_days <= 7) {
-    while (data != NULL) {
+    size_t day_count = 0;
+    while (day_count < n_days - 1) {
       total += *data;
       data++;
+      day_count++;
     }
+    total += *data;
     *record = total / (double)n_days;
   }
   else {
