@@ -15,7 +15,7 @@ printCountries step1test1
 printCountries step1test3
 printCountries step1test7
 printCountries step1test8
-printCountries step1test11
+printCountries step1test10
 printCumulative population.csv daily_cases.csv
 printRunningAvg population.csv daily_cases.csv
 printRunningAvg population.csv cases_less_7days
