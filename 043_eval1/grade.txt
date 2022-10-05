@@ -1,6 +1,6 @@
-Grading at 10/05/2022:03:58:31.002372
-For commit ID 5c11f85874815244f031639db7b99d6d8f9661c0
-Grading at Tue Oct  4 11:58:19 PM EDT 2022
+Grading at 10/05/2022:04:22:51.339129
+For commit ID e886f69476def7c8fc580ebde4c632a0102e3666
+Grading at Wed Oct  5 12:22:38 AM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -25,13 +25,16 @@ Your program successfully indicated a failure case
 Test case printCountries step1test6
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printCountries step1test8
+Test case printCountries step1test9
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printCountries step1test10
+Test case printCountries step1test11
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv step3cases1
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printRunningAvg step1test6 daily_cases.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCumulative population.csv, step3cases1
@@ -46,6 +49,13 @@ Your file matched the expected output
 Test case printCountries step1test7
 Your file matched the expected output
 +-----------------------------------------------------------------------+
+Test case printCountries step1test8
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries step1test11
+Line_1_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
 Test case printCumulative population.csv daily_cases.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
@@ -58,7 +68,7 @@ Your file matched the expected output
 Test case printDailyMax population.csv daily_cases.csv
 Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
