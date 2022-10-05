@@ -64,7 +64,7 @@ country_t parseLine(char * line) {
     num_pointer++;
   }
   char * endptr;
-  uint64_t population = strtol(line_pointer, &endptr, 10);  //(line_pointer);
+  uint64_t population = strtoul(line_pointer, &endptr, 10);  //(line_pointer);
   ans.population = population;
   return ans;
 }
