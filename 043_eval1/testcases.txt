@@ -11,7 +11,6 @@ printRunningAvg step1test6 daily_cases.csv
 printCumulative population.csv step3cases1
 printDailyMax step1test6 daily_cases.csv
 printCountries step1test14
-printCountries step1test15
 
 #success
 printCountries step1test1
@@ -24,3 +23,6 @@ printCumulative population.csv daily_cases.csv
 printRunningAvg population.csv daily_cases.csv
 printRunningAvg population.csv cases_less_7days
 printDailyMax population.csv daily_cases.csv
+printRunningavg population.csv cases_8days
+printRunningavg population.csv cases_7days
+printRunningavg population.csv cases_6days

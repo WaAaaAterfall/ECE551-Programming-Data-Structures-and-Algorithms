@@ -9,5 +9,10 @@ step1test8:Contains weild char in country name
 step1test9:White space after population before new line
 step1test10:Country name contains 63 chars
 step1test11:Country name contains 64 chars
+step1test14:contains char255
+step1test15:population starts with 0
+cases_7days:7days
+cases_8days:8days
+cases_6days:6days
 cases_less_7days: 5days
 step3cases1:empty file for daily data
