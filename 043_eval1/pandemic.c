@@ -1,4 +1,3 @@
-
 #include "pandemic.h"
 
 #include <ctype.h>
@@ -78,7 +77,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
     return;
   }
   if (data == NULL) {
-    fprintf(stderr, "No data in the fill!");
+    fprintf(stderr, "No data in the file!");
     exit(EXIT_FAILURE);
   }
   if (avg == NULL) {
@@ -122,6 +121,7 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
   }
   if (pop == 0) {
     cum = NULL;
+    return;
   }
   if (n_days == 0) {
     cum = NULL;
