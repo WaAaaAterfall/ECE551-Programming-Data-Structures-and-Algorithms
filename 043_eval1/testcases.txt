@@ -4,15 +4,18 @@ printCountries step1test2
 printCountries step1test4
 printCountries step1test5
 printCountries step1test6
-printCountries step1test8
-printCountries step1test10
+printCountries step1test9
+printCountries step1test11
 printRunningAvg population.csv step3cases1
+printRunningAvg step1test6 daily_cases.csv
 printCumulative population.csv, step3cases1
 
 #success
 printCountries step1test1
 printCountries step1test3
 printCountries step1test7
+printCountries step1test8
+printCountries step1test11
 printCumulative population.csv daily_cases.csv
 printRunningAvg population.csv daily_cases.csv
 printRunningAvg population.csv cases_less_7days

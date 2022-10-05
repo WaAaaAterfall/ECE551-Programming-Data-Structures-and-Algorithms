@@ -1,0 +1,12 @@
+step1test1: a space before the population but after the comma
+step1test2:non-number char in the population
+step1test3:empty file
+step1test4:No number for population
+step1test5:Lost a comma
+step1test6:Contains 0 population
+step1test7:Contains empty string for name
+step1test8:Contains weild char in country name
+step1test9:White space after population before new line
+step1test10:Country name contains 63 chars
+step1test11:Country name contains 64 chars
+cases_less_7days: 5days
