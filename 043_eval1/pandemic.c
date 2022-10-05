@@ -19,10 +19,12 @@ country_t parseLine(char * line) {
     return ans;
   }
   while (*line_pointer != ',') {
+    //check if the string ends before the comma shows up
     if (*line_pointer == '\0') {
       fprintf(stderr, "The country does not have the population number.");
       exit(EXIT_FAILURE);
     }
+    //check if there is no comma
     else if (*line_pointer == '\n') {
       fprintf(stderr,
               "The country does not have the population number/There is no comma.");
@@ -31,6 +33,7 @@ country_t parseLine(char * line) {
     else {
       country_length++;
       if (country_length >= MAX_NAME_LEN - 1) {
+        //country_name's length is 64
         fprintf(stderr, "Too many character in the country name.");
         exit(EXIT_FAILURE);
       }
@@ -43,6 +46,7 @@ country_t parseLine(char * line) {
   *name = '\0';
 
   strsep(&line_pointer, split);
+  //omit the space before the number
   while (*line_pointer == ' ') {
     line_pointer++;
   }
@@ -53,6 +57,7 @@ country_t parseLine(char * line) {
   }
   while (*num_pointer != '\n' && num_pointer != NULL) {
     if (isdigit(*num_pointer) == 0) {
+      //population contians char that is not a number
       fprintf(stderr, "The population in the file is not a number\n");
       exit(EXIT_FAILURE);
     }
@@ -67,27 +72,29 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
   unsigned total = 0;
   double * record = avg;
-  if (n_days <= 7) {
-    size_t day_count = 0;
-    while (day_count < n_days - 1) {
-      total += *data;
-      data++;
-      day_count++;
-    }
-    total += *data;
-    *record = total / (double)n_days;
+  if (n_days < 7) {
+    //do nothing as annouced
+    return;
   }
-  else {
-    unsigned * first = data;
-    unsigned * tail = data;
-    unsigned count = 0;
-    while (count < 7) {
-      total += *tail;
-      tail++;
-      count++;
-    }
-    *record = total / 7.0;
-    record++;
+  if (data == NULL) {
+    fprintf(stderr, "No data in the fill!");
+    exit(EXIT_FAILURE);
+  }
+  if (avg == NULL) {
+    fprintf(stderr, "Avg array is  null");
+    exit(EXIT_FAILURE);
+  }
+  unsigned * first = data;
+  unsigned * tail = data;
+  unsigned count = 0;
+  while (count < 7) {
+    total += *tail;
+    tail++;
+    count++;
+  }
+  *record = total / 7.0;
+  record++;
+  if (n_days > 7) {
     while (count < n_days - 1) {
       total -= *first;
       total += *tail;
@@ -142,9 +149,13 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
+  if (countries == NULL) {
+    fprintf(stderr, "Countries array is null.");
+    exit(EXIT_FAILURE);
+  }
   int country_max = 0;
   unsigned maxRecord = 0;
-  for (unsigned j = 0; j < n_days; j++) {
+  for (size_t j = 0; j < n_days; j++) {
     for (size_t i = 0; i < n_countries; i++) {
       unsigned * currCountryData = *(data + i);
       if (*(currCountryData + j) > maxRecord) {
@@ -153,6 +164,6 @@ void printCountryWithMax(country_t * countries,
       }
     }
   }
-  country_t country_name = *(countries + country_max);
-  printf("%s has the most daily cases with %u\n", country_name.name, maxRecord);
+  country_t countryMax = *(countries + country_max);
+  printf("%s has the most daily cases with %u\n", countryMax.name, maxRecord);
 }
