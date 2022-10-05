@@ -1,6 +1,6 @@
-Grading at 10/04/2022:03:55:09.359057
-For commit ID 50669e256a1c34a0e8308ae96b60cdb25c738ee0
-Grading at Mon Oct  3 11:55:00 PM EDT 2022
+Grading at 10/05/2022:03:49:27.516337
+For commit ID d6746f2a033f545e57bae8c49b45d9bce94cf9e3
+Grading at Tue Oct  4 11:49:16 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -14,7 +14,7 @@ Test case printCountries invalid.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries step1test2
-Our printCountries does not consider this an error case
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries step1test4
 Your program successfully indicated a failure case
@@ -26,7 +26,10 @@ Test case printCountries step1test6
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries step1test8
-Our printCountries does not consider this an error case
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries step1test10
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCumulative population.csv, step3cases1
 Your program successfully indicated a failure case
