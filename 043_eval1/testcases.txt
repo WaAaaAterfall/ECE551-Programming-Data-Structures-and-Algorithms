@@ -8,7 +8,8 @@ printCountries step1test9
 printCountries step1test11
 printRunningAvg population.csv step3cases1
 printRunningAvg step1test6 daily_cases.csv
-printCumulative population.csv, step3cases1
+printCumulative population.csv step3cases1
+printDailyMax step1test6 daily_cases.csv
 
 #success
 printCountries step1test1
