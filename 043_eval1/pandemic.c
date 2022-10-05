@@ -32,7 +32,7 @@ country_t parseLine(char * line) {
     }
     else {
       country_length++;
-      if (country_length >= MAX_NAME_LEN - 1) {
+      if (country_length > MAX_NAME_LEN - 1) {
         //country_name's length is 64
         fprintf(stderr, "Too many character in the country name.");
         exit(EXIT_FAILURE);
