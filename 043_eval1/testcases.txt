@@ -23,6 +23,6 @@ printCumulative population.csv daily_cases.csv
 printRunningAvg population.csv daily_cases.csv
 printRunningAvg population.csv cases_less_7days
 printDailyMax population.csv daily_cases.csv
-printRunningavg population.csv cases_8days
-printRunningavg population.csv cases_7days
-printRunningavg population.csv cases_6days
+printRunningAvg population.csv cases_8days
+printRunningAvg population.csv cases_7days
+printRunningAvg population.csv cases_6days
