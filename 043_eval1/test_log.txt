@@ -10,3 +10,4 @@ step1test9:White space after population before new line
 step1test10:Country name contains 63 chars
 step1test11:Country name contains 64 chars
 cases_less_7days: 5days
+step3cases1:empty file for daily data

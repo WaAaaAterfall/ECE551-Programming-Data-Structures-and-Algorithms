@@ -10,6 +10,7 @@ printRunningAvg population.csv step3cases1
 printRunningAvg step1test6 daily_cases.csv
 printCumulative population.csv step3cases1
 printDailyMax step1test6 daily_cases.csv
+printCountries step1test13
 
 #success
 printCountries step1test1
