@@ -33,7 +33,7 @@ country_t parseLine(char * line) {
       country_length++;
       if (country_length > MAX_NAME_LEN - 1) {
         //country_name's length is 64
-        fprintf(stderr, "Too many character in the country name.");
+        fprintf(stderr, "Too many characters in the country name.");
         exit(EXIT_FAILURE);
       }
       char current_char = *line_pointer;
@@ -51,7 +51,7 @@ country_t parseLine(char * line) {
   }
   char * num_pointer = line_pointer;
   if (num_pointer == NULL || *num_pointer == '\n') {
-    fprintf(stderr, "There is no number for population after the comma!");
+    fprintf(stderr, "There is no number for population after the comma.");
     exit(EXIT_FAILURE);
   }
   while (*num_pointer != '\n' && num_pointer != NULL) {

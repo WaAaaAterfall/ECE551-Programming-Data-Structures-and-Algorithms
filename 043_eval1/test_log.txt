@@ -1,5 +1,5 @@
 step1test1: a space before the population but after the comma
-step1test2:non-number char in the population
+step1test2:nothing in the population
 step1test3:empty file
 step1test4:No number for population
 step1test5:Lost a comma
@@ -11,6 +11,7 @@ step1test10:Country name contains 63 chars
 step1test11:Country name contains 64 chars
 step1test14:contains char255
 step1test15:population starts with 0
+step1test17:non-number char in the population
 cases_7days:7days
 cases_8days:8days
 cases_6days:6days
