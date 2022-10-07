@@ -125,7 +125,7 @@ int countMines(board_t * b, int x, int y) {
   if (x > 0) {
     xmin--;
   }
-  if (+x < b->width - 1) {
+  if (x < b->width - 1) {
     xmax++;
   }
   if (y > 0) {
