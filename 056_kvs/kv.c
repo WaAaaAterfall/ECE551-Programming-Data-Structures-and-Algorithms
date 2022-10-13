@@ -81,7 +81,7 @@ void printKVs(kvarray_t * pairs) {
   //WRITE ME
   size_t i = 0;
   while (i < pairs->len) {
-    printf("key=%s, value=%s \n", (pairs->pair[i])->key, (pairs->pair[i])->value);
+    printf("key = '%s', value = '%s'\n", (pairs->pair[i])->key, (pairs->pair[i])->value);
     i++;
   }
 }
