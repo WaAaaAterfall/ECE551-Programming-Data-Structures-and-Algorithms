@@ -14,7 +14,7 @@ kvpair_t * writePairFromFile(char * line) {
   }
   point = strchr(line, '=');
   if (point == NULL) {
-    fprintf(stderr, "There is no comma in the string.\n");
+    fprintf(stderr, "There is no = in the string.\n");
     exit(EXIT_FAILURE);
   }
   size_t length_key = point - line + 1;
@@ -23,7 +23,10 @@ kvpair_t * writePairFromFile(char * line) {
   pair->key[length_key - 1] = '\0';
 
   end = strchr(line, '\n');
-
+  if (end == NULL) {
+    fprintf(stderr, "There is no \n in the string\n");
+    exit(EXIT_FAILURE);
+  }
   size_t length_value = end - point;
   pair->value = malloc(length_value * sizeof(*pair->value));
   strncpy(pair->value, point + 1, length_value - 1);
