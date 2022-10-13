@@ -9,9 +9,12 @@ kvpair_t * writePairFromFile(char * line) {
   kvpair_t * pair = malloc(sizeof(*pair));
   char * point = line;
   char * end = line;
-  point = strchr(point, '=');
+  if (line == NULL) {
+    return pair;
+  }
+  point = strchr(line, '=');
   if (point == NULL) {
-    fprintf(stderr, "There is no delimiter in the string.\n");
+    fprintf(stderr, "There is no comma in the string.\n");
     exit(EXIT_FAILURE);
   }
   size_t length_key = point - line + 1;
@@ -20,6 +23,7 @@ kvpair_t * writePairFromFile(char * line) {
   pair->key[length_key - 1] = '\0';
 
   end = strchr(line, '\n');
+
   size_t length_value = end - point;
   pair->value = malloc(length_value * sizeof(*pair->value));
   strncpy(pair->value, point + 1, length_value - 1);
@@ -89,7 +93,7 @@ void printKVs(kvarray_t * pairs) {
 char * lookupValue(kvarray_t * pairs, const char * key) {
   //WRITE ME
   for (size_t i = 0; i < pairs->len; i++) {
-    if (!strcmp((pairs->pair[i])->key, key)) {
+    if (strcmp((pairs->pair[i])->key, key) == 0) {
       return (pairs->pair[i])->value;
     }
   }
