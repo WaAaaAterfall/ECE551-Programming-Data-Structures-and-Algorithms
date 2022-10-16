@@ -51,14 +51,14 @@ void printCounts(counts_t * c, FILE * outFile) {
   }
 
   if (c->len == 1 && c->key_array[0]->count > 0) {
-    printf(" %s: %zu\n", c->key_array[0]->key, c->key_array[0]->count);
+    fprintf(outFile, " %s: %zu\n", c->key_array[0]->key, c->key_array[0]->count);
   }
   else {
     for (size_t i = 1; i < c->len; i++) {
-      printf(" %s: %zu\n", c->key_array[i]->key, c->key_array[i]->count);
+      fprintf(outFile, " %s: %zu\n", c->key_array[i]->key, c->key_array[i]->count);
     }
     if (c->key_array[0]->count > 0) {
-      printf(" %s: %zu\n", c->key_array[0]->key, c->key_array[0]->count);
+      fprintf(outFile, " %s: %zu\n", c->key_array[0]->key, c->key_array[0]->count);
     }
   }
 }
