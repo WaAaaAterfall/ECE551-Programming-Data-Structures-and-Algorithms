@@ -14,10 +14,8 @@ void reverse(char * str) {
     n = 0;
   }
   else {
-    size_t index = 0;
-    while (*(str + index) != '\0') {
+    while (str[n] != '\0') {
       n++;
-      index++;
     }
   }
   if (n == 0) {
@@ -26,9 +24,7 @@ void reverse(char * str) {
   else {
     size_t left = 0, right = n - 1;
     while (left < right) {
-      char temp = *(str + left);
-      *(str + left) = *(str + right);
-      *(str + right) = temp;
+      swap_char(&str[left], &str[right]);
       left++;
       right--;
     }
