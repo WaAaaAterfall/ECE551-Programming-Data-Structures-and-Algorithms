@@ -1,10 +1,9 @@
-Grading at 10/21/2022:21:25:03.012710
-For commit ID 3cfe3eb1e175c23813f5db2dcc4ffeeb6f26a2a7
-Grading at Fri Oct 21 05:25:02 PM EDT 2022
+Grading at 10/21/2022:21:28:23.481363
+For commit ID 6cc7532e21db16b19202aea0505bc3ec3c4dcc97
+Grading at Fri Oct 21 05:28:23 PM EDT 2022
 Attempting to compile:
 g++ -o code -std=gnu++98 -Wall -Werror code.cpp code.h
-Line_3_did_not_match
-Your file did not match the expected ouput
-Your output did not match what we expected.
+Your file matched the expected output
+Your output matched what we expected
 
-Overall Grade: FAILED
+Overall Grade: PASSED
