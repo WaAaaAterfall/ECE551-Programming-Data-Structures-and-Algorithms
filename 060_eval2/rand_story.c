@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+//---------------Step1
 char * checkValid(char * line) {
   char * underscore1 = strchr(line, '_');
   if (underscore1 == NULL) {
@@ -96,3 +97,5 @@ void freeStory(story_t * res) {
   free(res->outputStory);
   free(res);
 }
+
+//----------------------Step2
