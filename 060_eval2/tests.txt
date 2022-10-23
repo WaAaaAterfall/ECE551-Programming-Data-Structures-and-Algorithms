@@ -1,4 +1,6 @@
 story-step1 story.txt
+story-step1 story2.txt
+story-step1 story3.txt
 story-step2 words.txt
 story-step3 words.txt story2.txt
 story-step4 words.txt story2.txt
