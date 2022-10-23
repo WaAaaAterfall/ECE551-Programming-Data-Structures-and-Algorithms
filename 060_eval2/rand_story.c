@@ -33,7 +33,7 @@ story_t * processValidTemplate(char * fileName) {
   /*Initialize the return story*/
   story_t * res = malloc(sizeof(*res));
   res->outputStory = malloc(sizeof(res->outputStory));
-  char ** outputStory = res->outputStory;
+  //why can't I use char outputStory = res->outputstory
   char * line = NULL;
   res->storySize = 0;
   size_t sz = 0;
@@ -69,12 +69,17 @@ story_t * processValidTemplate(char * fileName) {
     }
     free(line);
     line = NULL;
-    outputStory = realloc(outputStory, (res->storySize + 1) * sizeof(*outputStory));
-    outputStory[res->storySize] = replaceRes;
+    res->outputStory =
+        realloc(res->outputStory, (res->storySize + 1) * sizeof(*res->outputStory));
+    res->outputStory[res->storySize] = replaceRes;
     res->storySize++;
   }
   free(line);
   line = NULL;
+  if (fclose(f) != 0) {
+    fprintf(stderr, "The file cannot be closed.\n");
+    exit(EXIT_FAILURE);
+  }
   return res;
 }
 
