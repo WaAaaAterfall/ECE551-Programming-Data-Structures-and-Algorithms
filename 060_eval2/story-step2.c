@@ -6,9 +6,11 @@
 
 int main(int argc, char ** argv) {
   if (argc != 2) {
-    fprintf(stderr, "Wrong input command.");
-    exit(EXIT_FAILURE);
+    error("Wrong input command.");
   }
 
   char * fileName = argv[1];
+  catarray_t * wordArray = readWords(fileName);
+  printWords(wordArray);
+  freeCatArray(wordArray);
 }
