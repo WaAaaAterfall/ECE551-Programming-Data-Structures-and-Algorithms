@@ -15,7 +15,7 @@ int main(int argc, char ** argv) {
     wordArray = readWords(argv[2]);
   }
   /*Check wether the input story template is legal, return any possible error, otherwise return the index of each left underscore shown up. Replace each underscore zone with "cat"*/
-  story_t * res = processTemplate(argv[1], wordArray);
+  story_t * res = processTemplate(argv[1], wordArray, 0);
   /*print out the result*/
   printStory(res);
   freeStory(res);

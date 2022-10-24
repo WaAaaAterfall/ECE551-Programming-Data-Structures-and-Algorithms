@@ -45,7 +45,10 @@ const char * choosePreviousWord(size_t retrive, usedword_t * usedRecord) {
   }
 }
 
-const char * getWord(char * category, catarray_t * wordArray, usedword_t * usedRecord) {
+const char * getWord(char * category,
+                     catarray_t * wordArray,
+                     usedword_t * usedRecord,
+                     int mode) {
   size_t retrive = 0;
   if (strlen(category) > 0 && strspn(category, "0123456789") == strlen(category)) {
     retrive = atoi(category);
@@ -57,6 +60,9 @@ const char * getWord(char * category, catarray_t * wordArray, usedword_t * usedR
       char * name = wordArray->arr[i].name;
       if (strcmp(category, name) == 0) {
         const char * word = chooseWord(category, wordArray);
+        if (mode == 1) {
+          deleteWord(wordArray, category, word);
+        }
         return word;
       }
     }
@@ -78,9 +84,29 @@ void replaceWithWord(char * replaceRes,
   usedRecord->usedCount++;
 }
 
-story_t * processTemplate(char * fileName, catarray_t * wordArray) {
+void deleteWord(catarray_t * wordArray, char * category, const char * word) {
+  for (size_t i = 0; i < wordArray->n; i++) {
+    if (strcmp(category, wordArray->arr[i].name)) {
+      for (size_t j = 0; j < wordArray->arr[i].n_words; j++) {
+        if (strcmp(wordArray->arr[i].words[j], word) == 0) {
+          free(wordArray->arr[i].words[j]);
+          wordArray->arr[i].words[j] = NULL;
+          for (size_t k = j; j < wordArray->arr[i].n_words - 1; k++) {
+            wordArray->arr[i].words[k] = wordArray->arr[i].words[k + 1];
+          }
+          free(wordArray->arr[i].words[wordArray->arr[i].n_words - 1]);
+          break;
+        }
+      }
+      wordArray->arr[i].n_words--;
+      break;
+    }
+  }
+  printWords(wordArray);
+}
+
+story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
   /* Read File*/
-  // char * word = "cat";
   FILE * f = fopen(fileName, "r");
   if (f == NULL) {
     error("Cannot open the file");
@@ -111,12 +137,13 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray) {
         resLength++;
         point++;
       }
+
       str =
           checkValidStory(str);  //The remaining string after the first pair of underscore
       char * category = getCategory(str, point);
       char * word = strdup("cat");
       if (wordArray != NULL) {
-        const char * selectWord = getWord(category, wordArray, usedRecord);
+        const char * selectWord = getWord(category, wordArray, usedRecord, mode);
         free(word);
         word = strdup(selectWord);
       }
@@ -128,9 +155,13 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray) {
       usedRecord->usedWord[usedRecord->usedCount] = strdup(word);
       usedRecord->usedCount++;
       resLength = resLength + strlen(word);
+      //      if (mode == 1) {
+      // deleteWord(wordArray, category, word);
+      //}
       free(word);
       free(category);
     }
+
     if (str != NULL) {
       replaceRes =
           realloc(replaceRes, (resLength + strlen(str) + 1) * sizeof(*replaceRes));

@@ -20,7 +20,7 @@ void error(char * errorMessage);
 
 char * checkValidStory(char * line);
 
-story_t * processTemplate(char * fileName, catarray_t * wordArray);
+story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode);
 
 void printStory(story_t * res);
 
@@ -41,7 +41,10 @@ char * getCategory(char * str, char * point);
 //choose the word from the previously used words
 const char * choosePreviousWord(size_t retrive, usedword_t * usedRecord);
 //export the word choosen from either previous used words or the category, catRecord: the previous used words
-const char * getWord(char * category, catarray_t * wordArray, usedword_t * usedRecord);
+const char * getWord(char * category,
+                     catarray_t * wordArray,
+                     usedword_t * usedRecord,
+                     int mode);
 //replace the underscore part with the chosen word and add the word into the catRecord
 void replaceWithWord(char * replaceRes,
                      size_t resLength,
@@ -49,4 +52,6 @@ void replaceWithWord(char * replaceRes,
                      usedword_t * usedRecord);
 
 void freeUsedWords(usedword_t * usedRecord);
+
+void deleteWord(catarray_t * wordArray, char * category, const char * word);
 #endif

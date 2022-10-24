@@ -14,7 +14,7 @@ int main(int argc, char ** argv) {
 
   catarray_t * wordArray = readWords(fileWords);
   //printWords(wordArray);
-  story_t * storyOut = processTemplate(fileStory, wordArray);
+  story_t * storyOut = processTemplate(fileStory, wordArray, 0);
   printStory(storyOut);
   freeCatArray(wordArray);
   freeStory(storyOut);
