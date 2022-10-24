@@ -1,11 +1,11 @@
-Grading at 10/23/2022:04:22:15.843191
-For commit ID babad7742eb55c40303c3ea8578d299c6bf44c4e
-Grading at Sun Oct 23 12:22:13 AM EDT 2022
+Grading at 10/24/2022:03:09:31.798503
+For commit ID ac1a6d975bf0490ea8b81de1f58a68bae5345fb1
+Grading at Sun Oct 23 11:09:17 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
 Checking that story-step1 compiles
-rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+rm -f *~ story-step1 story-step2 % story-step3 story-step4 story-step1.o story-step2.o %.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
 gcc -o story-step1 story-step1.o rand_story.o provided.o
@@ -42,7 +42,213 @@ Valgrind was clean
 
 Step 2
 Checking that story-step2 compiles
-rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+rm -f *~ story-step1 story-step2 % story-step3 story-step4 story-step1.o story-step2.o %.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
+gcc -o story-step2 story-step2.o rand_story.o provided.o
+rm story-step2.o
+The code compiled (good)
+Executable story-step2 exists (good)
+Now running YOUR tests for step 2
+
+2.1: Current test is story-step2 words.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+2.2: Current test is story-step2 words1.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind reported errors:
+==1925806== Memcheck, a memory error detector
+==1925806== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1925806== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1925806== Command: ./story-step2 words1.txt
+==1925806== Parent PID: 1925805
+==1925806== 
+==1925806== Conditional jump or move depends on uninitialised value(s)
+==1925806==    at 0x109A54: readWords (rand_story.c:144)
+==1925806==    by 0x1093C8: main (story-step2.c:13)
+==1925806== 
+==1925806== Invalid read of size 1
+==1925806==    at 0x109A4F: readWords (rand_story.c:144)
+==1925806==    by 0x1093C8: main (story-step2.c:13)
+==1925806==  Address 0x4a8f808 is 0 bytes after a block of size 120 alloc'd
+==1925806==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925806==    by 0x48E31A2: getdelim (iogetdelim.c:62)
+==1925806==    by 0x109CC1: readWords (rand_story.c:137)
+==1925806==    by 0x1093C8: main (story-step2.c:13)
+==1925806== 
+==1925806== Invalid read of size 1
+==1925806==    at 0x109A3C: readWords (rand_story.c:146)
+==1925806==    by 0x1093C8: main (story-step2.c:13)
+==1925806==  Address 0x4a8f808 is 0 bytes after a block of size 120 alloc'd
+==1925806==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925806==    by 0x48E31A2: getdelim (iogetdelim.c:62)
+==1925806==    by 0x109CC1: readWords (rand_story.c:137)
+==1925806==    by 0x1093C8: main (story-step2.c:13)
+==1925806== 
+==1925806== Invalid read of size 1
+==1925806==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925806==    by 0x109AA3: readWords (rand_story.c:153)
+==1925806==    by 0x1093C8: main (story-step2.c:13)
+==1925806==  Address 0x1 is not stack'd, malloc'd or (recently) free'd
+==1925806== 
+==1925806== 
+==1925806== Process terminating with default action of signal 11 (SIGSEGV)
+==1925806==  Access not within mapped region at address 0x1
+==1925806==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925806==    by 0x109AA3: readWords (rand_story.c:153)
+==1925806==    by 0x1093C8: main (story-step2.c:13)
+==1925806==  If you believe this happened as a result of a stack
+==1925806==  overflow in your program's main thread (unlikely but
+==1925806==  possible), you can try to increase the size of the
+==1925806==  main thread stack using the --main-stacksize= flag.
+==1925806==  The main thread stack size used in this run was 8388608.
+==1925806== 
+==1925806== HEAP SUMMARY:
+==1925806==     in use at exit: 85,288 bytes in 9 blocks
+==1925806==   total heap usage: 80,556 allocs, 80,547 frees, 3,243,229,908 bytes allocated
+==1925806== 
+==1925806== For a detailed leak analysis, rerun with: --leak-check=full
+==1925806== 
+==1925806== Use --track-origins=yes to see where uninitialised values come from
+==1925806== For lists of detected and suppressed errors, rerun with: -s
+==1925806== ERROR SUMMARY: 160640 errors from 4 contexts (suppressed: 0 from 0)
+
+2.3: Current test is story-step2 words2.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+2.4: Current test is story-step2 words3.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind reported errors:
+==1925976== Memcheck, a memory error detector
+==1925976== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1925976== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1925976== Command: ./story-step2 words3.txt
+==1925976== Parent PID: 1925975
+==1925976== 
+==1925976== Conditional jump or move depends on uninitialised value(s)
+==1925976==    at 0x109A54: readWords (rand_story.c:144)
+==1925976==    by 0x1093C8: main (story-step2.c:13)
+==1925976== 
+==1925976== Invalid read of size 1
+==1925976==    at 0x109A4F: readWords (rand_story.c:144)
+==1925976==    by 0x1093C8: main (story-step2.c:13)
+==1925976==  Address 0x4a8f808 is 0 bytes after a block of size 120 alloc'd
+==1925976==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925976==    by 0x48E31A2: getdelim (iogetdelim.c:62)
+==1925976==    by 0x109CC1: readWords (rand_story.c:137)
+==1925976==    by 0x1093C8: main (story-step2.c:13)
+==1925976== 
+==1925976== Invalid read of size 1
+==1925976==    at 0x109A3C: readWords (rand_story.c:146)
+==1925976==    by 0x1093C8: main (story-step2.c:13)
+==1925976==  Address 0x4a8f808 is 0 bytes after a block of size 120 alloc'd
+==1925976==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925976==    by 0x48E31A2: getdelim (iogetdelim.c:62)
+==1925976==    by 0x109CC1: readWords (rand_story.c:137)
+==1925976==    by 0x1093C8: main (story-step2.c:13)
+==1925976== 
+==1925976== Invalid read of size 1
+==1925976==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925976==    by 0x109AA3: readWords (rand_story.c:153)
+==1925976==    by 0x1093C8: main (story-step2.c:13)
+==1925976==  Address 0x1 is not stack'd, malloc'd or (recently) free'd
+==1925976== 
+==1925976== 
+==1925976== Process terminating with default action of signal 11 (SIGSEGV)
+==1925976==  Access not within mapped region at address 0x1
+==1925976==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1925976==    by 0x109AA3: readWords (rand_story.c:153)
+==1925976==    by 0x1093C8: main (story-step2.c:13)
+==1925976==  If you believe this happened as a result of a stack
+==1925976==  overflow in your program's main thread (unlikely but
+==1925976==  possible), you can try to increase the size of the
+==1925976==  main thread stack using the --main-stacksize= flag.
+==1925976==  The main thread stack size used in this run was 8388608.
+==1925976== 
+==1925976== HEAP SUMMARY:
+==1925976==     in use at exit: 85,288 bytes in 9 blocks
+==1925976==   total heap usage: 80,556 allocs, 80,547 frees, 3,243,229,908 bytes allocated
+==1925976== 
+==1925976== For a detailed leak analysis, rerun with: --leak-check=full
+==1925976== 
+==1925976== Use --track-origins=yes to see where uninitialised values come from
+==1925976== For lists of detected and suppressed errors, rerun with: -s
+==1925976== ERROR SUMMARY: 160640 errors from 4 contexts (suppressed: 0 from 0)
+
+2.5: Current test is story-step2 words4.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind reported errors:
+==1926089== Memcheck, a memory error detector
+==1926089== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1926089== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1926089== Command: ./story-step2 words4.txt
+==1926089== Parent PID: 1926088
+==1926089== 
+==1926089== Conditional jump or move depends on uninitialised value(s)
+==1926089==    at 0x109A54: readWords (rand_story.c:144)
+==1926089==    by 0x1093C8: main (story-step2.c:13)
+==1926089== 
+==1926089== Invalid read of size 1
+==1926089==    at 0x109A4F: readWords (rand_story.c:144)
+==1926089==    by 0x1093C8: main (story-step2.c:13)
+==1926089==  Address 0x4a8f808 is 0 bytes after a block of size 120 alloc'd
+==1926089==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1926089==    by 0x48E31A2: getdelim (iogetdelim.c:62)
+==1926089==    by 0x109CC1: readWords (rand_story.c:137)
+==1926089==    by 0x1093C8: main (story-step2.c:13)
+==1926089== 
+==1926089== Invalid read of size 1
+==1926089==    at 0x109A3C: readWords (rand_story.c:146)
+==1926089==    by 0x1093C8: main (story-step2.c:13)
+==1926089==  Address 0x4a8f808 is 0 bytes after a block of size 120 alloc'd
+==1926089==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1926089==    by 0x48E31A2: getdelim (iogetdelim.c:62)
+==1926089==    by 0x109CC1: readWords (rand_story.c:137)
+==1926089==    by 0x1093C8: main (story-step2.c:13)
+==1926089== 
+==1926089== Invalid read of size 1
+==1926089==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1926089==    by 0x109AA3: readWords (rand_story.c:153)
+==1926089==    by 0x1093C8: main (story-step2.c:13)
+==1926089==  Address 0x1 is not stack'd, malloc'd or (recently) free'd
+==1926089== 
+==1926089== 
+==1926089== Process terminating with default action of signal 11 (SIGSEGV)
+==1926089==  Access not within mapped region at address 0x1
+==1926089==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1926089==    by 0x109AA3: readWords (rand_story.c:153)
+==1926089==    by 0x1093C8: main (story-step2.c:13)
+==1926089==  If you believe this happened as a result of a stack
+==1926089==  overflow in your program's main thread (unlikely but
+==1926089==  possible), you can try to increase the size of the
+==1926089==  main thread stack using the --main-stacksize= flag.
+==1926089==  The main thread stack size used in this run was 8388608.
+==1926089== 
+==1926089== HEAP SUMMARY:
+==1926089==     in use at exit: 85,288 bytes in 9 blocks
+==1926089==   total heap usage: 80,556 allocs, 80,547 frees, 3,243,229,908 bytes allocated
+==1926089== 
+==1926089== For a detailed leak analysis, rerun with: --leak-check=full
+==1926089== 
+==1926089== Use --track-origins=yes to see where uninitialised values come from
+==1926089== For lists of detected and suppressed errors, rerun with: -s
+==1926089== ERROR SUMMARY: 160640 errors from 4 contexts (suppressed: 0 from 0)
+
+Step 3
+Checking that story-step3 compiles
+rm -f *~ story-step1 story-step2 % story-step3 story-step4 story-step1.o story-step2.o %.o story-step3.o story-step4.o rand_story.o
 The code did not compile!
 
 Overall Grade: NO GRADE YET
