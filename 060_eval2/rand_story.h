@@ -10,17 +10,22 @@ struct story_tag {
 };
 typedef struct story_tag story_t;
 
+struct usedword_tag {
+  char ** usedWord;
+  size_t usedCount;
+};
+typedef struct usedword_tag usedword_t;
+
 void error(char * errorMessage);
 
 char * checkValidStory(char * line);
 
-story_t * processValidTemplate(char * fileName);
+story_t * processTemplate(char * fileName, catarray_t * wordArray);
 
 void printStory(story_t * res);
 
 void freeStory(story_t * res);
 
-//------Step 2
 //Check if the input word file is legal
 int checkValidWord(char * line);
 //Check if the name exists in the wordArray
@@ -29,4 +34,19 @@ int checkExistName(catarray_t * wordArray, char * name);
 catarray_t * readWords(char * fileName);
 //freecatArray
 void freeCatArray(catarray_t * wordArray);
+
+//Export the category from the line, ie. the content between the underscore
+char * getCategory(char * str, char * point);
+//chooseWord: choose the word from the category from catArray
+//choose the word from the previously used words
+const char * choosePreviousWord(size_t retrive, usedword_t * usedRecord);
+//export the word choosen from either previous used words or the category, catRecord: the previous used words
+const char * getWord(char * category, catarray_t * wordArray, usedword_t * usedRecord);
+//replace the underscore part with the chosen word and add the word into the catRecord
+void replaceWithWord(char * replaceRes,
+                     size_t resLength,
+                     const char * word,
+                     usedword_t * usedRecord);
+
+void freeUsedWords(usedword_t * usedRecord);
 #endif

@@ -1,6 +1,7 @@
 #include "rand_story.h"
 
 #include <assert.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,7 +10,7 @@ void error(char * errorMessage) {
   fprintf(stderr, "%s\n", errorMessage);
   exit(EXIT_FAILURE);
 }
-//---------------Step1
+
 char * checkValidStory(char * line) {
   char * underscore1 = strchr(line, '_');
   if (underscore1 == NULL) {
@@ -27,9 +28,59 @@ char * checkValidStory(char * line) {
   }
 }
 
-story_t * processValidTemplate(char * fileName) {
+char * getCategory(char * str, char * point) {
+  char * category = strndup(point + 1, strlen(point + 1) - strlen(str) - 1);
+  return category;
+}
+
+const char * choosePreviousWord(size_t retrive, usedword_t * usedRecord) {
+  if (retrive <= usedRecord->usedCount) {
+    size_t index = usedRecord->usedCount - retrive;
+    char * word = usedRecord->usedWord[index];
+    return word;
+  }
+  else {
+    error("No previous used word could choose");
+    return NULL;
+  }
+}
+
+const char * getWord(char * category, catarray_t * wordArray, usedword_t * usedRecord) {
+  size_t retrive = 0;
+  if (strlen(category) > 0 && strspn(category, "0123456789") == strlen(category)) {
+    retrive = atoi(category);
+    const char * word = choosePreviousWord(retrive, usedRecord);
+    return word;
+  }
+  else {
+    for (size_t i = 0; i < wordArray->n; i++) {
+      char * name = wordArray->arr[i].name;
+      if (strcmp(category, name) == 0) {
+        const char * word = chooseWord(category, wordArray);
+        return word;
+      }
+    }
+    error("No matched category in wordArray.\n");
+    return NULL;
+  }
+}
+
+void replaceWithWord(char * replaceRes,
+                     size_t resLength,
+                     const char * word,
+                     usedword_t * usedRecord) {
+  replaceRes = realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
+  strncpy(replaceRes + resLength, word, strlen(word));
+  usedRecord->usedWord =
+      realloc(usedRecord->usedWord,
+              (usedRecord->usedCount + 1) * sizeof(usedRecord->usedWord[0]));
+  usedRecord->usedWord[usedRecord->usedCount] = strdup(word);
+  usedRecord->usedCount++;
+}
+
+story_t * processTemplate(char * fileName, catarray_t * wordArray) {
   /* Read File*/
-  char * word = "cat";
+  // char * word = "cat";
   FILE * f = fopen(fileName, "r");
   if (f == NULL) {
     error("Cannot open the file");
@@ -38,10 +89,12 @@ story_t * processValidTemplate(char * fileName) {
   /*Initialize the return story*/
   story_t * res = malloc(sizeof(*res));
   res->outputStory = malloc(sizeof(res->outputStory));
-  //why can't I use char outputStory = res->outputstory
+  usedword_t * usedRecord = malloc(sizeof(*usedRecord));
+  usedRecord->usedCount = 0;
+  usedRecord->usedWord = malloc(sizeof(usedRecord->usedWord[0]));
   char * line = NULL;
-  res->storySize = 0;
   size_t sz = 0;
+  res->storySize = 0;
 
   /*Check the input line by line*/
   while ((getline(&line, &sz, f)) >= 0) {
@@ -58,10 +111,25 @@ story_t * processValidTemplate(char * fileName) {
         resLength++;
         point++;
       }
-      replaceRes = realloc(replaceRes, (resLength + 3) * sizeof(*replaceRes));
+      str =
+          checkValidStory(str);  //The remaining string after the first pair of underscore
+      char * category = getCategory(str, point);
+      char * word = strdup("cat");
+      if (wordArray != NULL) {
+        const char * selectWord = getWord(category, wordArray, usedRecord);
+        free(word);
+        word = strdup(selectWord);
+      }
+      replaceRes = realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
       strncpy(replaceRes + resLength, word, strlen(word));
-      resLength = resLength + 3;
-      str = checkValidStory(str);
+      usedRecord->usedWord =
+          realloc(usedRecord->usedWord,
+                  (usedRecord->usedCount + 1) * sizeof(usedRecord->usedWord[0]));
+      usedRecord->usedWord[usedRecord->usedCount] = strdup(word);
+      usedRecord->usedCount++;
+      resLength = resLength + strlen(word);
+      free(word);
+      free(category);
     }
     if (str != NULL) {
       replaceRes =
@@ -84,6 +152,7 @@ story_t * processValidTemplate(char * fileName) {
   if (fclose(f) != 0) {
     error("The file cannot be closed.\n");
   }
+  freeUsedWords(usedRecord);
   return res;
 }
 
@@ -101,7 +170,6 @@ void freeStory(story_t * res) {
   free(res);
 }
 
-//----------------------Step2
 int checkValidWord(char * line) {
   if ((strchr(line, ':') == NULL)) {
     return 1;
@@ -204,5 +272,15 @@ void freeCatArray(catarray_t * wordArray) {
     }
     free(wordArray->arr);
     free(wordArray);
+  }
+}
+
+void freeUsedWords(usedword_t * usedRecord) {
+  if (usedRecord != NULL) {
+    for (size_t i = 0; i < usedRecord->usedCount; i++) {
+      free(usedRecord->usedWord[i]);
+    }
+    free(usedRecord->usedWord);
+    free(usedRecord);
   }
 }

@@ -7,5 +7,6 @@ story-step2 words1.txt
 story-step2 words3.txt
 story-step2 words4.txt
 story-step3 words.txt story2.txt
+story-step3 words.txt story31.txt
 story-step4 words.txt story2.txt
 story-step4 -n words.txt story2.txt
