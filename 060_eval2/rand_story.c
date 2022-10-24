@@ -103,7 +103,10 @@ void freeStory(story_t * res) {
 
 //----------------------Step2
 int checkValidWord(char * line) {
-  if ((strchr(line, ':') == NULL) && (strchr(line, '\n') == NULL)) {
+  if ((strchr(line, ':') == NULL)) {
+    return 1;
+  }
+  else if (strchr(line, '\n') == NULL) {
     return 1;
   }
   else {
@@ -136,7 +139,7 @@ catarray_t * readWords(char * fileName) {
   size_t sz = 0;
   while (getline(&line, &sz, f) >= 0) {
     if (checkValidWord(line) != 0) {
-      error("The word file contains line that has no ':'\n");
+      error("The word file contains line that has no ':' or newline.\n");
     }
     size_t nameSize = 0;
     char * name = malloc(sizeof(*name));
