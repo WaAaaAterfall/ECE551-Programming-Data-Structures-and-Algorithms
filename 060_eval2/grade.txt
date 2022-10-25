@@ -1,11 +1,11 @@
-Grading at 10/24/2022:19:10:22.459494
-For commit ID 362a778970b6f6df6680e8693cce1debcbde830e
-Grading at Mon Oct 24 03:10:14 PM EDT 2022
+Grading at 10/25/2022:05:08:59.219880
+For commit ID 6206bf8b006658e3ed30477920f76fac76a60c78
+Grading at Tue Oct 25 01:08:52 AM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
 Checking that story-step1 compiles
-rm -f *~ story-step1 story-step2 story-step3 % story-step4 story-step1.o story-step2.o story-step3.o %.o story-step4.o rand_story.o
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
 gcc -o story-step1 story-step1.o rand_story.o provided.o
@@ -42,7 +42,7 @@ Valgrind was clean
 
 Step 2
 Checking that story-step2 compiles
-rm -f *~ story-step1 story-step2 story-step3 % story-step4 story-step1.o story-step2.o story-step3.o %.o story-step4.o rand_story.o
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
 gcc -o story-step2 story-step2.o rand_story.o provided.o
@@ -77,7 +77,7 @@ Valgrind was clean
 
 Step 3
 Checking that story-step3 compiles
-rm -f *~ story-step1 story-step2 story-step3 % story-step4 story-step1.o story-step2.o story-step3.o %.o story-step4.o rand_story.o
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
 gcc -o story-step3 story-step3.o rand_story.o provided.o
@@ -100,7 +100,55 @@ Valgrind was clean
 
 Step 4
 Checking that story-step4 compiles
-rm -f *~ story-step1 story-step2 story-step3 % story-step4 story-step1.o story-step2.o story-step3.o %.o story-step4.o rand_story.o
-The code did not compile!
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step4.c
+gcc -o story-step4 story-step4.o rand_story.o provided.o
+rm story-step4.o
+The code compiled (good)
+Executable story-step4 exists (good)
+Now running YOUR tests for step 4
+
+4.1: Current test is story-step4 words.txt story2.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+animal:							      <
+  dragon						      <
+  walrus						      <
+place:							      <
+  cave							      <
+adjective:						      <
+  peculiar						      <
+  scary							      <
+  peaceful						      <
+Once upon a time, there was a walrus. This walrus lived in a 	Once upon a time, there was a walrus. This walrus lived in a 
+peculiar cave. One day, it left its peculiar cave and met a w	peculiar cave. One day, it left its peculiar cave and met a w
+Your file did not match the expected ouput
+
+
+4.2: Current test is story-step4 -n words.txt story2.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+animal:							      <
+  dragon						      <
+  walrus						      <
+place:							      <
+  cave							      <
+adjective:						      <
+  peculiar						      <
+  scary							      <
+  peaceful						      <
+Once upon a time, there was a walrus. This walrus lived in a 	Once upon a time, there was a walrus. This walrus lived in a 
+peculiar cave. One day, it left its peculiar cave and met a d	peculiar cave. One day, it left its peculiar cave and met a d
+Your file did not match the expected ouput
+
+
+You have NOT passed your test cases!
+You should go and figure out/understand where thing went wrong
+And fix the problem(s) before the deadline
 
 Overall Grade: NO GRADE YET
