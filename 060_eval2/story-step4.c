@@ -6,7 +6,7 @@
 
 void processStory(char * fileWords, char * fileStory, int mode) {
   catarray_t * wordArray = readWords(fileWords);
-  printWords(wordArray);
+  //  printWords(wordArray);
   story_t * storyOut = processTemplate(fileStory, wordArray, mode);
   printStory(storyOut);
   freeCatArray(wordArray);
