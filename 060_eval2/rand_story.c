@@ -45,23 +45,25 @@ const char * choosePreviousWord(size_t retrive, usedword_t * usedRecord) {
   }
 }
 
-const char * getWord(char * category,
-                     catarray_t * wordArray,
-                     usedword_t * usedRecord,
-                     int mode) {
+char * getWord(char * category,
+               catarray_t * wordArray,
+               usedword_t * usedRecord,
+               int mode) {
   size_t retrive = 0;
   if (strlen(category) > 0 && strspn(category, "0123456789") == strlen(category)) {
     retrive = atoi(category);
-    const char * word = choosePreviousWord(retrive, usedRecord);
+    char * word = strdup(choosePreviousWord(retrive, usedRecord));
     return word;
   }
   else {
     for (size_t i = 0; i < wordArray->n; i++) {
       char * name = wordArray->arr[i].name;
       if (strcmp(category, name) == 0) {
-        const char * word = chooseWord(category, wordArray);
+        const char * w = chooseWord(category, wordArray);
+        char * word = strdup(w);
         if (mode == 1) {
-          deleteWord(wordArray, category, word);
+          deleteWord(wordArray, i, word);
+          //          printWords(wordArray);
         }
         return word;
       }
@@ -73,7 +75,7 @@ const char * getWord(char * category,
 
 void replaceWithWord(char * replaceRes,
                      size_t resLength,
-                     const char * word,
+                     char * word,
                      usedword_t * usedRecord) {
   replaceRes = realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
   strncpy(replaceRes + resLength, word, strlen(word));
@@ -84,25 +86,20 @@ void replaceWithWord(char * replaceRes,
   usedRecord->usedCount++;
 }
 
-void deleteWord(catarray_t * wordArray, char * category, const char * word) {
-  for (size_t i = 0; i < wordArray->n; i++) {
-    if (strcmp(category, wordArray->arr[i].name)) {
-      for (size_t j = 0; j < wordArray->arr[i].n_words; j++) {
-        if (strcmp(wordArray->arr[i].words[j], word) == 0) {
-          free(wordArray->arr[i].words[j]);
-          wordArray->arr[i].words[j] = NULL;
-          for (size_t k = j; j < wordArray->arr[i].n_words - 1; k++) {
-            wordArray->arr[i].words[k] = wordArray->arr[i].words[k + 1];
-          }
-          free(wordArray->arr[i].words[wordArray->arr[i].n_words - 1]);
-          break;
-        }
-      }
-      wordArray->arr[i].n_words--;
+void deleteWord(catarray_t * wordArray, size_t catIndex, char * word) {
+  category_t cat = wordArray->arr[catIndex];
+  size_t j = 0;
+  for (; j < cat.n_words; j++) {
+    if (strcmp(cat.words[j], word) == 0) {
+      free(cat.words[j]);
+      cat.words[j] = NULL;
       break;
     }
   }
-  printWords(wordArray);
+  for (; j < cat.n_words - 1; j++) {
+    cat.words[j] = cat.words[j + 1];
+  }
+  wordArray->arr[catIndex].n_words--;
 }
 
 story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
@@ -143,9 +140,9 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
       char * category = getCategory(str, point);
       char * word = strdup("cat");
       if (wordArray != NULL) {
-        const char * selectWord = getWord(category, wordArray, usedRecord, mode);
+        char * selectWord = getWord(category, wordArray, usedRecord, mode);
         free(word);
-        word = strdup(selectWord);
+        word = selectWord;
       }
       replaceRes = realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
       strncpy(replaceRes + resLength, word, strlen(word));
@@ -155,9 +152,6 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
       usedRecord->usedWord[usedRecord->usedCount] = strdup(word);
       usedRecord->usedCount++;
       resLength = resLength + strlen(word);
-      //      if (mode == 1) {
-      // deleteWord(wordArray, category, word);
-      //}
       free(word);
       free(category);
     }
@@ -281,15 +275,6 @@ catarray_t * readWords(char * fileName) {
     error("Cannot close file.\n");
   }
   return wordArray;
-}
-
-void printWord(catarray_t * wordArray) {
-  for (size_t i = 0; i < wordArray->n; i++) {
-    printf("%s:\n", wordArray->arr[i].name);
-    for (size_t j = 0; j < wordArray->arr[i].n_words; j++) {
-      printf("  %s", wordArray->arr[i].words[j]);
-    }
-  }
 }
 
 void freeCatArray(catarray_t * wordArray) {
