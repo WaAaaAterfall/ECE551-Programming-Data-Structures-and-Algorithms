@@ -1,6 +1,6 @@
-Grading at 10/25/2022:05:08:59.219880
-For commit ID 6206bf8b006658e3ed30477920f76fac76a60c78
-Grading at Tue Oct 25 01:08:52 AM EDT 2022
+Grading at 10/25/2022:05:13:54.782989
+For commit ID e0454f837f31e94b9b2e98844b97ffdc6265c644
+Grading at Tue Oct 25 01:13:46 AM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -111,44 +111,18 @@ Now running YOUR tests for step 4
 
 4.1: Current test is story-step4 words.txt story2.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-animal:							      <
-  dragon						      <
-  walrus						      <
-place:							      <
-  cave							      <
-adjective:						      <
-  peculiar						      <
-  scary							      <
-  peaceful						      <
-Once upon a time, there was a walrus. This walrus lived in a 	Once upon a time, there was a walrus. This walrus lived in a 
-peculiar cave. One day, it left its peculiar cave and met a w	peculiar cave. One day, it left its peculiar cave and met a w
-Your file did not match the expected ouput
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 4.2: Current test is story-step4 -n words.txt story2.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
-animal:							      <
-  dragon						      <
-  walrus						      <
-place:							      <
-  cave							      <
-adjective:						      <
-  peculiar						      <
-  scary							      <
-  peaceful						      <
-Once upon a time, there was a walrus. This walrus lived in a 	Once upon a time, there was a walrus. This walrus lived in a 
-peculiar cave. One day, it left its peculiar cave and met a d	peculiar cave. One day, it left its peculiar cave and met a d
-Your file did not match the expected ouput
-
-
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
