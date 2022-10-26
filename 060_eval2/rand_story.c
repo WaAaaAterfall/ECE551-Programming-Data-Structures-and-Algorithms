@@ -12,6 +12,8 @@ void error(char * errorMessage) {
 }
 
 char * checkValidStory(char * line) {
+  //check if there is underscorein the line. If there is, check if it is paired
+  //return the story after the second underscore
   char * underscore1 = strchr(line, '_');
   if (underscore1 == NULL) {
     return line;
@@ -34,13 +36,15 @@ char * getCategory(char * str, char * point) {
 }
 
 const char * choosePreviousWord(size_t retrive, usedword_t * usedRecord) {
+  //check wether the backreference exceeds
   if (retrive <= usedRecord->usedCount) {
     size_t index = usedRecord->usedCount - retrive;
     char * word = usedRecord->usedWord[index];
     return word;
   }
+  //exceeds, return error
   else {
-    error("No previous used word could choose");
+    error("No previous used word to choose");
     return NULL;
   }
 }
@@ -51,27 +55,30 @@ char * getWord(char * category,
                int mode) {
   size_t retrive = 0;
   char * categoryTrim = category;
+  //for accommodating step 1
   if (wordArray == NULL) {
     char * cat = strdup(chooseWord(category, wordArray));
     return cat;
   }
+  //omit the blank before positive number
   while (*categoryTrim == ' ') {
     categoryTrim++;
   }
   if (strlen(categoryTrim) > 0 &&
       strspn(categoryTrim, "0123456789") == strlen(categoryTrim)) {
     retrive = atoi(categoryTrim);
-    if (retrive > 0) {
+    if (retrive > 0) {  //check if it is an appropriate backreference
       char * word = strdup(choosePreviousWord(retrive, usedRecord));
       return word;
     }
   }
+  //If it is not a back reference, find the word in cat array
   for (size_t i = 0; i < wordArray->n; i++) {
     char * name = wordArray->arr[i].name;
     if (strcmp(category, name) == 0) {
       const char * w = chooseWord(category, wordArray);
       char * word = strdup(w);
-      if (mode == 1) {
+      if (mode == 1) {  //if there is "-n", delete the word in catarray
         deleteWord(wordArray, i, word);
       }
       return word;
@@ -85,6 +92,7 @@ char * replaceWithWord(char * replaceRes, size_t resLength, char * word) {
   char * expandWord =
       realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
   strncpy(expandWord + resLength, word, strlen(word));
+  //return the new address of the finished story after realloc
   return expandWord;
 }
 
@@ -95,6 +103,7 @@ usedword_t * updateUseRecord(usedword_t * usedRecord, char * word) {
   newUsedWord[usedRecord->usedCount] = strdup(word);
   usedRecord->usedWord = newUsedWord;
   usedRecord->usedCount++;
+  //return the updated usedWord
   return usedRecord;
 }
 
@@ -111,6 +120,7 @@ void deleteWord(catarray_t * wordArray, size_t catIndex, char * word) {
   for (; j < cat.n_words - 1; j++) {
     cat.words[j] = cat.words[j + 1];
   }
+  //Because for each words, it stores the address of the bext words, so there is no need to free the last words in the array. They will all be freed at last.
   wordArray->arr[catIndex].n_words--;
 }
 
@@ -121,7 +131,7 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
     error("Cannot open the file");
   }
 
-  /*Initialize the return story*/
+  /*Initialize the return story and the backreference list*/
   story_t * res = malloc(sizeof(*res));
   res->outputStory = malloc(sizeof(res->outputStory));
   usedword_t * usedRecord = malloc(sizeof(*usedRecord));
@@ -140,16 +150,18 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
     while (strcmp(str, checkValidStory(str)) != 0) {
       //if the remaining string contains paired underscore
       char * point = str;
+      //First, copy the content not in the blank in the finished story
       while (*point != '_') {
         replaceRes = realloc(replaceRes, (resLength + 1) * sizeof(*replaceRes));
         replaceRes[resLength] = *point;
         resLength++;
         point++;
       }
-
-      //Now, "point" points to the first underscore
+      //"point" points to the first underscore
       //Get the remaining string after a pair of underscore
       str = checkValidStory(str);
+
+      //Second, read the category in the blank and choose the appropriate words that can write in the finished story
       //get the content of category
       char * category = getCategory(str, point);
       //get the word in this category
@@ -163,13 +175,14 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
       free(word);
       free(category);
     }
-    //if there is no more underscore, put all the remains in the finished story
-    if (str != NULL) {
+    //Third, loop throught all the underscore in the line.
+    //Forth, if there is no more underscore, put all the remains in the finished story
+    if (str != NULL) {  //story remaining
       replaceRes =
           realloc(replaceRes, (resLength + strlen(str) + 1) * sizeof(*replaceRes));
       strncpy(replaceRes + resLength, str, strlen(str) + 1);
     }
-    else {
+    else {  //no story remains
       replaceRes = realloc(replaceRes, (resLength + 1) * sizeof(*replaceRes));
       replaceRes[resLength] = '\0';
     }
@@ -207,6 +220,7 @@ void freeStory(story_t * res) {
 }
 
 int checkValidWord(char * line) {
+  //check if there is one colons in this line
   if ((strchr(line, ':') == NULL)) {
     return 1;
   }
@@ -214,6 +228,7 @@ int checkValidWord(char * line) {
     return 1;
   }
   else {
+    //illegal word doc
     return 0;
   }
 }
@@ -221,6 +236,7 @@ int checkValidWord(char * line) {
 int checkExistName(catarray_t * wordArray, char * name) {
   for (size_t i = 0; i < wordArray->n; i++) {
     if (strcmp(wordArray->arr[i].name, name) == 0) {
+      //return the index of this category for further operation
       return i;
     }
   }
@@ -245,9 +261,11 @@ catarray_t * readWords(char * fileName) {
     if (checkValidWord(line) != 0) {
       error("The word file contains line that has no ':' or newline.\n");
     }
+    //if the line is legal:
     size_t nameSize = 0;
     char * name = malloc(sizeof(*name));
     char * point = line;
+    //extract the category(name)
     while (*point != ':') {
       name = realloc(name, (nameSize + 1) * sizeof(*name));
       name[nameSize] = *point;
@@ -256,10 +274,12 @@ catarray_t * readWords(char * fileName) {
     }
     name = realloc(name, (nameSize + 1) * sizeof(*name));
     name[nameSize] = '\0';
+    //extract the word after colon
     char * word = strchr(line, ':') + 1;
     word[strlen(word) - 1] = '\0';
     int index = 0;
     if ((index = checkExistName(wordArray, name)) != -1) {
+      //if this catrgory already exists
       wordArray->arr[index].words = realloc(
           wordArray->arr[index].words,
           (wordArray->arr[index].n_words + 1) * sizeof(wordArray->arr[index].words[0]));
@@ -268,6 +288,7 @@ catarray_t * readWords(char * fileName) {
       free(name);
     }
     else {
+      //if it ia new category
       wordArray->arr =
           realloc(wordArray->arr, (wordArray->n + 1) * sizeof(wordArray->arr[0]));
       category_t add;
