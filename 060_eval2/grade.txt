@@ -1,6 +1,6 @@
-Grading at 10/26/2022:00:41:53.751740
-For commit ID 88bfee50dcc383cae80d6c5061e17ca385276dbb
-Grading at Tue Oct 25 08:41:35 PM EDT 2022
+Grading at 10/26/2022:01:01:32.487042
+For commit ID 01e9ccb9e89cb5cb30f07270b0175863d6c0358c
+Grading at Tue Oct 25 09:01:12 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -130,8 +130,8 @@ Valgrind was clean
 
 3.4: Current test is story-step3 words9.txt story9.txt
 -----------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 3.5: Current test is story-step3 words10.txt story10.txt
@@ -169,10 +169,10 @@ Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-4.4: Current test is story-step4 word9.txt story9.txt
+4.4: Current test is story-step4 words9.txt story9.txt
 -----------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 4.5: Current test is story-step4 words10.txt story10.txt
@@ -199,10 +199,10 @@ Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-4.9: Current test is story-step4 -n word9.txt story9.txt
+4.9: Current test is story-step4 -n words9.txt story9.txt
 -----------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 4.10: Current test is story-step4 -n words10.txt story10.txt
