@@ -194,7 +194,7 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
 
 void printStory(story_t * res) {
   for (size_t i = 0; i < res->storySize; i++) {
-    printf("%s", res->outputStory[i]);
+    fprintf(stdout, "%s", res->outputStory[i]);
   }
 }
 
