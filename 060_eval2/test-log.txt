@@ -1,0 +1,32 @@
+Possible test cases:
+story.txt: correct provided example
+story2.txt: correct provided example
+story3.txt: Contains underscore that cannot be paired.
+story4.txt: Contains underscore that cannot be paired
+story5.txt: Contains blank content between underscores (__)
+story6.txt:  Contains blank content with white space
+story7.txt: Contains backrerence exceed the used word's length
+story8.txt: Contain backreference starts with white space
+story9.txt: Contain backreference ends with white space
+story10.txt: Contain blank with negative number (Should be words)
+story11.txt: EMPTY!
+story12.txt: Contains category named "0". This is not backreference
+story13.txt: Test for delete all words in a category
+story14.txt: test for weirld blank
+story15.txt: test for weirld word
+stoey16.txt: No underscore at all
+
+words.txt: correct provided example
+words1.txt: no ":" in a line
+words2.txt: empty category
+words3.txt: empty string in a category
+words4.txt: contains multiple ":" in a line
+words5.txt: contains only walrus in the animals, so that there will be no animal for the second blank, should be an error
+words6.txt: all the words are "", just to test if the str with 0 length will work
+words7.txt: EMPTY!
+words9.txt: category as positive num following white spaces
+words10.txt: category with negative number
+words12.txt: category named 0
+words13.txt: Test for delete all words in a category
+words14.txt: test for weirld category name
+word15.txt: test for weirld word

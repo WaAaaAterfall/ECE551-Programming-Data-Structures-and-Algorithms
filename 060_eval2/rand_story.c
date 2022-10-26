@@ -76,6 +76,7 @@ char * getWord(char * category,
   for (size_t i = 0; i < wordArray->n; i++) {
     char * name = wordArray->arr[i].name;
     if (strcmp(category, name) == 0) {
+      //find the matching cateory
       const char * w = chooseWord(category, wordArray);
       char * word = strdup(w);
       if (mode == 1) {  //if there is "-n", delete the word in catarray
