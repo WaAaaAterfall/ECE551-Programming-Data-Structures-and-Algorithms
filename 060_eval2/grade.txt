@@ -1,6 +1,6 @@
-Grading at 10/26/2022:02:05:44.798216
-For commit ID 977b3d05ca953417057fafe0fec9e885cf4441c0
-Grading at Tue Oct 25 10:05:22 PM EDT 2022
+Grading at 10/26/2022:02:54:06.115582
+For commit ID b3af02d3871176a2c430f0ec1f4f3cc1f84b0014
+Grading at Tue Oct 25 10:53:43 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -239,6 +239,18 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
+Valgrind was clean
+
+4.16: Current test is story-step4 -n wordstest.txt storytest.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.17: Current test is story-step4 wordstest.txt storytest.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 You have passed the test cases YOU provided
