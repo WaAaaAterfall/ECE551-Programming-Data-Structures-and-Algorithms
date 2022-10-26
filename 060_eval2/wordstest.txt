@@ -1,0 +1,8 @@
+animal:dragon
+animal:fruit
+adj:spectecular
+animal:sponge
+adj:advanced
+adj:punitive
+adj:lovely
+verb:peek

@@ -51,30 +51,34 @@ char * getWord(char * category,
                int mode) {
   size_t retrive = 0;
   char * categoryTrim = category;
+  if (wordArray == NULL) {
+    char * cat = strdup(chooseWord(category, wordArray));
+    return cat;
+  }
   while (*categoryTrim == ' ') {
     categoryTrim++;
   }
   if (strlen(categoryTrim) > 0 &&
       strspn(categoryTrim, "0123456789") == strlen(categoryTrim)) {
-    retrive = atoi(category);
-    char * word = strdup(choosePreviousWord(retrive, usedRecord));
-    return word;
-  }
-  else {
-    for (size_t i = 0; i < wordArray->n; i++) {
-      char * name = wordArray->arr[i].name;
-      if (strcmp(category, name) == 0) {
-        const char * w = chooseWord(category, wordArray);
-        char * word = strdup(w);
-        if (mode == 1) {
-          deleteWord(wordArray, i, word);
-        }
-        return word;
-      }
+    retrive = atoi(categoryTrim);
+    if (retrive > 0) {
+      char * word = strdup(choosePreviousWord(retrive, usedRecord));
+      return word;
     }
-    error("No matched category in wordArray.\n");
-    return NULL;
   }
+  for (size_t i = 0; i < wordArray->n; i++) {
+    char * name = wordArray->arr[i].name;
+    if (strcmp(category, name) == 0) {
+      const char * w = chooseWord(category, wordArray);
+      char * word = strdup(w);
+      if (mode == 1) {
+        deleteWord(wordArray, i, word);
+      }
+      return word;
+    }
+  }
+  error("No matched category in wordArray.\n");
+  return NULL;
 }
 
 char * replaceWithWord(char * replaceRes, size_t resLength, char * word) {
@@ -146,12 +150,7 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
       str =
           checkValidStory(str);  //The remaining string after the first pair of underscore
       char * category = getCategory(str, point);
-      char * word = strdup("cat");
-      if (wordArray != NULL) {
-        char * selectWord = getWord(category, wordArray, usedRecord, mode);
-        free(word);
-        word = selectWord;
-      }
+      char * word = getWord(category, wordArray, usedRecord, mode);
       replaceRes = replaceWithWord(replaceRes, resLength, word);
       usedRecord = updateUseRecord(usedRecord, word);
       resLength = resLength + strlen(word);
