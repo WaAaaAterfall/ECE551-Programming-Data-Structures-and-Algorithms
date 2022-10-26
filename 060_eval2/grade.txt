@@ -1,6 +1,6 @@
-Grading at 10/26/2022:18:40:18.253444
-For commit ID e88432314b0ee7a324aa73958ef02701215495c5
-Grading at Wed Oct 26 02:39:29 PM EDT 2022
+Grading at 10/26/2022:19:15:25.010195
+For commit ID abd85a28659ef7fea998c6de71deb4bbda3d1a9d
+Grading at Wed Oct 26 03:14:43 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -135,6 +135,78 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 3.5: Current test is story-step3 words10.txt story10.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.6: Current test is story-step3 words.txt story2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.7: Current test is story-step3 words.txt story7.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.8: Current test is story-step3 words.txt story8.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.9: Current test is story-step3 words9.txt story9.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.10: Current test is story-step3 words10.txt story10.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.11: Current test is story-step3 words12.txt story12.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.12: Current test is story-step3 words7.txt story12.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.13: Current test is story-step3 wordsown2.txt storyown2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.14: Current test is story-step3 words13.txt story13.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.15: Current test is story-step3 words14.txt story14.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.16: Current test is story-step3 words15.txt story15.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.17: Current test is story-step3 words.txt story11.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
