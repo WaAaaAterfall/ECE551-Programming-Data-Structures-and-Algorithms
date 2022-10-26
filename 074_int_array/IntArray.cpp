@@ -61,13 +61,12 @@ bool IntArray::operator==(const IntArray & rhs) const {
 }
 
 bool IntArray::operator!=(const IntArray & rhs) const {
-  bool check = *this == rhs;
-  return !check;
+  return !(*this == rhs);
 }
 
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
   s << "{";
-  for (int i = 0; i < rhs.size() - 1; i++) {
+  for (int i = 0; i < rhs.size(); i++) {
     s << rhs[i];
     if (i != rhs.size() - 1) {
       s << ", ";
