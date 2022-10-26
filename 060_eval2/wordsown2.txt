@@ -2,4 +2,4 @@ people:Luke
 people:Obiwan
 place:Tatooin
 activity:huring himself
-activity:training force
+ :training force
