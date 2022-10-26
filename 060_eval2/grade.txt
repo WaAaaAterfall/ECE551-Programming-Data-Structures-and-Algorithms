@@ -1,6 +1,6 @@
-Grading at 10/26/2022:00:18:00.314172
-For commit ID e6c94e63aa07e9b94bc6c802ba8650aed343abbe
-Grading at Tue Oct 25 08:17:43 PM EDT 2022
+Grading at 10/26/2022:00:41:53.751740
+For commit ID 88bfee50dcc383cae80d6c5061e17ca385276dbb
+Grading at Tue Oct 25 08:41:35 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -124,10 +124,9 @@ Valgrind was clean
 
 3.3: Current test is story-step3 words.txt story8.txt
 -----------------------------
-You considered this a failure case:
-No matched category in wordArray.
-
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 3.4: Current test is story-step3 words9.txt story9.txt
 -----------------------------
@@ -166,10 +165,9 @@ Valgrind was clean
 
 4.3: Current test is story-step4 words.txt story8.txt
 -----------------------------
-You considered this a failure case:
-No matched category in wordArray.
-
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 4.4: Current test is story-step4 word9.txt story9.txt
 -----------------------------
@@ -197,10 +195,9 @@ Valgrind was clean
 
 4.8: Current test is story-step4 -n words.txt story8.txt
 -----------------------------
-You considered this a failure case:
-No matched category in wordArray.
-
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 4.9: Current test is story-step4 -n word9.txt story9.txt
 -----------------------------
@@ -220,8 +217,8 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
