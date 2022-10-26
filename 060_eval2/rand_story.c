@@ -50,7 +50,12 @@ char * getWord(char * category,
                usedword_t * usedRecord,
                int mode) {
   size_t retrive = 0;
-  if (strlen(category) > 0 && strspn(category, "0123456789") == strlen(category)) {
+  char * categoryTrim = category;
+  while (*categoryTrim == ' ') {
+    categoryTrim++;
+  }
+  if (strlen(categoryTrim) > 0 &&
+      strspn(categoryTrim, "0123456789") == strlen(categoryTrim)) {
     retrive = atoi(category);
     char * word = strdup(choosePreviousWord(retrive, usedRecord));
     return word;
