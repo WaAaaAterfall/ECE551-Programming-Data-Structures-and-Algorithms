@@ -1,6 +1,6 @@
-Grading at 10/26/2022:16:58:46.230828
-For commit ID 447bb21810c745132c02cdae992c802a127aee09
-Grading at Wed Oct 26 12:58:23 PM EDT 2022
+Grading at 10/26/2022:17:05:21.638463
+For commit ID dca4a18d894bb7b2ff2f524b428ce45954e1fd85
+Grading at Wed Oct 26 01:04:56 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -248,6 +248,18 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 4.17: Current test is story-step4 wordsown.txt storyown.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.18: Current test is story-step4 -n wordsown2.txt storyown2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.19: Current test is story-step4 wordsown2.txt storyown2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
