@@ -1,0 +1,21 @@
+Grading at 10/26/2022:22:47:56.945556
+For commit ID 447c303da9a5309ce393fc3e9d0477762ca10783
+Grading at Wed Oct 26 06:47:50 PM EDT 2022
+Attempting to compile:
+rm -f *.o  *~ intArrayTest
+#################################################
+testcase1:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase2:
+Your output is incorrect
+#################################################
+testcase3:
+Your output is incorrect
+#################################################
+testcase4:
+Your output is incorrect
+
+Overall Grade: F
