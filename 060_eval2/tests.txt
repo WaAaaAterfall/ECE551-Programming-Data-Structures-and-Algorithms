@@ -2,11 +2,27 @@ story-step1 story.txt
 story-step1 story2.txt
 story-step1 story3.txt
 story-step1 story4.txt
+story-step1 story5.txt
+story-step1 story6.txt
+story-step1 story11.txt
 story-step2 words.txt
 story-step2 words1.txt
+story-step2 words2.txt
 story-step2 words3.txt
 story-step2 words4.txt
 story-step3 words.txt story2.txt
-story-step3 words.txt story31.txt
+story-step3 words.txt story7.txt
+story-step3 words.txt story8.txt
+story-step3 words9.txt story9.txt
+story-step3 words10.txt story10.txt
 story-step4 words.txt story2.txt
+story-step4 words.txt story7.txt
+story-step4 words.txt story8.txt
+story-step4 word9.txt story9.txt
+story-step4 words10.txt story10.txt
 story-step4 -n words.txt story2.txt
+story-step4 -n words.txt story7.txt
+story-step4 -n words.txt story8.txt
+story-step4 -n word9.txt story9.txt
+story-step4 -n words10.txt story10.txt
+story-step4 -n words5.txt story2.txt

@@ -46,10 +46,9 @@ char * getWord(char * category,
                usedword_t * usedRecord,
                int mode);
 //replace the underscore part with the chosen word and add the word into the catRecord
-void replaceWithWord(char * replaceRes,
-                     size_t resLength,
-                     char * word,
-                     usedword_t * usedRecord);
+char * replaceWithWord(char * replaceRes, size_t resLength, char * word);
+
+usedword_t * updateUsedRecord(usedword_t * usedRecord, char * word);
 
 void freeUsedWords(usedword_t * usedRecord);
 

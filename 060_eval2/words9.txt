@@ -1,6 +1,6 @@
 animal:dragon
 animal:walrus
 place:cave
-adjective:
+1 :forTest9
 adjective:scary
 adjective:peaceful

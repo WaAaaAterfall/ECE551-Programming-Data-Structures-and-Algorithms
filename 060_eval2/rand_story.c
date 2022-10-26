@@ -63,7 +63,6 @@ char * getWord(char * category,
         char * word = strdup(w);
         if (mode == 1) {
           deleteWord(wordArray, i, word);
-          //          printWords(wordArray);
         }
         return word;
       }
@@ -73,17 +72,21 @@ char * getWord(char * category,
   }
 }
 
-void replaceWithWord(char * replaceRes,
-                     size_t resLength,
-                     char * word,
-                     usedword_t * usedRecord) {
-  replaceRes = realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
-  strncpy(replaceRes + resLength, word, strlen(word));
-  usedRecord->usedWord =
+char * replaceWithWord(char * replaceRes, size_t resLength, char * word) {
+  char * expandWord =
+      realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
+  strncpy(expandWord + resLength, word, strlen(word));
+  return expandWord;
+}
+
+usedword_t * updateUseRecord(usedword_t * usedRecord, char * word) {
+  char ** newUsedWord =
       realloc(usedRecord->usedWord,
               (usedRecord->usedCount + 1) * sizeof(usedRecord->usedWord[0]));
-  usedRecord->usedWord[usedRecord->usedCount] = strdup(word);
+  newUsedWord[usedRecord->usedCount] = strdup(word);
+  usedRecord->usedWord = newUsedWord;
   usedRecord->usedCount++;
+  return usedRecord;
 }
 
 void deleteWord(catarray_t * wordArray, size_t catIndex, char * word) {
@@ -144,13 +147,8 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
         free(word);
         word = selectWord;
       }
-      replaceRes = realloc(replaceRes, (resLength + strlen(word)) * sizeof(*replaceRes));
-      strncpy(replaceRes + resLength, word, strlen(word));
-      usedRecord->usedWord =
-          realloc(usedRecord->usedWord,
-                  (usedRecord->usedCount + 1) * sizeof(usedRecord->usedWord[0]));
-      usedRecord->usedWord[usedRecord->usedCount] = strdup(word);
-      usedRecord->usedCount++;
+      replaceRes = replaceWithWord(replaceRes, resLength, word);
+      usedRecord = updateUseRecord(usedRecord, word);
       resLength = resLength + strlen(word);
       free(word);
       free(category);
