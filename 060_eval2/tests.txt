@@ -32,3 +32,5 @@ story-step4 -n words12.txt story12.txt
 story-step4 -n words7.txt story2.txt
 story-step4 -n wordsown.txt storyown.txt
 story-step4 wordsown.txt storyown.txt
+story-step4 -n wordsown2.txt storyown2.txt
+story-step4 wordsown2.txt storyown2.txt
