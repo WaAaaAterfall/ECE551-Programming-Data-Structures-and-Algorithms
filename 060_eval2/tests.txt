@@ -54,3 +54,5 @@ story-step4 -n words15.txt story15.txt
 story-step4 words15.txt story15.txt
 story-step4 -n words.txt story16.txt
 story-step4 words.txt story11.txt
+story-step4 -n words16.txt story17.txt
+story-step4 words16.txt story17.txt
