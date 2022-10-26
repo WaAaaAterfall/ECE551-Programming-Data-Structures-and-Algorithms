@@ -20,9 +20,11 @@ story-step4 words.txt story7.txt
 story-step4 words.txt story8.txt
 story-step4 words9.txt story9.txt
 story-step4 words10.txt story10.txt
+story-step4 words12.txt story12.txt
 story-step4 -n words.txt story2.txt
 story-step4 -n words.txt story7.txt
 story-step4 -n words.txt story8.txt
 story-step4 -n words9.txt story9.txt
 story-step4 -n words10.txt story10.txt
 story-step4 -n words5.txt story2.txt
+story-step4 -n words12.txt story12.txt

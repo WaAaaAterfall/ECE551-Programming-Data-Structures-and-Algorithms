@@ -147,17 +147,23 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
         point++;
       }
 
-      str =
-          checkValidStory(str);  //The remaining string after the first pair of underscore
+      //Now, "point" points to the first underscore
+      //Get the remaining string after a pair of underscore
+      str = checkValidStory(str);
+      //get the content of category
       char * category = getCategory(str, point);
+      //get the word in this category
       char * word = getWord(category, wordArray, usedRecord, mode);
+      //write the word into the story
       replaceRes = replaceWithWord(replaceRes, resLength, word);
+      //update backreference struct
       usedRecord = updateUseRecord(usedRecord, word);
+      //update the length of finished story of current line
       resLength = resLength + strlen(word);
       free(word);
       free(category);
     }
-
+    //if there is no more underscore, put all the remains in the finished story
     if (str != NULL) {
       replaceRes =
           realloc(replaceRes, (resLength + strlen(str) + 1) * sizeof(*replaceRes));
@@ -167,8 +173,10 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
       replaceRes = realloc(replaceRes, (resLength + 1) * sizeof(*replaceRes));
       replaceRes[resLength] = '\0';
     }
+
     free(line);
     line = NULL;
+    //put the finished story line in the res
     res->outputStory =
         realloc(res->outputStory, (res->storySize + 1) * sizeof(*res->outputStory));
     res->outputStory[res->storySize] = replaceRes;
@@ -176,6 +184,7 @@ story_t * processTemplate(char * fileName, catarray_t * wordArray, int mode) {
   }
   free(line);
   line = NULL;
+
   if (fclose(f) != 0) {
     error("The file cannot be closed.\n");
   }

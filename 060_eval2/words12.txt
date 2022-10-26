@@ -1,0 +1,6 @@
+animal:dragon
+animal:walrus
+place:cave
+adjective:peculiar
+0:CategoryWithName0
+adjective:peaceful
