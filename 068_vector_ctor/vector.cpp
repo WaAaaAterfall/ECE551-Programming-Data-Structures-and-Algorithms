@@ -5,10 +5,6 @@
 
 /* write your class implementation in this file
  */
-void Vector2D ::initVector(double init_x, double init_y) {
-  x = init_x;
-  y = init_y;
-}
 
 double Vector2D::getMagnitude() const {
   double a = std::pow(x, 2);
@@ -16,8 +12,7 @@ double Vector2D::getMagnitude() const {
   return std::sqrt(a + b);
 }
 Vector2D Vector2D::operator+(const Vector2D & rhs) const {
-  Vector2D newVec;
-  newVec.initVector(this->x + rhs.x, this->y + rhs.y);
+  Vector2D newVec(this->x + rhs.x, this->y + rhs.y);
   return newVec;
 }
 Vector2D & Vector2D::operator+=(const Vector2D & rhs) {
