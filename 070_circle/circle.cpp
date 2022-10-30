@@ -1,29 +1,39 @@
 #include "circle.hpp"
 
 #include <cmath>
-using namespace std;
 
 void Circle::move(double dx, double dy) {
-  c.move(dx, dy);
+  center.move(dx, dy);
 }
-double Circle::intersectionArea(const Circle & otherCircle) {
-  const double radius_sum = r + otherCircle.r;
-  const double radius_sub = abs(r - otherCircle.r);
-  double r_small = r > otherCircle.r ? otherCircle.r : r;
-  double r_large = r > otherCircle.r ? r : otherCircle.r;
-  const double dis = c.distanceFrom(otherCircle.c);
 
-  if (dis >= radius_sum) {
-    return 0.0;
-  }
-  else if (dis <= radius_sub) {
-    return M_PI * r_small * r_small;
+double Circle::intersectionArea(const Circle & otherCircle) {
+  double distance = this->center.distanceFrom(otherCircle.center);
+  double radiusSum = this->radius + otherCircle.radius;
+  double radiusSub = std::abs(this->radius + otherCircle.radius);
+  if (distance > radiusSum) {
+    return 0;
   }
   else {
-    double a1 =
-        acos((r_small * r_small - r_large * r_large + dis * dis) / (2 * dis * r_small));
-    double a2 =
-        acos((r_large * r_large - r_small * r_small + dis * dis) / (2 * dis * r_large));
-    return a1 * r_small * r_small + a2 * r_large * r_large - r_small * dis * sin(a1);
+    double biggerR = this->radius;
+    double smallerR = otherCircle.radius;
+    if (biggerR < smallerR) {
+      double temp = biggerR;
+      biggerR = smallerR;
+      smallerR = temp;
+    }
+    if (distance < radiusSub) {
+      return M_PI * smallerR * smallerR;
+    }
+    double part1 =
+        smallerR * smallerR *
+        std::acos((distance * distance + smallerR * smallerR - biggerR * biggerR) /
+                  (2 * distance * smallerR));
+    double part2 =
+        biggerR * biggerR *
+        std::acos((distance * distance + biggerR * biggerR - smallerR * smallerR) /
+                  (2 * distance * biggerR));
+    double part3 = smallerR * smallerR * part1 + biggerR * biggerR * part2 -
+                   smallerR * distance * std::sin(part1);
+    return part3;
   }
 }

@@ -2,11 +2,11 @@
 
 class Circle {
  private:
-  Point c;
-  const double r;
+  Point center;
+  const double radius;
 
  public:
-  Circle(Point c, double r) : c(c), r(r) {}
+  Circle(Point p, double radius) : center(p), radius(radius) {}
   void move(double dx, double dy);
   double intersectionArea(const Circle & otherCircle);
 };
