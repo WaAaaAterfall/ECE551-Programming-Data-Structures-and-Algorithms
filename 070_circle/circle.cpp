@@ -10,18 +10,18 @@ double Circle::intersectionArea(const Circle & otherCircle) {
   double distance = this->center.distanceFrom(otherCircle.center);
   double radiusSum = this->radius + otherCircle.radius;
   double radiusSub = std::abs(this->radius - otherCircle.radius);
-  if (distance > radiusSum) {
+  if (distance >= radiusSum) {
     return 0;
   }
   else {
     double biggerR = this->radius;
     double smallerR = otherCircle.radius;
-    if (biggerR < smallerR) {
+    if (biggerR <= smallerR) {
       double temp = biggerR;
       biggerR = smallerR;
       smallerR = temp;
     }
-    if (distance < radiusSub) {
+    if (distance <= radiusSub) {
       return M_PI * smallerR * smallerR;
     }
     double part1 =
