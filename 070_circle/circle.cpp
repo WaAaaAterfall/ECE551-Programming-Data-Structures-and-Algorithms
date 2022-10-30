@@ -9,7 +9,7 @@ void Circle::move(double dx, double dy) {
 double Circle::intersectionArea(const Circle & otherCircle) {
   double distance = this->center.distanceFrom(otherCircle.center);
   double radiusSum = this->radius + otherCircle.radius;
-  double radiusSub = std::abs(this->radius + otherCircle.radius);
+  double radiusSub = std::abs(this->radius - otherCircle.radius);
   if (distance > radiusSum) {
     return 0;
   }
@@ -25,11 +25,9 @@ double Circle::intersectionArea(const Circle & otherCircle) {
       return M_PI * smallerR * smallerR;
     }
     double part1 =
-        smallerR * smallerR *
         std::acos((distance * distance + smallerR * smallerR - biggerR * biggerR) /
                   (2 * distance * smallerR));
     double part2 =
-        biggerR * biggerR *
         std::acos((distance * distance + biggerR * biggerR - smallerR * smallerR) /
                   (2 * distance * biggerR));
     double part3 = smallerR * smallerR * part1 + biggerR * biggerR * part2 -
