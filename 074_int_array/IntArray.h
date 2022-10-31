@@ -4,22 +4,22 @@
 #include <ostream>
 
 class IntArray {
-private:
+ private:
   int * data;
-  int numElements;
-public:
+  int arraySize;
+
+ public:
   IntArray();
-  IntArray(int n);
+  IntArray(int t);
   IntArray(const IntArray & rhs);
   IntArray & operator=(const IntArray & rhs);
+  ~IntArray();
   int & operator[](int index);
   const int & operator[](int index) const;
   int size() const;
-  bool operator==(const IntArray& rhs) const;
-  bool operator!=(const IntArray& rhs) const;
-  ~IntArray();
+  bool operator==(const IntArray & rhs);
+  bool operator!=(const IntArray & rhs);
 };
 
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs);
-
 #endif
