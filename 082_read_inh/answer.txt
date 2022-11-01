@@ -3,7 +3,7 @@ Leon purrs.
 Leon roars.
 Aslan purrs.
 Aslan roars.
-Fluffy purrs;
+Fluffy purrs.
 Leon roars.
 Aslan roars.
 Don't forget your destructors!
