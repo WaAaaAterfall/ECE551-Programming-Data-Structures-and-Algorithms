@@ -6,18 +6,18 @@
 
 void sortLine() {
   std::string s;
-  std::vector<std::string> stringLines;
+  std::vector<std::string> strings;
   while (!std::cin.eof()) {
     std::getline(std::cin, s);
-    stringLines.push_back(s);
+    strings.push_back(s);
   }
-  std::sort(stringLines.begin(), stringLines.end());
-  std::vector<std::string>::iterator iterate = stringLines.begin();
-  while (iterate != stringLines.end()) {
+  std::sort(strings.begin(), strings.end());
+  std::vector<std::string>::iterator iterate = strings.begin();
+  while (!(iterate == strings.end())) {
     std::cout << *iterate << std::endl;
     iterate++;
   }
-  stringLines.clear();
+  strings.clear();
 }
 
 void sortFile(int argc, char ** argv) {
