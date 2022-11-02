@@ -1,8 +1,6 @@
-Grading at 11/02/2022:18:37:38.428473
-For commit ID 376d32b4e0ad03fa10aa67afb9e22e6148836cf7
-Grading at Wed Nov  2 02:37:38 PM EDT 2022
-You do not seem to have a file called answers.txt. Here is what I see:
-anwers.txt
-README
+Grading at 11/02/2022:18:38:29.262987
+For commit ID bec78b43999c7925bb17289e8bc9d253bf14b2fc
+Grading at Wed Nov  2 02:38:28 PM EDT 2022
+Reading your quiz answers from answers.txt
 
-Overall Grade: FAILED
+Overall Grade: PASSED
