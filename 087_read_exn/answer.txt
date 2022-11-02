@@ -11,7 +11,7 @@ Something(99)
 Something(99)
 ~Something(99)
 Something(99)
-~Something(9)
+~Something(99)
 ~Something(7)
 A domain error (Division by zero) occured!
 At the end of main
