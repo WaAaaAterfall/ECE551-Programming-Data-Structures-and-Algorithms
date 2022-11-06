@@ -1,404 +1,251 @@
-Grading at 10/26/2022:20:21:10.705616
+Grading at 11/05/2022:20:20:19.053278
 For commit ID b69ef4b24b0acd0a5c3e2135e65fc9b9a6746c25
-Grading at Wed Oct 26 04:20:20 PM EDT 2022
-Doing some basic checking for your submission
+Grading at Sat Nov  5 04:19:50 PM EDT 2022
 
+=========================================================================
 Step 1
+
 Checking that story-step1 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
 gcc -o story-step1 story-step1.o rand_story.o provided.o
 rm story-step1.o
-The code compiled (good)
-Executable story-step1 exists (good)
-Checking with provided test case story.txt
++-----------------------------------------------------------------------+
+Test case 1
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 2
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 3
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 4
+Your program successfully indicated a failure case
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 5
 Your file matched the expected output
-Now running YOUR tests for step 1
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 6
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 7
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 8
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 9
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 10
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 11
+Your file matched the expected output
+                                                         [2/2]
 
-1.1: Current test is story-step1 story.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+Step 1 total                                             [25.0/25]
 
-1.2: Current test is story-step1 story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-1.3: Current test is story-step1 story3.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-1.4: Current test is story-step1 story4.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-1.5: Current test is story-step1 story5.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-1.6: Current test is story-step1 story6.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-1.7: Current test is story-step1 story11.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
+=========================================================================
 Step 2
+
 Checking that story-step2 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
 gcc -o story-step2 story-step2.o rand_story.o provided.o
 rm story-step2.o
-The code compiled (good)
-Executable story-step2 exists (good)
-Now running YOUR tests for step 2
++-----------------------------------------------------------------------+
+Test case 12
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 13
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 14
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 15
+Your program successfully indicated a failure case
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 16
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 17
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 18
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 19
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 20
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 21
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 22
+Your file matched the expected output
+                                                         [1/1]
 
-2.1: Current test is story-step2 words.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+Step 2 total                                             [20.0/20]
 
-2.2: Current test is story-step2 words1.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-2.3: Current test is story-step2 words2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-2.4: Current test is story-step2 words3.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-2.5: Current test is story-step2 words4.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
+=========================================================================
 Step 3
+
 Checking that story-step3 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
 gcc -o story-step3 story-step3.o rand_story.o provided.o
 rm story-step3.o
-The code compiled (good)
-Executable story-step3 exists (good)
-Now running YOUR tests for step 3
++-----------------------------------------------------------------------+
+Test case 23
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 24
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 25
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 26
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 27
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 28
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 29
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 30
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 31
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 32
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 33
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 34
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 35
+Your file matched the expected output
+                                                         [2/2]
 
-3.1: Current test is story-step3 words.txt story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+Step 3 total                                             [25.0/25]
 
-3.2: Current test is story-step3 words.txt story7.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-3.3: Current test is story-step3 words.txt story8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.4: Current test is story-step3 words9.txt story9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.5: Current test is story-step3 words10.txt story10.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.6: Current test is story-step3 words.txt story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.7: Current test is story-step3 words.txt story7.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-3.8: Current test is story-step3 words.txt story8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.9: Current test is story-step3 words9.txt story9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.10: Current test is story-step3 words10.txt story10.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.11: Current test is story-step3 words12.txt story12.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.12: Current test is story-step3 words7.txt story12.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-3.13: Current test is story-step3 wordsown2.txt storyown2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.14: Current test is story-step3 words13.txt story13.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.15: Current test is story-step3 words14.txt story14.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.16: Current test is story-step3 words15.txt story15.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.17: Current test is story-step3 words.txt story11.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
+=========================================================================
 Step 4
+
 Checking that story-step4 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step4.c
 gcc -o story-step4 story-step4.o rand_story.o provided.o
 rm story-step4.o
-The code compiled (good)
-Executable story-step4 exists (good)
-Now running YOUR tests for step 4
++-----------------------------------------------------------------------+
+Test case 36
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 37
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 38
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 39
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 40
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 41
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 42
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 43
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 44
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 45
+Your file matched the expected output
+                                                         [4/4]
 
-4.1: Current test is story-step4 words.txt story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+Step 4 total                                             [20.0/20]
 
-4.2: Current test is story-step4 words.txt story7.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
+=========================================================================
+Code quality
 
-4.3: Current test is story-step4 words.txt story8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+Abstration:    Good
+Naming:        Good
+Formatting:    Excellent
+Documentation: Good
+Comments from your grader:
+Abstraction: Mostly fantastic, but hooo boy, processTemplate gets long! You 
+could abstract out what to do for one line? I like that you made a story_t.
+Naming: Mostly great, not sure about "res" and "point" though?
+Formatting: Standard, good.
+Documentation: Great comments within functions. Go ahead and put the comment 
+that describes each function in the .c file.
+Quality total                                            [8.9/10]
 
-4.4: Current test is story-step4 words9.txt story9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+=========================================================================
 
-4.5: Current test is story-step4 words10.txt story10.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.6: Current test is story-step4 words12.txt story12.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.7: Current test is story-step4 words7.txt story12.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-4.8: Current test is story-step4 -n words.txt story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.9: Current test is story-step4 -n words.txt story7.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-4.10: Current test is story-step4 -n words.txt story8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.11: Current test is story-step4 -n words9.txt story9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.12: Current test is story-step4 -n words10.txt story10.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.13: Current test is story-step4 -n words5.txt story2.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-4.14: Current test is story-step4 -n words12.txt story12.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.15: Current test is story-step4 -n words7.txt story2.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-4.16: Current test is story-step4 -n wordsown.txt storyown.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.17: Current test is story-step4 wordsown.txt storyown.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.18: Current test is story-step4 -n wordsown2.txt storyown2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.19: Current test is story-step4 wordsown2.txt storyown2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.20: Current test is story-step4 -n words13.txt story13.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-4.21: Current test is story-step4 words13.txt story13.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.22: Current test is story-step4 -n words14.txt story14.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-4.23: Current test is story-step4 words14.txt story14.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.24: Current test is story-step4 -n words15.txt story15.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.25: Current test is story-step4 words15.txt story15.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.26: Current test is story-step4 -n words.txt story16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.27: Current test is story-step4 words.txt story11.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.28: Current test is story-step4 -n words16.txt story17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.29: Current test is story-step4 words16.txt story17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-You have passed the test cases YOU provided
-If your tests are good, this is great. 
-If your tests are insufficient, you should do much more testing
-
-Overall Grade: NO GRADE YET
+Overall Grade: 99
