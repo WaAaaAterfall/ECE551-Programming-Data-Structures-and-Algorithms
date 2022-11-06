@@ -1,0 +1,48 @@
+This program parses input from a file containing a key and zero or
+more associated values. 
+
+In the file "parse.cpp", you see that this program should take exactly
+one command line argument--the name of the file to read. The file
+contains a list of keys and their values. The program should read each
+line, which has the following format:
+
+key1: value1, value2
+
+The line must have a key, which is any characters preceeding the colon
+(:) and may be the empty string. Next is a list of values, of which
+there may be zero or more, delimited by a comma-space (, ). If there
+are any values, a space follows the colon, and each value is the
+substring from two characters past the delimiter until a comma or
+newline. See input.txt for an example.
+
+However, this program does no error checking for the format of a line!
+What happens if you run it with files that do not follow this format?
+
+Next, the program reads each line in the file into an item_t, a pair
+of string and vector of strings. Once the file has been parsed, it
+prints out the items with the following format: 
+
+key = key1
+  values = value1; value2 
+
+Activity
+===================================================================
+
+(1) Run this program on input.txt and see what its output is. Then,
+    run it on nocol.txt and see how it behaves when an input line does
+    not follow the expected format.
+
+(2) Think about how exceptions could allow this program to handle
+    errors gracefully. Create a custom exception class invalid_input
+    by thinking about what class it should extend and what header you
+    must include. What method should you override? See the
+    cplusplus.com documentation for help with this.
+
+(3) Adapt the code to throw an invalid_input exception when the line
+    of input does not follow the described format (such as that found
+    in nocol.txt). What happens now?
+
+(4) Add a try/catch block in the function itemsFromFile to allow the
+    program to recover from an invalid line of input by printing an
+    error message to cerr and moving on to the next line in the file. 
+    
