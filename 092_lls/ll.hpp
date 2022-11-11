@@ -109,19 +109,22 @@ void LinkedList<T>::addBack(const T & item) {
 template<typename T>
 bool LinkedList<T>::remove(const T & item) {
   Node * current = head;
+  if (current == NULL) {
+    return false;
+  }
   while (current != NULL) {
     if (current->data == item) {
-      if (current->prev != NULL) {
-        current->prev->next = current->next;
-      }
-      else {
+      if (current->prev == NULL) {
         head = current->next;
       }
-      if (current->next != NULL) {
-        current->next->prev = current->prev;
+      else {
+        current->prev->next = current->next;
+      }
+      if (current->next == NULL) {
+        tail = current->prev;
       }
       else {
-        tail = current->prev;
+        current->next->prev = current->prev;
       }
       size--;
       delete current;
