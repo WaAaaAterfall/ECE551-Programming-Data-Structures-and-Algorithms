@@ -16,7 +16,7 @@ class LinkedList {
     T data;
     Node * next;
     Node * prev;
-    Node() : data(0), next(NULL), prev(NULL){};
+    Node() : next(NULL), prev(NULL){};
     Node(const T & data, Node * n, Node * p) : data(data), next(n), prev(p){};
   };
 
