@@ -1,0 +1,14 @@
+Grading at 11/16/2022:21:14:31.628481
+For commit ID a089fdc9c5c669688da6827b95d233437dd27ede
+Grading at Wed Nov 16 04:14:31 PM EST 2022
+Stripping out any main you may have written, and compiling...
+newsearch.cpp:6:17: error: non-static data member initializers only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    6 |   bool allNeg = true;
+      |                 ^~~~
+newsearch.cpp:7:17: error: non-static data member initializers only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    7 |   bool allPos = true;
+      |                 ^~~~
+cc1plus: all warnings being treated as errors
+The code did not compile
+
+Overall Grade: F
