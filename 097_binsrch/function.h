@@ -9,6 +9,4 @@ class Function {
   virtual R invoke(A arg) = 0;
   virtual ~Function() {}
 };
-
-int binarySearchForZero(Function<int, int> * f, int low, int high);
 #endif

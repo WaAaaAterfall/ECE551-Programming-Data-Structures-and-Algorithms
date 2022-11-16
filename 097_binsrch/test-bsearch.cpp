@@ -18,7 +18,7 @@ class CountedIntFn : public Function<int, int> {
 
   virtual int invoke(int arg) {
     if (remaining == 0) {
-      fprintf(stderr, "Too many function invocations in %s\n", mesg);
+      std::cerr << "Too many function invocations in " << mesg << "\n";
       exit(EXIT_FAILURE);
     }
     remaining--;
@@ -31,7 +31,7 @@ class SinFunction : public Function<int, int> {
   virtual int invoke(int arg) { return arg; }
 };
 
-//int binarySearchForZero(Function<int, int> * f, int low, int high);
+int binarySearchForZero(Function<int, int> * f, int low, int high);
 
 void check(Function<int, int> * f,
            int low,
@@ -48,8 +48,9 @@ void check(Function<int, int> * f,
   CountedIntFn * checkFunc = new CountedIntFn(maxInvoke, f, mesg);
   int ans = binarySearchForZero(checkFunc, low, high);
   delete checkFunc;
+  std::cout << ans << "\n";
   if (ans != expected_ans) {
-    fprintf(stderr, "Wrong invoke timeon %s \n", mesg);
+    std::cerr << "Wrong invoke time on " << mesg << "\n";
     exit(EXIT_FAILURE);
   }
 }
