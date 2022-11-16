@@ -1,14 +1,39 @@
-Grading at 11/16/2022:21:14:31.628481
-For commit ID a089fdc9c5c669688da6827b95d233437dd27ede
-Grading at Wed Nov 16 04:14:31 PM EST 2022
+Grading at 11/16/2022:22:26:42.707381
+For commit ID 9bf4d9a1966395248ac33c45009fc37965ed66ac
+Grading at Wed Nov 16 05:26:36 PM EST 2022
 Stripping out any main you may have written, and compiling...
-newsearch.cpp:6:17: error: non-static data member initializers only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
-    6 |   bool allNeg = true;
-      |                 ^~~~
-newsearch.cpp:7:17: error: non-static data member initializers only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
-    7 |   bool allPos = true;
-      |                 ^~~~
-cc1plus: all warnings being treated as errors
-The code did not compile
+Testcase 1
+-----------------
+  - Valgrind was clean (no errors, no memory leaks)
+  - You got the wrong result
+  - Test Failed
+Testcase 2
+-----------------
+  - Valgrind was clean (no errors, no memory leaks)
+  - You got the correct result in 14 steps (correct is 15)
+  - Test Passed
+Testcase 3
+-----------------
+  - Valgrind showed memory leaks
+  - Valgrind reported errors (test failed).
+Testcase 4
+-----------------
+  - Valgrind was clean (no errors, no memory leaks)
+  - You got the correct result in 0 steps (correct is 0)
+  - Test Passed
+Testcase 5
+-----------------
+  - Valgrind was clean (no errors, no memory leaks)
+  - You got the correct result in 0 steps (correct is 0)
+  - Test Passed
+Testcase 6
+-----------------
+  - Valgrind showed memory leaks
+  - Valgrind reported errors (test failed).
+Testcase 7
+-----------------
+  - Valgrind was clean (no errors, no memory leaks)
+  - You got the correct result in 4 steps (correct is 4)
+  - Test Passed
 
 Overall Grade: F
