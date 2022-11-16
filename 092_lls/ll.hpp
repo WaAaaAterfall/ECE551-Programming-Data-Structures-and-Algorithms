@@ -10,7 +10,6 @@ template<typename T>
 
 //YOUR CODE GOES HERE
 class LinkedList {
- public:
   class Node {
    public:
     T data;
@@ -20,6 +19,7 @@ class LinkedList {
     Node(const T & data, Node * n, Node * p) : data(data), next(n), prev(p){};
   };
 
+ public:
   Node * head;
   Node * tail;
   int size;
