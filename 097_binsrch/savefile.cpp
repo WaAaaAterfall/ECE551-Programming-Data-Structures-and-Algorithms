@@ -29,28 +29,14 @@ int binarySearch(Function<int, int> * f, int low, int high) {
 }
 
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
-  if (low == high) {
-    return low;
+  if (low > high) {
+    exit(EXIT_FAILURE);
   }
-  int l = low;
-  int r = high;
-  while (l < r) {
-    int mid = l + (r - l) / 2;
-    int res = f->invoke(mid);
-    if (res > 0) {
-      r = mid;
-    }
-    else if (res == 0) {
-      return mid;
-    }
-    else {
-      l = mid + 1;
-    }
-  }
-  if (low == l) {
+  else if (low == high) {
     return low;
   }
   else {
-    return r - 1;
+    int ans = binarySearch(f, low, high - 1);
+    return ans;
   }
 }
