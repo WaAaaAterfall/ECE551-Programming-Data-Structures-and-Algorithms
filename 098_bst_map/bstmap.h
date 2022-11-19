@@ -1,5 +1,7 @@
+#include <cstdio>
 #include <cstdlib>
 #include <exception>
+#include <iostream>
 
 #include "map.h"
 
@@ -50,13 +52,8 @@ class BstMap : public Map<K, V> {
     delete node;
   }
 
-  virtual void add(const K & key, const V & value) {
-    if (root == NULL) {
-      Node * newNode = new Node(key, value);
-      root = newNode;
-    }
-    root = addNode(root, key, value);
-  }
+  virtual void add(const K & key, const V & value) { root = addNode(root, key, value); }
+
   Node * addNode(Node * node, const K & key, const V & value) {
     if (node == NULL) {
       Node * toAdd = new Node(key, value);
@@ -94,58 +91,52 @@ class BstMap : public Map<K, V> {
     throw std::invalid_argument("Cannot find the key.\n");
   }
 
-  virtual void remove(const K & key) {
-    Node * current = root;
-    if (current == NULL) {
-      return;
-    }
-    while (current != NULL) {
-      if (key < current->key) {
-        if (current->left != NULL && current->left->key == key) {
-          current->left = removeNode(current->left);
-        }
-        else {
-          current = current->left;
-        }
-      }
-      else {
-        if (current->right != NULL && current->right->key == key) {
-          current->right = removeNode(current->right);
-        }
-        else {
-          current = current->right;
-        }
-      }
-    }
-  }
+  virtual void remove(const K & key) { root = removeNode(root, key); }
 
-  Node * removeNode(Node * node) {
-    if (node->left == NULL) {
-      Node * res = node->right;
-      delete node;
-      return res;
+  Node * removeNode(Node * node, const K & key) {
+    if (node == NULL) {
+      return NULL;
     }
-    else if (node->right == NULL) {
-      Node * res = node->left;
-      delete node;
-      return res;
+    if (key < node->key) {
+      node->left = removeNode(node->left, key);
+    }
+    else if (node->key < key) {
+      node->right = removeNode(node->right, key);
     }
     else {
-      Node * right = node->right;
-      Node * leftMost;
-      if (node->left->right == NULL) {
-        leftMost = node->left;
+      if (node->left == NULL) {
+        Node * res = node->right;
+        delete node;
+        return res;
+      }
+      else if (node->right == NULL) {
+        Node * res = node->left;
+        delete node;
+        return res;
       }
       else {
-        Node * curr = node->left;
-        while (curr->right != NULL) {
-          curr = curr->right;
+        Node * maxleft = node->left;
+        while (maxleft->right != NULL) {
+          maxleft = maxleft->right;
         }
-        leftMost = curr;
+        std::cout << "maxleft" << maxleft->key << "\n";
+        node->key = maxleft->key;
+        node->value = maxleft->value;
+        node->left = removeNode(node->left, maxleft->key);
       }
-      leftMost->right = right;
-      delete node;
-      return leftMost->left;
+    }
+    return node;
+  }
+
+  void printorder() { printorder(root); }
+
+  void printorder(Node * node) {
+    if (node == NULL)
+      return;
+    else {
+      printorder(node->left);
+      printorder(node->right);
+      std::cout << node->key << " ";
     }
   }
 };
