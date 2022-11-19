@@ -78,7 +78,7 @@ template<typename K, typename V>
 BstMap<K, V> & BstMap<K, V>::operator=(const BstMap & rhs) {
   BstMap<K, V> temp(rhs);
   if (this != &rhs) {
-    swap(root, temp.root);
+    std::swap(root, temp.root);
   }
   return *this;
 }

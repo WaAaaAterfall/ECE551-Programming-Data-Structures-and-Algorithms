@@ -19,6 +19,9 @@ int main(void) {
     test.remove(2);
     std::cout << "Look for Key 2, get value " << test.lookup(2) << std::endl;
     std::cout << "Successful delete\n";
+    BstMap<int, int> copytest;
+    copytest.add(3, 3);
+    copytest = test;
   }
   catch (std::exception & e) {
     std::cerr << e.what();
