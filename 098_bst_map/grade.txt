@@ -1,0 +1,176 @@
+Grading at 11/19/2022:02:01:56.751515
+For commit ID d046575f9b8aeba558242a0c6496e73d00af20ed
+Grading at Fri Nov 18 09:01:55 PM EST 2022
+-----------------------------------------------
+testcase 1 : Testing with BstMap<int,int>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = int]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with BstMap<int,std::string>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = Tester]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 4 : Testing with BstMap<std::string,int>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 5 : Testing with BstMap<std::string,std::string>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 7 : Testing with BstMap<(a custom class we wrote),int>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = int]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = Tester]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
+   81 |     swap(root, temp.root);
+      |     ~~~~^~~~~~~~~~~~~~~~~
+      |     std::swap
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/stdexcept:39,
+                 from map.h:3,
+                 from bstmap.h:4,
+                 from 89-tester.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
+ 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~
+The code did not compile.  This test failed.
+
+Overall Grade: F
