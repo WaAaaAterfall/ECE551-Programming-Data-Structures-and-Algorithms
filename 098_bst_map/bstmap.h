@@ -135,8 +135,8 @@ class BstMap : public Map<K, V> {
       return;
     else {
       printorder(node->left);
-      printorder(node->right);
       std::cout << node->key << " ";
+      printorder(node->right);
     }
   }
 };

@@ -73,7 +73,7 @@ class BstSet : public Set<K> {
     return node;
   }
 
-  virtual bool contains(const K & key) const throw(std::invalid_argument) {
+  virtual bool contains(const K & key) const {
     Node * current = root;
     while (current != NULL) {
       if (current->key == key) {
@@ -86,7 +86,7 @@ class BstSet : public Set<K> {
         current = current->left;
       }
     }
-    throw std::invalid_argument("Cannot find the key.\n");
+    return false;
   }
 
   virtual void remove(const K & key) { root = removeNode(root, key); }
@@ -131,8 +131,8 @@ class BstSet : public Set<K> {
       return;
     else {
       printorder(node->left);
-      printorder(node->right);
       std::cout << node->key << " ";
+      printorder(node->right);
     }
   }
 };
