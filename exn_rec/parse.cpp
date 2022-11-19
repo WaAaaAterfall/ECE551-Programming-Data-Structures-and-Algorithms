@@ -5,6 +5,10 @@
 #include <vector>
 
 typedef std::pair<std::string, std::vector<std::string> > item_t;
+class invalid_input : public std::exception {
+ public:
+  virtual const char * what() const throw() { return "invalid input.\n"; }
+};
 
 // prints each key and associated values
 void printItems(const std::vector<item_t> & items) {
@@ -25,6 +29,9 @@ void printItems(const std::vector<item_t> & items) {
 item_t parseLine(const std::string & line) {
   item_t ans;
   std::size_t delim = line.find(":");
+  if (delim == std::string::npos) {
+    throw invalid_input();
+  }
   std::string key = line.substr(0, delim);  // name is from beg to colon
   ans.first = key;
   std::size_t end;
@@ -47,7 +54,13 @@ std::vector<item_t> itemsFromFile(std::ifstream & f) {
   std::vector<item_t> ans;
   std::string line;
   while (std::getline(f, line)) {
-    item_t item = parseLine(line);
+    item_t item;
+    try {
+      item = parseLine(line);
+    }
+    catch (invalid_input & e) {
+      std::cout << e.what() << "\n";
+    }
     ans.push_back(item);
   }
   return ans;

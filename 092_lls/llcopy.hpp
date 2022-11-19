@@ -6,16 +6,9 @@
 #include <cstdlib>
 #include <exception>
 #include <iostream>
+template<typename T>
 
 //YOUR CODE GOES HERE
-class myException : public std::exception {
- public:
-  virtual const char * what() const throw() {
-    return "The requested item does not exist.\n";
-  }
-};
-
-template<typename T>
 class LinkedList {
   class Node {
    public:
@@ -44,76 +37,111 @@ class LinkedList {
   int getSize() const;
 };
 
+class myException : public std::exception {
+ public:
+  virtual const char * what() const throw() {
+    return "The requested item does not exist.\n";
+  }
+};
+
 template<typename T>
+//copy constructor
 LinkedList<T>::LinkedList(const LinkedList & rhs) {
-  Node * rhsCurrent = rhs.head;
-  head = new Node(rhs.head->data, NULL, NULL);
-  rhsCurrent = rhsCurrent->next;
-  while (rhsCurrent != NULL) {
-    addBack(rhsCurrent->data);
-    rhsCurrent = rhsCurrent->next;
+  Node * current = rhs.head;
+  head = NULL;
+  tail = NULL;
+  size = 0;
+  while (current != NULL) {
+    addBack(current->data);
+    current = current->next;
   }
 }
 
 template<typename T>
+//assignment copy
 LinkedList<T> & LinkedList<T>::operator=(const LinkedList & rhs) {
-  LinkedList * newLL = new LinkedList(rhs);
-  std::swap(newLL->head, head);
-  std::swap(newLL->tail, tail);
-  std::swap(newLL->size, size);
-  delete newLL;
+  if (this != &rhs) {
+    LinkedList<T> temp = LinkedList<T>(rhs);
+    std::swap(temp.head, head);
+    std::swap(temp.tail, tail);
+    std::swap(temp.size, size);
+  }
+  return *this;
+}
+
+template<typename T>
+LinkedList<T>::~LinkedList() {
+  while (tail != NULL) {
+    Node * current = tail->prev;
+    delete tail;
+    tail = current;
+  }
+  size = 0;
+  head = NULL;
 }
 
 template<typename T>
 void LinkedList<T>::addFront(const T & item) {
-  Node * newN = new Node(item, head, NULL);
-  head->prev = newN;
-  head = newN;
+  Node * add = new Node(item, head, NULL);
+  if (head != NULL) {
+    head->prev = add;
+  }
+  else {
+    tail = add;
+  }
+  head = add;
   size++;
 }
 
 template<typename T>
 void LinkedList<T>::addBack(const T & item) {
-  Node * newN = new Node(item, NULL, tail);
-  tail->next = newN;
-  tail = newN;
+  Node * add = new Node(item, NULL, tail);
+  if (tail != NULL) {
+    tail->next = add;
+  }
+  else {
+    head = add;
+  }
+  tail = add;
   size++;
 }
 
 template<typename T>
 bool LinkedList<T>::remove(const T & item) {
   Node * current = head;
+  if (current == NULL) {
+    return false;
+  }
   while (current != NULL) {
     if (current->data == item) {
       if (current->prev == NULL) {
         head = current->next;
-        head->prev = NULL;
-        delete current;
-      }
-      else if (current->next == NULL) {
-        tail = current->prev;
-        tail->next = NULL;
-        delete current;
       }
       else {
         current->prev->next = current->next;
+      }
+      if (current->next == NULL) {
+        tail = current->prev;
+      }
+      else {
         current->next->prev = current->prev;
-        delete current;
       }
       size--;
+      delete current;
       return true;
     }
+    current = current->next;
   }
   return false;
 }
 
 template<typename T>
 T & LinkedList<T>::operator[](int index) {
-  int count = 0;
+  int i = 0;
   Node * current = head;
-  while (count < index) {
+  while (i < index) {
     current = current->next;
-    count++;
+    i++;
     if (current == NULL) {
       throw myException();
     }
@@ -123,25 +151,28 @@ T & LinkedList<T>::operator[](int index) {
 
 template<typename T>
 const T & LinkedList<T>::operator[](int index) const {
-  int count = 0;
-  if (index >= size) {
-    exit(EXIT_FAILURE);
-  }
+  int i = 0;
   Node * current = head;
-  while (count < index) {
+  while (i < index) {
     current = current->next;
+    i++;
+    if (current == NULL) {
+      throw myException();
+    }
   }
   return current->data;
 }
 
 template<typename T>
 int LinkedList<T>::find(const T & item) const {
-  int count = 0;
   Node * current = head;
-  while (count < size) {
+  int index = 0;
+  while (current != NULL) {
     if (current->data == item) {
-      return count;
+      return index;
     }
+    current = current->next;
+    index++;
   }
   return -1;
 }
@@ -149,18 +180,5 @@ int LinkedList<T>::find(const T & item) const {
 template<typename T>
 int LinkedList<T>::getSize() const {
   return size;
-}
-
-template<typename T>
-LinkedList<T>::~LinkedList<T>() {
-  Node * node = head;
-  while (node != NULL) {
-    Node * toDelete = node;
-    node = node->next;
-    delete toDelete;
-  }
-  head = NULL;
-  tail = NULL;
-  size = 0;
 }
 #endif
