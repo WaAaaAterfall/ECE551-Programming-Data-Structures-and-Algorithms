@@ -1,176 +1,356 @@
-Grading at 11/19/2022:02:01:56.751515
-For commit ID d046575f9b8aeba558242a0c6496e73d00af20ed
-Grading at Fri Nov 18 09:01:55 PM EST 2022
+Grading at 11/19/2022:02:05:04.995225
+For commit ID a57fae65774be721ded0c99b03a7710840bdfd36
+Grading at Fri Nov 18 09:04:52 PM EST 2022
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189051== Memcheck, a memory error detector
+==1189051== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189051== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189051== Command: ./test.1
+==1189051== Parent PID: 1189050
+==1189051== 
+==1189051== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189051== 
+==1189051== Process terminating with default action of signal 11 (SIGSEGV)
+==1189051==  Access not within mapped region at address 0x1FFE801FF8
+==1189051== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189051==    at 0x10BE06: BstMap<int, int>::remove(int const&) (in /home/ece551db/graderbase/work/sp645.098_bst_map.LayZdd/test.1)
+==1189051==  If you believe this happened as a result of a stack
+==1189051==  overflow in your program's main thread (unlikely but
+==1189051==  possible), you can try to increase the size of the
+==1189051==  main thread stack using the --main-stacksize= flag.
+==1189051==  The main thread stack size used in this run was 8388608.
+==1189051== 
+==1189051== HEAP SUMMARY:
+==1189051==     in use at exit: 77,960 bytes in 51 blocks
+==1189051==   total heap usage: 126 allocs, 75 frees, 83,120 bytes allocated
+==1189051== 
+==1189051== LEAK SUMMARY:
+==1189051==    definitely lost: 0 bytes in 0 blocks
+==1189051==    indirectly lost: 0 bytes in 0 blocks
+==1189051==      possibly lost: 0 bytes in 0 blocks
+==1189051==    still reachable: 77,960 bytes in 51 blocks
+==1189051==         suppressed: 0 bytes in 0 blocks
+==1189051== Reachable blocks (those to which a pointer was found) are not shown.
+==1189051== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189051== 
+==1189051== For lists of detected and suppressed errors, rerun with: -s
+==1189051== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189074== Memcheck, a memory error detector
+==1189074== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189074== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189074== Command: ./test.2
+==1189074== Parent PID: 1189073
+==1189074== 
+==1189074== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189074== 
+==1189074== Process terminating with default action of signal 11 (SIGSEGV)
+==1189074==  Access not within mapped region at address 0x1FFE801FF8
+==1189074== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189074==    at 0x49AEE09: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==1189074==  If you believe this happened as a result of a stack
+==1189074==  overflow in your program's main thread (unlikely but
+==1189074==  possible), you can try to increase the size of the
+==1189074==  main thread stack using the --main-stacksize= flag.
+==1189074==  The main thread stack size used in this run was 8388608.
+==1189074== 
+==1189074== HEAP SUMMARY:
+==1189074==     in use at exit: 80,195 bytes in 88 blocks
+==1189074==   total heap usage: 246 allocs, 158 frees, 87,120 bytes allocated
+==1189074== 
+==1189074== LEAK SUMMARY:
+==1189074==    definitely lost: 0 bytes in 0 blocks
+==1189074==    indirectly lost: 0 bytes in 0 blocks
+==1189074==      possibly lost: 0 bytes in 0 blocks
+==1189074==    still reachable: 80,195 bytes in 88 blocks
+==1189074==         suppressed: 0 bytes in 0 blocks
+==1189074== Reachable blocks (those to which a pointer was found) are not shown.
+==1189074== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189074== 
+==1189074== For lists of detected and suppressed errors, rerun with: -s
+==1189074== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189110== Memcheck, a memory error detector
+==1189110== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189110== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189110== Command: ./test.3
+==1189110== Parent PID: 1189109
+==1189110== 
+==1189110== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189110== 
+==1189110== Process terminating with default action of signal 11 (SIGSEGV)
+==1189110==  Access not within mapped region at address 0x1FFE801FF8
+==1189110== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189110==    at 0x49AEDF6: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==1189110==  If you believe this happened as a result of a stack
+==1189110==  overflow in your program's main thread (unlikely but
+==1189110==  possible), you can try to increase the size of the
+==1189110==  main thread stack using the --main-stacksize= flag.
+==1189110==  The main thread stack size used in this run was 8388608.
+==1189110== 
+==1189110== HEAP SUMMARY:
+==1189110==     in use at exit: 80,571 bytes in 88 blocks
+==1189110==   total heap usage: 266 allocs, 178 frees, 87,920 bytes allocated
+==1189110== 
+==1189110== LEAK SUMMARY:
+==1189110==    definitely lost: 0 bytes in 0 blocks
+==1189110==    indirectly lost: 0 bytes in 0 blocks
+==1189110==      possibly lost: 0 bytes in 0 blocks
+==1189110==    still reachable: 80,571 bytes in 88 blocks
+==1189110==         suppressed: 0 bytes in 0 blocks
+==1189110== Reachable blocks (those to which a pointer was found) are not shown.
+==1189110== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189110== 
+==1189110== For lists of detected and suppressed errors, rerun with: -s
+==1189110== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189155== Memcheck, a memory error detector
+==1189155== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189155== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189155== Command: ./test.4
+==1189155== Parent PID: 1189154
+==1189155== 
+==1189155== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189155== 
+==1189155== Process terminating with default action of signal 11 (SIGSEGV)
+==1189155==  Access not within mapped region at address 0x1FFE801FF8
+==1189155== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189155==    at 0x10B7B6: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/sp645.098_bst_map.LayZdd/test.4)
+==1189155==  If you believe this happened as a result of a stack
+==1189155==  overflow in your program's main thread (unlikely but
+==1189155==  possible), you can try to increase the size of the
+==1189155==  main thread stack using the --main-stacksize= flag.
+==1189155==  The main thread stack size used in this run was 8388608.
+==1189155== 
+==1189155== HEAP SUMMARY:
+==1189155==     in use at exit: 78,792 bytes in 39 blocks
+==1189155==   total heap usage: 126 allocs, 87 frees, 84,720 bytes allocated
+==1189155== 
+==1189155== LEAK SUMMARY:
+==1189155==    definitely lost: 0 bytes in 0 blocks
+==1189155==    indirectly lost: 0 bytes in 0 blocks
+==1189155==      possibly lost: 0 bytes in 0 blocks
+==1189155==    still reachable: 78,792 bytes in 39 blocks
+==1189155==         suppressed: 0 bytes in 0 blocks
+==1189155== Reachable blocks (those to which a pointer was found) are not shown.
+==1189155== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189155== 
+==1189155== For lists of detected and suppressed errors, rerun with: -s
+==1189155== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189179== Memcheck, a memory error detector
+==1189179== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189179== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189179== Command: ./test.5
+==1189179== Parent PID: 1189178
+==1189179== 
+==1189179== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189179== 
+==1189179== Process terminating with default action of signal 11 (SIGSEGV)
+==1189179==  Access not within mapped region at address 0x1FFE801FF8
+==1189179== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189179==    at 0x10B96C: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/sp645.098_bst_map.LayZdd/test.5)
+==1189179==  If you believe this happened as a result of a stack
+==1189179==  overflow in your program's main thread (unlikely but
+==1189179==  possible), you can try to increase the size of the
+==1189179==  main thread stack using the --main-stacksize= flag.
+==1189179==  The main thread stack size used in this run was 8388608.
+==1189179== 
+==1189179== HEAP SUMMARY:
+==1189179==     in use at exit: 80,158 bytes in 65 blocks
+==1189179==   total heap usage: 247 allocs, 182 frees, 88,351 bytes allocated
+==1189179== 
+==1189179== LEAK SUMMARY:
+==1189179==    definitely lost: 0 bytes in 0 blocks
+==1189179==    indirectly lost: 0 bytes in 0 blocks
+==1189179==      possibly lost: 0 bytes in 0 blocks
+==1189179==    still reachable: 80,158 bytes in 65 blocks
+==1189179==         suppressed: 0 bytes in 0 blocks
+==1189179== Reachable blocks (those to which a pointer was found) are not shown.
+==1189179== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189179== 
+==1189179== For lists of detected and suppressed errors, rerun with: -s
+==1189179== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189214== Memcheck, a memory error detector
+==1189214== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189214== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189214== Command: ./test.6
+==1189214== Parent PID: 1189213
+==1189214== 
+==1189214== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189214== 
+==1189214== Process terminating with default action of signal 11 (SIGSEGV)
+==1189214==  Access not within mapped region at address 0x1FFE801FF8
+==1189214== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189214==    at 0x49AEE9A: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==1189214==  If you believe this happened as a result of a stack
+==1189214==  overflow in your program's main thread (unlikely but
+==1189214==  possible), you can try to increase the size of the
+==1189214==  main thread stack using the --main-stacksize= flag.
+==1189214==  The main thread stack size used in this run was 8388608.
+==1189214== 
+==1189214== HEAP SUMMARY:
+==1189214==     in use at exit: 80,438 bytes in 65 blocks
+==1189214==   total heap usage: 267 allocs, 202 frees, 89,151 bytes allocated
+==1189214== 
+==1189214== LEAK SUMMARY:
+==1189214==    definitely lost: 0 bytes in 0 blocks
+==1189214==    indirectly lost: 0 bytes in 0 blocks
+==1189214==      possibly lost: 0 bytes in 0 blocks
+==1189214==    still reachable: 80,438 bytes in 65 blocks
+==1189214==         suppressed: 0 bytes in 0 blocks
+==1189214== Reachable blocks (those to which a pointer was found) are not shown.
+==1189214== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189214== 
+==1189214== For lists of detected and suppressed errors, rerun with: -s
+==1189214== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = int]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189244== Memcheck, a memory error detector
+==1189244== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189244== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189244== Command: ./test.7
+==1189244== Parent PID: 1189243
+==1189244== 
+==1189244== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189244== 
+==1189244== Process terminating with default action of signal 11 (SIGSEGV)
+==1189244==  Access not within mapped region at address 0x1FFE801FF8
+==1189244== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189244==    at 0x10B6B4: std::char_traits<char>::compare(char const*, char const*, unsigned long) (in /home/ece551db/graderbase/work/sp645.098_bst_map.LayZdd/test.7)
+==1189244==  If you believe this happened as a result of a stack
+==1189244==  overflow in your program's main thread (unlikely but
+==1189244==  possible), you can try to increase the size of the
+==1189244==  main thread stack using the --main-stacksize= flag.
+==1189244==  The main thread stack size used in this run was 8388608.
+==1189244== 
+==1189244== HEAP SUMMARY:
+==1189244==     in use at exit: 79,840 bytes in 51 blocks
+==1189244==   total heap usage: 126 allocs, 75 frees, 85,120 bytes allocated
+==1189244== 
+==1189244== LEAK SUMMARY:
+==1189244==    definitely lost: 0 bytes in 0 blocks
+==1189244==    indirectly lost: 0 bytes in 0 blocks
+==1189244==      possibly lost: 0 bytes in 0 blocks
+==1189244==    still reachable: 79,840 bytes in 51 blocks
+==1189244==         suppressed: 0 bytes in 0 blocks
+==1189244== Reachable blocks (those to which a pointer was found) are not shown.
+==1189244== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189244== 
+==1189244== For lists of detected and suppressed errors, rerun with: -s
+==1189244== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189282== Memcheck, a memory error detector
+==1189282== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189282== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189282== Command: ./test.8
+==1189282== Parent PID: 1189281
+==1189282== 
+==1189282== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189282== 
+==1189282== Process terminating with default action of signal 11 (SIGSEGV)
+==1189282==  Access not within mapped region at address 0x1FFE801FF8
+==1189282== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189282==    at 0x10B869: std::char_traits<char>::compare(char const*, char const*, unsigned long) (in /home/ece551db/graderbase/work/sp645.098_bst_map.LayZdd/test.8)
+==1189282==  If you believe this happened as a result of a stack
+==1189282==  overflow in your program's main thread (unlikely but
+==1189282==  possible), you can try to increase the size of the
+==1189282==  main thread stack using the --main-stacksize= flag.
+==1189282==  The main thread stack size used in this run was 8388608.
+==1189282== 
+==1189282== HEAP SUMMARY:
+==1189282==     in use at exit: 81,699 bytes in 88 blocks
+==1189282==   total heap usage: 246 allocs, 158 frees, 88,720 bytes allocated
+==1189282== 
+==1189282== LEAK SUMMARY:
+==1189282==    definitely lost: 0 bytes in 0 blocks
+==1189282==    indirectly lost: 0 bytes in 0 blocks
+==1189282==      possibly lost: 0 bytes in 0 blocks
+==1189282==    still reachable: 81,699 bytes in 88 blocks
+==1189282==         suppressed: 0 bytes in 0 blocks
+==1189282== Reachable blocks (those to which a pointer was found) are not shown.
+==1189282== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189282== 
+==1189282== For lists of detected and suppressed errors, rerun with: -s
+==1189282== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:
-bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = Tester]’:
-89-tester.cpp:131:10:   required from here
-bstmap.h:81:9: error: ‘swap’ was not declared in this scope; did you mean ‘std::swap’?
-   81 |     swap(root, temp.root);
-      |     ~~~~^~~~~~~~~~~~~~~~~
-      |     std::swap
-In file included from /usr/include/c++/11/string:55,
-                 from /usr/include/c++/11/stdexcept:39,
-                 from map.h:3,
-                 from bstmap.h:4,
-                 from 89-tester.cpp:1:
-/usr/include/c++/11/bits/basic_string.h:6493:5: note: ‘std::swap’ declared here
- 6493 |     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
-      |     ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+==1189324== Memcheck, a memory error detector
+==1189324== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1189324== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1189324== Command: ./test.9
+==1189324== Parent PID: 1189323
+==1189324== 
+==1189324== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189324== 
+==1189324== Process terminating with default action of signal 11 (SIGSEGV)
+==1189324==  Access not within mapped region at address 0x1FFE801FF8
+==1189324== Stack overflow in thread #1: can't grow stack to 0x1ffe801000
+==1189324==    at 0x10B873: std::char_traits<char>::compare(char const*, char const*, unsigned long) (in /home/ece551db/graderbase/work/sp645.098_bst_map.LayZdd/test.9)
+==1189324==  If you believe this happened as a result of a stack
+==1189324==  overflow in your program's main thread (unlikely but
+==1189324==  possible), you can try to increase the size of the
+==1189324==  main thread stack using the --main-stacksize= flag.
+==1189324==  The main thread stack size used in this run was 8388608.
+==1189324== 
+==1189324== HEAP SUMMARY:
+==1189324==     in use at exit: 82,075 bytes in 88 blocks
+==1189324==   total heap usage: 266 allocs, 178 frees, 89,520 bytes allocated
+==1189324== 
+==1189324== LEAK SUMMARY:
+==1189324==    definitely lost: 0 bytes in 0 blocks
+==1189324==    indirectly lost: 0 bytes in 0 blocks
+==1189324==      possibly lost: 0 bytes in 0 blocks
+==1189324==    still reachable: 82,075 bytes in 88 blocks
+==1189324==         suppressed: 0 bytes in 0 blocks
+==1189324== Reachable blocks (those to which a pointer was found) are not shown.
+==1189324== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1189324== 
+==1189324== For lists of detected and suppressed errors, rerun with: -s
+==1189324== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 Overall Grade: F
