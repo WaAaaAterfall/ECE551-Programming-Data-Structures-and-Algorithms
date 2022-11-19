@@ -22,6 +22,14 @@ int main(void) {
     std::cout << "Look for Key 20, get value\n " << test.lookup(20) << std::endl;
     test.add(0, 60);
     std::cout << "Look for Key 0, get value\n " << test.lookup(0) << std::endl;
+    BstMap<int, int> testcopy(test);
+    testcopy.printorder();
+    std::cout << "\n";
+    testcopy.add(100, 1);
+    BstMap<int, int> testtest(test);
+    testtest = testcopy;
+    testtest.printorder();
+    std::cout << "\n";
     test.remove(20);
     test.printorder();
     std::cout << "\n";

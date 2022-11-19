@@ -22,15 +22,16 @@ class BstMap : public Map<K, V> {
 
  public:
   BstMap() : root(NULL){};
-  BstMap(const BstMap & rhs) { copyHelper(root, rhs.root); }
-  void copyHelper(Node * current, const Node * other) {
+  BstMap(const BstMap & rhs) { root = copyHelper(rhs.root); }
+  Node * copyHelper(const Node * other) {
     if (other == NULL) {
-      current = NULL;
+      return NULL;
     }
     else {
-      current = new Node(other->key, other->value);
-      copyHelper(current->left, other->left);
-      copyHelper(current->right, current->right);
+      Node * current = new Node(other->key, other->value);
+      current->left = copyHelper(other->left);
+      current->right = copyHelper(other->right);
+      return current;
     }
   }
 
@@ -119,7 +120,6 @@ class BstMap : public Map<K, V> {
         while (maxleft->right != NULL) {
           maxleft = maxleft->right;
         }
-        std::cout << "maxleft" << maxleft->key << "\n";
         node->key = maxleft->key;
         node->value = maxleft->value;
         node->left = removeNode(node->left, maxleft->key);
