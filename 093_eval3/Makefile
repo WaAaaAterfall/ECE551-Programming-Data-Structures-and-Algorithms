@@ -1,0 +1,2 @@
+cyoa-step1: cyoa-step1.cpp Story.hpp Page.hpp
+	g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp
