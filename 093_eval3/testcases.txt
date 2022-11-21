@@ -1,2 +1,2 @@
 cyoa-step1 /usr/local/ece551/cyoa/story1
-cypa-step1 /usr/local/ece551/cyoa/story2
+cyoa-step1 /usr/local/ece551/cyoa/story2
