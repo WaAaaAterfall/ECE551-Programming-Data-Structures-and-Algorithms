@@ -11,7 +11,7 @@ int binarySearch(Function<int, int> * f, int low, int high) {
       return low;
     }
     else {
-      return high;
+      return high - 1;
     }
   }
   int i = (high - low) / 2 + low;
@@ -24,7 +24,7 @@ int binarySearch(Function<int, int> * f, int low, int high) {
     return binarySearch(f, i + 1, high);
   }
   else {
-    return binarySearch(f, low, i);
+    return binarySearch(f, low, i - 1);
   }
 }
 
@@ -36,7 +36,7 @@ int binarySearchForZero(Function<int, int> * f, int low, int high) {
     return low;
   }
   else {
-    int ans = binarySearch(f, low, high - 1);
+    int ans = binarySearch(f, low, high);
     return ans;
   }
 }

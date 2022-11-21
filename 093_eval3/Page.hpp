@@ -23,7 +23,7 @@ class Page {
   Page(const Page & rhs);
   Page & operator=(const Page & rhs);
   //  ~Page();
-  std::string generatePath(const std::string path, const std::string file);
+  //  std::string generatePath(const std::string path, const std::string file);
   int getPageNum() const { return pageNum; }
   int getPageType() const { return pageType; }
   size_t getDestination() const { return goPageNum; }
@@ -61,13 +61,6 @@ Page & Page::operator=(const Page & rhs) {
     std::swap(choices, temp.choices);
   }
   return *this;
-}
-
-std::string Page::generatePath(const std::string path, const std::string file) {
-  std::ostringstream fileName;
-  fileName << path << "/" << file;
-  std::string filePath = fileName.str();
-  return filePath;
 }
 
 Page::Page(std::string line, const std::string path) {

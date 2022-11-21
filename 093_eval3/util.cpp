@@ -1,3 +1,5 @@
+#include "util.hpp"
+
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
