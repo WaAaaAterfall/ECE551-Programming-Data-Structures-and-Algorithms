@@ -1,10 +1,27 @@
-Grading at 11/14/2022:21:12:37.623220
-For commit ID ee28cab759e0fc3808dc03cf65ff2b5bcdac2752
-Grading at Mon Nov 14 04:12:37 PM EST 2022
+Grading at 11/21/2022:03:24:14.074476
+For commit ID e3033fb0cc8b7ed3a695b90ba197e07ee64dff03
+Grading at Sun Nov 20 10:24:12 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
+make: 'cyoa-step1' is up to date.
+The code compiled (good)
+Executable cyoa-step1 exists (good)
+------------------------------------
+Now running YOUR tests for step 1
+------------------------------------
+
+
+1.1: Current test is ./cyoa-step1 /usr/local/ece551/cyoa/story1 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+No request to check for intermediate deadline completion on step 1
+
+Step 2
+Checking that cyoa-step2 compiles
 The code did not compile!
 
 Overall Grade: NO GRADE YET
