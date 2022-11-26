@@ -7,7 +7,7 @@
 
 #include "util.hpp"
 class Page {
-  std::vector<std::pair<int, std::string> > choices;
+  std::vector<std::pair<size_t, std::string> > choices;
 
   //which page is it?
   std::vector<std::string> pageInfo;
@@ -16,6 +16,7 @@ class Page {
   size_t goPageNum;
   int pageType;
   std::vector<std::string> pageText;
+  bool visited;
 
  public:
   Page() : pageNum(0), pageType(0){};
@@ -23,13 +24,17 @@ class Page {
   Page(const Page & rhs);
   Page & operator=(const Page & rhs);
   //  ~Page();
-  //  std::string generatePath(const std::string path, const std::string file);
-  int getPageNum() const { return pageNum; }
+  size_t getPageNum() const { return pageNum; }
   int getPageType() const { return pageType; }
   size_t getDestination() const { return goPageNum; }
-  void printPage();
+  void printPage() const;
   void addChoices(const std::string option);
-  size_t getChoiceSize() { return choices.size(); };
+  size_t getChoiceSize() const { return choices.size(); };
+  std::vector<std::pair<size_t, std::string> > getChoices() const;
+  void setVisited() { visited = true; }
+  bool checkVisited() const { return visited; }
+  bool isWinPage() const { return pageType == 1; }
+  bool isLostPage() const { return pageType == 2; }
 };
 
 //Rule of three
@@ -64,10 +69,16 @@ Page & Page::operator=(const Page & rhs) {
 }
 
 Page::Page(std::string line, const std::string path) {
+  visited = false;
   size_t findAt = line.find("@");
   if (findAt != std::string::npos) {
     std::string numOfPage = line.substr(0, findAt);
-    pageNum = std::strtoul(numOfPage.c_str(), NULL, 10);
+    if (checkValidNum(numOfPage)) {
+      pageNum = std::strtoul(numOfPage.c_str(), NULL, 10);
+    }
+    else {
+      std::cerr << "Invalid Page number.\n";
+    }
   }
   else {
     std::cerr << "Wrong input story!\n";
@@ -86,7 +97,7 @@ Page::Page(std::string line, const std::string path) {
       pageType = 2;
     }
     else {
-      std::cerr << "Wrong input sstory!\n";
+      std::cerr << "Invalid page type!\n";
       exit(EXIT_FAILURE);
     }
   }
@@ -109,10 +120,8 @@ Page::Page(std::string line, const std::string path) {
   pageFile.close();
 }
 
-void Page::printPage() {
-  std::cout << "Page " << pageNum << "\n";
-  std::cout << "==========\n";
-  std::vector<std::string>::iterator it = pageText.begin();
+void Page::printPage() const {
+  std::vector<std::string>::const_iterator it = pageText.begin();
   while (it != pageText.end()) {
     std::cout << *it << "\n";
     it++;
@@ -121,7 +130,7 @@ void Page::printPage() {
   if (pageType == 0) {
     std::cout << "What would you like to do?\n";
     std::cout << "\n";
-    std::vector<std::pair<int, std::string> >::iterator itC = choices.begin();
+    std::vector<std::pair<size_t, std::string> >::const_iterator itC = choices.begin();
     int count = 1;
     while (itC != choices.end()) {
       std::cout << " " << count << ". " << (*itC).second << "\n";
@@ -144,7 +153,13 @@ void Page::addChoices(const std::string option) {
   size_t findCol = option.find(":");
   if (findCol != std::string::npos) {
     std::string choiceNum = option.substr(0, findCol);
-    int page = std::atoi(choiceNum.c_str());
+    size_t page;
+    if (checkValidNum(choiceNum)) {
+      page = std::atoi(choiceNum.c_str());
+    }
+    else {
+      std::cerr << "Invalid Page number.\n";
+    }
     std::string opContent = option.substr(findCol + 1);
     std::pair<int, std::string> newOption = std::make_pair(page, opContent);
     choices.push_back(newOption);
@@ -153,4 +168,8 @@ void Page::addChoices(const std::string option) {
     std::cerr << "Invalid Choice!\n";
     exit(EXIT_FAILURE);
   }
+}
+
+std::vector<std::pair<size_t, std::string> > Page::getChoices() const {
+  return choices;
 }

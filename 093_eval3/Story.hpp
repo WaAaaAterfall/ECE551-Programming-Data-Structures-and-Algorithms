@@ -1,3 +1,5 @@
+#ifndef _PAGE_H__
+#define _PAGE_H__
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
@@ -5,15 +7,14 @@
 #include <string>
 #include <vector>
 
-//#include "util.hpp"
 #include "Page.hpp"
+#include "util.hpp"
 
 class Story {
   std::vector<std::string> storyLines;
   int currentPageNum;
   std::vector<Page *> pageVec;
 
-  std::string generatePath(const std::string path, const std::string file);
   int getLineType(std::string);
 
  public:
@@ -23,15 +24,13 @@ class Story {
   Story & operator=(const Story & rhs);
   ~Story();
   //For Step 1
-  void printStory();
+  size_t getStorySize() const { return pageVec.size(); }
+  std::vector<Page *> & getPages() { return pageVec; }
+  void printStory() const;
+  void checkStory() const;
+  void printStoryByInput() const;
+  size_t getValidInput(std::string input, Page * curr) const;
 };
-
-std::string Story::generatePath(const std::string path, const std::string file) {
-  std::ostringstream fileName;
-  fileName << path << "/" << file;
-  std::string filePath = fileName.str();
-  return filePath;
-}
 
 int Story::getLineType(std::string line) {
   if (line.size() == 0) {
@@ -76,7 +75,7 @@ Story::Story(const std::string path) {
     else if (getLineType(line) == 2) {
       size_t findCol = line.find(":");
       std::string numOfPage = line.substr(0, findCol);
-      int pageNumber = std::strtoul(numOfPage.c_str(), NULL, 10);
+      size_t pageNumber = std::strtoul(numOfPage.c_str(), NULL, 10);
       Page * currentPage = pageVec[pageNumber];
       if (pageNumber != currentPage->getPageNum()) {
         std::cerr << "The choice cannot be matched with the current page.\n";
@@ -93,12 +92,69 @@ Story::Story(const std::string path) {
   storyFile.close();
 }
 
-void Story::printStory() {
-  std::vector<Page *>::iterator it = pageVec.begin();
+void Story::printStory() const {
+  std::vector<Page *>::const_iterator it = pageVec.begin();
   while (it != pageVec.end()) {
+    std::cout << "Page " << (*it)->getPageNum() << "\n";
+    std::cout << "==========\n";
     (*it)->printPage();
     it++;
   }
+}
+
+void Story::checkStory() const {
+  size_t prevPage = -1;
+  bool hasWin = false;
+  bool hasLose = false;
+  for (size_t j = 0; j < getStorySize(); j++) {
+    Page * current = pageVec[j];
+    //check if the page is in order and consecutive
+    if (current->getPageNum() != prevPage + 1) {
+      std::cerr << "The pages are not consecutive.\n";
+    }
+    else {
+      prevPage = current->getPageNum();
+    }
+    std::vector<std::pair<size_t, std::string> > choices = current->getChoices();
+    for (size_t i = 0; i < choices.size(); i++) {
+      std::pair<size_t, std::string> currentChoice = choices[i];
+      if (currentChoice.first >= getStorySize()) {
+        std::cerr << "The page number is not a match.\n";
+      }
+      Page * jumpTo = pageVec[currentChoice.first];
+      if (jumpTo->getPageNum() != currentChoice.first) {
+        std::cerr << "The page number is not a match.\n";
+      }
+      else {
+        jumpTo->setVisited();
+      }
+    }
+    if (current->getPageType() == 1) {
+      hasWin = true;
+    }
+    else if (current->getPageType() == 2) {
+      hasLose = true;
+    }
+  }
+  if ((!hasWin) || (!hasLose)) {
+    std::cerr << "No win or No lose page in this storty.\n";
+  }
+  for (size_t k = 1; k < getStorySize(); k++) {
+    Page * currPage = pageVec[k];
+    if (!currPage->checkVisited()) {
+      std::cerr << "There are pages that are not referenced.\n";
+    }
+  }
+}
+size_t Story::getValidInput(std::string input, Page * currentPage) const {
+  if (input.empty() || !checkValidNum(input)) {
+    throw UserInputException();
+  }
+  size_t choice = std::strtoul(input.c_str(), NULL, 10);
+  if (choice <= 0 || choice > currentPage->getChoiceSize()) {
+    throw UserInputException();
+  }
+  return choice;
 }
 
 Story::Story(const Story & rhs) {
@@ -126,3 +182,5 @@ Story::~Story() {
     delete pageVec[i];
   }
 }
+
+#endif

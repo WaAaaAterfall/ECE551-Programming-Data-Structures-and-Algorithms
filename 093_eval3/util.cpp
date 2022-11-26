@@ -13,3 +13,12 @@ std::string generatePath(const std::string path, const std::string file) {
   std::string filePath = fileName.str();
   return filePath;
 }
+
+bool checkValidNum(const std::string num) {
+  for (size_t i = 0; i < num.length(); i++) {
+    if (!std::isdigit(num[i])) {
+      return false;
+    }
+  }
+  return true;
+}
