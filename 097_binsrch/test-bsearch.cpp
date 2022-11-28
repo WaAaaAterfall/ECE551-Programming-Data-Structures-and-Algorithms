@@ -28,7 +28,10 @@ class CountedIntFn : public Function<int, int> {
 
 class SinFunction : public Function<int, int> {
  public:
-  virtual int invoke(int arg) { return arg; }
+  virtual int invoke(int arg) {
+    int res = 3 * arg - 2;
+    return res;
+  }
 };
 
 int binarySearchForZero(Function<int, int> * f, int low, int high);
