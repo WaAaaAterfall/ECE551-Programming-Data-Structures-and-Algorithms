@@ -25,4 +25,3 @@ cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/
 cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input8.txt
 cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input9.txt
 
-ec:step2
