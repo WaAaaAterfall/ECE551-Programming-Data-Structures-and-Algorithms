@@ -119,7 +119,6 @@ Page::Page(std::string line, const std::string path) {
   }
   pageFile.close();
 }
-
 void Page::printPage() const {
   std::vector<std::string>::const_iterator it = pageText.begin();
   while (it != pageText.end()) {
