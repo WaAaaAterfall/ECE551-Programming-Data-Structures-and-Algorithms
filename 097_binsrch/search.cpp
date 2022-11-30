@@ -23,7 +23,7 @@ int binarySearch(Function<int, int> * f, int low, int high) {
     return i;
   }
   else if (res < 0) {
-    return binarySearch(f, i + 1, high);
+    return binarySearch(f, i, high);
   }
   else {
     return binarySearch(f, low, i);
