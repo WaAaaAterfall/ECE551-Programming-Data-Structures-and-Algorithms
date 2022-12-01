@@ -1,9 +1,10 @@
-#ifndef _PAGE_H__
-#define _PAGE_H__
+#ifndef _Story_H__
+#define _Story_H__
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
 #include <sstream>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -14,8 +15,10 @@ class Story {
   std::vector<std::string> storyLines;
   int currentPageNum;
   std::vector<Page *> pageVec;
+  std::vector<std::vector<std::pair<int, int> > > successPath;
 
   int getLineType(std::string);
+  void dfs(Page *, std::vector<std::pair<int, int> > path);
 
  public:
   Story() : currentPageNum(0){};
@@ -30,6 +33,8 @@ class Story {
   void checkStory() const;
   void printStoryByInput() const;
   size_t getValidInput(std::string input, Page * curr) const;
+  void printSuccessPath() const;
+  void searchSuccessPath();
 };
 
 int Story::getLineType(std::string line) {
@@ -126,7 +131,7 @@ void Story::checkStory() const {
         std::cerr << "The page number is not a match.\n";
       }
       else {
-        jumpTo->setVisited();
+        jumpTo->setReferenced();
       }
     }
     if (current->getPageType() == 1) {
@@ -141,7 +146,7 @@ void Story::checkStory() const {
   }
   for (size_t k = 1; k < getStorySize(); k++) {
     Page * currPage = pageVec[k];
-    if (!currPage->checkVisited()) {
+    if (!currPage->checkReferenced()) {
       std::cerr << "There are pages that are not referenced.\n";
     }
   }
@@ -155,6 +160,60 @@ size_t Story::getValidInput(std::string input, Page * currentPage) const {
     throw UserInputException();
   }
   return choice;
+}
+
+void Story::dfs(Page * current, std::vector<std::pair<int, int> > path) {
+  if (current->isWinPage()) {
+    path.push_back(std::make_pair(current->getPageNum(), -1));
+    std::vector<std::pair<int, int> > pathCopy(path);
+    successPath.push_back(pathCopy);
+    return;
+  }
+  else if (current->isLostPage()) {
+    return;
+  }
+  else if (current->checkVisited() == true) {
+    return;
+  }
+  else {
+    current->setVisited();
+    std::vector<std::pair<size_t, std::string> > currentChoice = current->getChoices();
+    std::vector<std::pair<size_t, std::string> >::iterator it = currentChoice.begin();
+    int choiceNum = 1;
+    while (it != currentChoice.end()) {
+      path.push_back(std::make_pair(current->getPageNum(), choiceNum));
+      Page * curr = pageVec[(*it).first];
+      dfs(curr, path);
+      curr->eraseVisited();
+      path.pop_back();
+      choiceNum++;
+      it++;
+    }
+  }
+}
+
+void Story::searchSuccessPath() {
+  Page * current = pageVec[0];
+  std::vector<std::pair<int, int> > path(0);
+  dfs(current, path);
+}
+
+void Story::printSuccessPath() const {
+  if (successPath.size() == 0) {
+    std::cout << "This story is unwinnable!\n";
+  }
+  for (size_t i = 0; i < successPath.size(); i++) {
+    std::vector<std::pair<int, int> > currentPath = successPath[i];
+    for (size_t j = 0; j < currentPath.size(); j++) {
+      std::pair<int, int> currentPage = currentPath[j];
+      if (currentPage.second == -1) {
+        std::cout << currentPage.first << "(win)\n";
+      }
+      else {
+        std::cout << currentPage.first << "(" << currentPage.second << "),";
+      }
+    }
+  }
 }
 
 Story::Story(const Story & rhs) {

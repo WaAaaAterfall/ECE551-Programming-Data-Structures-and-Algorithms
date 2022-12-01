@@ -16,6 +16,7 @@ class Page {
   size_t goPageNum;
   int pageType;
   std::vector<std::string> pageText;
+  bool referenced;
   bool visited;
 
  public:
@@ -32,7 +33,10 @@ class Page {
   size_t getChoiceSize() const { return choices.size(); };
   std::vector<std::pair<size_t, std::string> > getChoices() const;
   void setVisited() { visited = true; }
+  void setReferenced() { referenced = true; }
+  void eraseVisited() { visited = false; }
   bool checkVisited() const { return visited; }
+  bool checkReferenced() const { return referenced; }
   bool isWinPage() const { return pageType == 1; }
   bool isLostPage() const { return pageType == 2; }
 };
@@ -70,6 +74,7 @@ Page & Page::operator=(const Page & rhs) {
 
 Page::Page(std::string line, const std::string path) {
   visited = false;
+  referenced = false;
   size_t findAt = line.find("@");
   if (findAt != std::string::npos) {
     std::string numOfPage = line.substr(0, findAt);
