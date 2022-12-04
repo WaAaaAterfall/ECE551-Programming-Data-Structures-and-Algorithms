@@ -197,7 +197,8 @@ void Page::addChoices(const std::string option, int lineType) {
     std::pair<int, std::string> newOption = std::make_pair(destPage, opContent);
     newOp->choiceContent = newOption;
     if (lineType == 4) {
-      std::string condition = option.substr((option.find("[") + 1), option.find("]"));
+      std::string condition =
+          option.substr((option.find("[") + 1), option.find("]") - option.find("["));
       size_t findEq = condition.find("=");
       std::string var = condition.substr(0, findEq);
       std::string val = condition.substr(findEq + 1);

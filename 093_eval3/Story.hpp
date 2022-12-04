@@ -109,9 +109,9 @@ Story::Story(const std::string path) {
         std::cerr << "The choice cannot be matched with the current page.\n";
         exit(EXIT_FAILURE);
       }
-      std::string option = line.substr(0, line.size() - 1);
+      // std::string option = line.substr(0, line.size() - 1);
       int type = getLineType(line);
-      currentPage->addChoices(option, type);
+      currentPage->addChoices(line, type);
     }
     else if (getLineType(line) == 3) {
       size_t findTerm = line.find("$");
