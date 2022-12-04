@@ -38,7 +38,7 @@ class Page {
   Page(const std::string line, const std::string path);
   Page(const Page & rhs);
   Page & operator=(const Page & rhs);
-  //  ~Page();
+  ~Page();
   size_t getPageNum() const { return pageNum; }
   int getPageType() const { return pageType; }
   size_t getDestination() const { return goPageNum; }
@@ -86,6 +86,12 @@ Page & Page::operator=(const Page & rhs) {
     std::swap(choices, temp.choices);
   }
   return *this;
+}
+Page::~Page() {
+  delete pageVariables;
+  for (size_t i = 0; i < choices.size(); i++) {
+    delete choices[i];
+  }
 }
 
 Page::Page(std::string line, const std::string path) {
