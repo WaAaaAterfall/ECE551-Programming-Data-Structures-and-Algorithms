@@ -29,4 +29,4 @@ cyoa-step3 /usr/local/ece551/cyoa/story1
 cyoa-step3 /usr/local/ece551/cyoa/story2
 
 
-ec:step3
+

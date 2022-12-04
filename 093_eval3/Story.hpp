@@ -16,9 +16,11 @@ class Story {
   int currentPageNum;
   std::vector<Page *> pageVec;
   std::vector<std::vector<std::pair<int, int> > > successPath;
-
+  std::vector<std::pair<std::string, long> > storyVar;
   int getLineType(std::string);
   void dfs(Page *, std::vector<std::pair<int, int> > path);
+  //return the index of var, if not exist, return -1
+  int searchStoryVar(std::string var, long value);
 
  public:
   Story() : currentPageNum(0){};
@@ -35,6 +37,7 @@ class Story {
   size_t getValidInput(std::string input, Page * curr) const;
   void printSuccessPath() const;
   void searchSuccessPath();
+  void setStoryVar(std::string, long value);
 };
 
 int Story::getLineType(std::string line) {
@@ -52,8 +55,21 @@ int Story::getLineType(std::string line) {
   if (findCol != std::string::npos) {
     size_t secondCol = line.substr(findCol + 1).find(":");
     if (secondCol != std::string::npos) {
-      return 2;
+      size_t findLeftBracket = line.substr(0, findCol).find("[");
+      size_t findRightBracket = line.substr(0, findCol).find("[");
+      size_t findEq = line.substr(0, findCol).find("=");
+      if (findLeftBracket != std::string::npos && findRightBracket != std::string::npos &&
+          findEq != std::string::npos) {
+        return 4;
+      }
+      else {
+        return 2;
+      }
     }
+  }
+  if ((line.find("=") != std::string::npos) && (line.find("$") != std::string::npos)) {
+    //in step4
+    return 3;
   }
   std::cerr << "Input StoryLine wrong.\n";
   exit(EXIT_FAILURE);
@@ -77,17 +93,33 @@ Story::Story(const std::string path) {
     else if (getLineType(line) == 0) {
       continue;
     }
-    else if (getLineType(line) == 2) {
+    else if (getLineType(line) == 2 || getLineType(line) == 4) {
       size_t findCol = line.find(":");
-      std::string numOfPage = line.substr(0, findCol);
+      size_t findBr = line.find("[");
+      std::string numOfPage;
+      if (findBr != std::string::npos) {
+        numOfPage = line.substr(0, findBr);
+      }
+      else {
+        numOfPage = line.substr(0, findCol);
+      }
       size_t pageNumber = std::strtoul(numOfPage.c_str(), NULL, 10);
       Page * currentPage = pageVec[pageNumber];
       if (pageNumber != currentPage->getPageNum()) {
         std::cerr << "The choice cannot be matched with the current page.\n";
         exit(EXIT_FAILURE);
       }
-      std::string option = line.substr(findCol + 1, line.size() - 1);
-      currentPage->addChoices(option);
+      std::string option = line.substr(0, line.size() - 1);
+      int type = getLineType(line);
+      currentPage->addChoices(option, type);
+    }
+    else if (getLineType(line) == 3) {
+      size_t findTerm = line.find("$");
+      std::string pageNum = line.substr(0, findTerm);
+      size_t pageNumber = std::strtoul(pageNum.c_str(), NULL, 10);
+      Page * currentPage = pageVec[pageNumber];
+      std::string variable = line.substr(findTerm + 1);
+      currentPage->addUpdateVarable(variable);
     }
     else {
       std::cerr << "Wrong storyLine type.\n";
@@ -120,14 +152,14 @@ void Story::checkStory() const {
     else {
       prevPage = current->getPageNum();
     }
-    std::vector<std::pair<size_t, std::string> > choices = current->getChoices();
+    std::vector<Page::Choice *> choices = current->getChoices();
     for (size_t i = 0; i < choices.size(); i++) {
-      std::pair<size_t, std::string> currentChoice = choices[i];
-      if (currentChoice.first >= getStorySize()) {
+      Page::Choice * currentChoice = choices[i];
+      if (currentChoice->choiceContent.first >= getStorySize()) {
         std::cerr << "The page number is not a match.\n";
       }
-      Page * jumpTo = pageVec[currentChoice.first];
-      if (jumpTo->getPageNum() != currentChoice.first) {
+      Page * jumpTo = pageVec[currentChoice->choiceContent.first];
+      if (jumpTo->getPageNum() != currentChoice->choiceContent.first) {
         std::cerr << "The page number is not a match.\n";
       }
       else {
@@ -177,12 +209,12 @@ void Story::dfs(Page * current, std::vector<std::pair<int, int> > path) {
   }
   else {
     current->setVisited();
-    std::vector<std::pair<size_t, std::string> > currentChoice = current->getChoices();
-    std::vector<std::pair<size_t, std::string> >::iterator it = currentChoice.begin();
+    std::vector<Page::Choice *> currentChoice = current->getChoices();
+    std::vector<Page::Choice *>::iterator it = currentChoice.begin();
     int choiceNum = 1;
     while (it != currentChoice.end()) {
       path.push_back(std::make_pair(current->getPageNum(), choiceNum));
-      Page * curr = pageVec[(*it).first];
+      Page * curr = pageVec[(*it)->choiceContent.first];
       dfs(curr, path);
       curr->eraseVisited();
       path.pop_back();

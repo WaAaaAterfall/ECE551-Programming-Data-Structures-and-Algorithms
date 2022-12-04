@@ -7,8 +7,20 @@
 
 #include "util.hpp"
 class Page {
-  std::vector<std::pair<size_t, std::string> > choices;
+ public:
+  class Choice {
+   public:
+    std::pair<size_t, std::string> choiceContent;
+    std::pair<std::string, size_t> choiceCondition;
+    bool isAvailable;
+  };
 
+  class Variables {
+   public:
+    std::vector<std::pair<std::string, size_t> > variables;
+  };
+
+ private:
   //which page is it?
   std::vector<std::string> pageInfo;
   size_t pageNum;
@@ -18,6 +30,8 @@ class Page {
   std::vector<std::string> pageText;
   bool referenced;
   bool visited;
+  std::vector<Choice *> choices;
+  Variables * pageVariables;
 
  public:
   Page() : pageNum(0), pageType(0){};
@@ -29,9 +43,11 @@ class Page {
   int getPageType() const { return pageType; }
   size_t getDestination() const { return goPageNum; }
   void printPage() const;
-  void addChoices(const std::string option);
-  size_t getChoiceSize() const { return choices.size(); };
-  std::vector<std::pair<size_t, std::string> > getChoices() const;
+  void addChoices(const std::string option, int lineType);
+  size_t getChoiceSize() const { return choices.size(); }
+  std::vector<Choice *> getChoices() const { return choices; }
+  Variables * getPageVar() const { return pageVariables; }
+  void addUpdateVarable(const std::string line);
   void setVisited() { visited = true; }
   void setReferenced() { referenced = true; }
   void eraseVisited() { visited = false; }
@@ -75,6 +91,7 @@ Page & Page::operator=(const Page & rhs) {
 Page::Page(std::string line, const std::string path) {
   visited = false;
   referenced = false;
+  pageVariables = new Variables();
   size_t findAt = line.find("@");
   if (findAt != std::string::npos) {
     std::string numOfPage = line.substr(0, findAt);
@@ -124,6 +141,7 @@ Page::Page(std::string line, const std::string path) {
   }
   pageFile.close();
 }
+
 void Page::printPage() const {
   std::vector<std::string>::const_iterator it = pageText.begin();
   while (it != pageText.end()) {
@@ -134,10 +152,10 @@ void Page::printPage() const {
   if (pageType == 0) {
     std::cout << "What would you like to do?\n";
     std::cout << "\n";
-    std::vector<std::pair<size_t, std::string> >::const_iterator itC = choices.begin();
+    std::vector<Choice *>::const_iterator itC = choices.begin();
     int count = 1;
     while (itC != choices.end()) {
-      std::cout << " " << count << ". " << (*itC).second << "\n";
+      std::cout << " " << count << ". " << (*itC)->choiceContent.second << "\n";
       itC++;
       count++;
     }
@@ -153,27 +171,43 @@ void Page::printPage() const {
   }
 }
 
-void Page::addChoices(const std::string option) {
-  size_t findCol = option.find(":");
+void Page ::addUpdateVarable(const std::string line) {
+  size_t findEq = line.find("=");
+  std::string var = line.substr(0, findEq);
+  std::string val = line.substr(findEq + 1);
+  size_t value = std::strtoul(val.c_str(), NULL, 10);
+  std::pair<std::string, size_t> variable = std::make_pair(var, value);
+  pageVariables->variables.push_back(variable);
+}
+
+void Page::addChoices(const std::string option, int lineType) {
+  size_t firstCol = option.find(":");
+  size_t findCol = (option.substr(firstCol + 1)).find(":");
   if (findCol != std::string::npos) {
-    std::string choiceNum = option.substr(0, findCol);
-    size_t page;
-    if (checkValidNum(choiceNum)) {
-      page = std::atoi(choiceNum.c_str());
+    std::string destNum = option.substr(firstCol + 1, findCol);
+    size_t destPage;
+    if (checkValidNum(destNum)) {
+      destPage = std::atoi(destNum.c_str());
     }
     else {
       std::cerr << "Invalid Page number.\n";
     }
-    std::string opContent = option.substr(findCol + 1);
-    std::pair<int, std::string> newOption = std::make_pair(page, opContent);
-    choices.push_back(newOption);
+    std::string opContent = option.substr(findCol + firstCol + 2);
+    Choice * newOp = new Choice();
+    std::pair<int, std::string> newOption = std::make_pair(destPage, opContent);
+    newOp->choiceContent = newOption;
+    if (lineType == 4) {
+      std::string condition = option.substr((option.find("[") + 1), option.find("]"));
+      size_t findEq = condition.find("=");
+      std::string var = condition.substr(0, findEq);
+      std::string val = condition.substr(findEq + 1);
+      size_t value = std::strtoul(val.c_str(), NULL, 10);
+      newOp->choiceCondition = std::make_pair(var, value);
+    }
+    choices.push_back(newOp);
   }
   else {
     std::cerr << "Invalid Choice!\n";
     exit(EXIT_FAILURE);
   }
-}
-
-std::vector<std::pair<size_t, std::string> > Page::getChoices() const {
-  return choices;
 }

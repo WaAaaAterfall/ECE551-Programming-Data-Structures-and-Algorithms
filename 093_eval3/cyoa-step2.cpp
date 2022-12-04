@@ -24,7 +24,7 @@ int main(int argc, char ** argv) {
     while (destinationPage == 0) {
       try {
         size_t choiceNum = story.getValidInput(inputChoice, currentPage);
-        destinationPage = currentPage->getChoices()[choiceNum - 1].first;
+        destinationPage = currentPage->getChoices()[choiceNum - 1]->choiceContent.first;
         currentPage = Pages[destinationPage];
       }
       catch (UserInputException & e) {
