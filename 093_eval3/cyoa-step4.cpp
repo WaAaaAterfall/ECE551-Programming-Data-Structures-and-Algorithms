@@ -35,7 +35,7 @@ int main(int argc, char ** argv) {
       }
       catch (InvalidChoiceException & e) {
         std::cout << e.what();
-        currentPage->printChoices();
+        // currentPage->printChoices();
         getline(std::cin, inputChoice);
       }
     }
