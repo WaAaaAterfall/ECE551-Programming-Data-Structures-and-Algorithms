@@ -10,7 +10,14 @@
 class UserInputException : public std::exception {
  public:
   const char * what() const throw() {
-    return "That is not a valid choice, please try again";
+    return "That is not a valid choice, please try again\n";
+  }
+};
+
+class InvalidChoiceException : public std::exception {
+ public:
+  const char * what() const throw() {
+    return "That choice is not available at this time, please try again\n";
   }
 };
 

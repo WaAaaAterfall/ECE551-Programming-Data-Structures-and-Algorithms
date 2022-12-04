@@ -11,13 +11,13 @@ class Page {
   class Choice {
    public:
     std::pair<size_t, std::string> choiceContent;
-    std::pair<std::string, size_t> choiceCondition;
+    std::pair<std::string, long> choiceCondition;
     bool isAvailable;
   };
 
   class Variables {
    public:
-    std::vector<std::pair<std::string, size_t> > variables;
+    std::vector<std::pair<std::string, long> > variables;
   };
 
  private:
@@ -43,6 +43,7 @@ class Page {
   int getPageType() const { return pageType; }
   size_t getDestination() const { return goPageNum; }
   void printPage() const;
+  void printChoices() const;
   void addChoices(const std::string option, int lineType);
   size_t getChoiceSize() const { return choices.size(); }
   std::vector<Choice *> getChoices() const { return choices; }
@@ -148,6 +149,21 @@ Page::Page(std::string line, const std::string path) {
   pageFile.close();
 }
 
+void Page::printChoices() const {
+  std::vector<Choice *>::const_iterator itC = choices.begin();
+  int count = 1;
+  while (itC != choices.end()) {
+    if ((*itC)->isAvailable) {
+      std::cout << " " << count << ". " << (*itC)->choiceContent.second << "\n";
+    }
+    else {
+      std::cout << " " << count << ". <UNAVAILABLE>\n";
+    }
+    itC++;
+    count++;
+  }
+}
+
 void Page::printPage() const {
   std::vector<std::string>::const_iterator it = pageText.begin();
   while (it != pageText.end()) {
@@ -158,13 +174,7 @@ void Page::printPage() const {
   if (pageType == 0) {
     std::cout << "What would you like to do?\n";
     std::cout << "\n";
-    std::vector<Choice *>::const_iterator itC = choices.begin();
-    int count = 1;
-    while (itC != choices.end()) {
-      std::cout << " " << count << ". " << (*itC)->choiceContent.second << "\n";
-      itC++;
-      count++;
-    }
+    printChoices();
   }
   else if (pageType == 1) {
     std::cout << "Congratulations! You have won. Hooray!\n";
@@ -202,6 +212,7 @@ void Page::addChoices(const std::string option, int lineType) {
     Choice * newOp = new Choice();
     std::pair<int, std::string> newOption = std::make_pair(destPage, opContent);
     newOp->choiceContent = newOption;
+    newOp->isAvailable = true;
     if (lineType == 4) {
       std::string condition =
           option.substr((option.find("[") + 1), option.find("]") - option.find("["));

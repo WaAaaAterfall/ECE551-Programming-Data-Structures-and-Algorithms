@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
+#include <map>
 #include <sstream>
 #include <stack>
 #include <string>
@@ -16,11 +17,11 @@ class Story {
   int currentPageNum;
   std::vector<Page *> pageVec;
   std::vector<std::vector<std::pair<int, int> > > successPath;
-  std::vector<std::pair<std::string, long> > storyVar;
+  std::map<std::string, long> storyVar;
   int getLineType(std::string);
   void dfs(Page *, std::vector<std::pair<int, int> > path);
   //return the index of var, if not exist, return -1
-  int searchStoryVar(std::string var, long value);
+  bool isNewVariable(std::string variable);
 
  public:
   Story() : currentPageNum(0){};
@@ -38,6 +39,8 @@ class Story {
   void printSuccessPath() const;
   void searchSuccessPath();
   void setStoryVar(std::string, long value);
+  void updateStoryVar(Page * currentPage);
+  void updatePageValidChoice(Page * currentPage);
 };
 
 int Story::getLineType(std::string line) {
@@ -119,6 +122,9 @@ Story::Story(const std::string path) {
       size_t pageNumber = std::strtoul(pageNum.c_str(), NULL, 10);
       Page * currentPage = pageVec[pageNumber];
       std::string variable = line.substr(findTerm + 1);
+      if (isNewVariable(variable)) {
+        storyVar["variable"] = 0;
+      }
       currentPage->addUpdateVarable(variable);
     }
     else {
@@ -127,6 +133,39 @@ Story::Story(const std::string path) {
     }
   }
   storyFile.close();
+}
+
+void Story::updateStoryVar(Page * currentPage) {
+  Page::Variables * pageVar = currentPage->getPageVar();
+  std::vector<std::pair<std::string, long> >::iterator it = pageVar->variables.begin();
+  while (it != pageVar->variables.end()) {
+    storyVar[(*it).first] = (*it).second;
+    it++;
+  }
+}
+
+void Story::updatePageValidChoice(Page * currentPage) {
+  std::vector<Page::Choice *> pageChoice = currentPage->getChoices();
+  for (size_t i = 0; i < pageChoice.size(); i++) {
+    std::pair<std::string, long> choiceCondition = pageChoice[i]->choiceCondition;
+    if (storyVar[choiceCondition.first] != choiceCondition.second) {
+      pageChoice[i]->isAvailable = false;
+    }
+    else {
+      pageChoice[i]->isAvailable = true;
+    }
+  }
+}
+
+bool Story::isNewVariable(std::string variable) {
+  std::map<std::string, long>::iterator it = storyVar.begin();
+  while (it != storyVar.end()) {
+    if ((*it).first.compare(variable) == 0) {
+      return false;
+    }
+    it++;
+  }
+  return true;
 }
 
 void Story::printStory() const {
@@ -185,11 +224,16 @@ void Story::checkStory() const {
 }
 size_t Story::getValidInput(std::string input, Page * currentPage) const {
   if (input.empty() || !checkValidNum(input)) {
+    std::cout << "First Type.\n";
     throw UserInputException();
   }
   size_t choice = std::strtoul(input.c_str(), NULL, 10);
   if (choice <= 0 || choice > currentPage->getChoiceSize()) {
     throw UserInputException();
+  }
+  std::vector<Page::Choice *> currentChoices = currentPage->getChoices();
+  if (!currentChoices[choice - 1]->isAvailable) {
+    throw InvalidChoiceException();
   }
   return choice;
 }
