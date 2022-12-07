@@ -14,7 +14,6 @@
 
 class Story {
   std::vector<std::string> storyLines;
-  int currentPageNum;
   std::vector<Page *> pageVec;
   std::vector<std::vector<std::pair<int, int> > > successPath;
   std::map<std::string, long> storyVar;
@@ -24,7 +23,7 @@ class Story {
   bool isNewVariable(std::string variable);
 
  public:
-  Story() : currentPageNum(0){};
+  Story(){};
   Story(const std::string filePath);
   Story(const Story & rhs);
   Story & operator=(const Story & rhs);
@@ -292,12 +291,14 @@ void Story::printSuccessPath() const {
   }
 }
 
+//Rule of Three
 Story::Story(const Story & rhs) {
-  currentPageNum = rhs.currentPageNum;
   storyLines = rhs.storyLines;
+  successPath = rhs.successPath;
+  storyVar = rhs.storyVar;
   for (size_t i = 0; i < rhs.pageVec.size(); i++) {
-    Page copyPage(*rhs.pageVec[i]);
-    pageVec.push_back(&copyPage);
+    Page * copyPage = new Page(*(rhs.pageVec[i]));
+    pageVec.push_back(copyPage);
   }
 }
 
@@ -305,8 +306,9 @@ Story & Story::operator=(const Story & rhs) {
   if (this != &rhs) {
     Story temp(rhs);
     std::swap(storyLines, temp.storyLines);
-    std::swap(currentPageNum, temp.currentPageNum);
     std::swap(pageVec, temp.pageVec);
+    std::swap(successPath, temp.successPath);
+    std::swap(storyVar, temp.storyVar);
   }
   return *this;
 }

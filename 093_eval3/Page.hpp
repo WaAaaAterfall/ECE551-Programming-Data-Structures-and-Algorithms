@@ -25,11 +25,10 @@ class Page {
   std::vector<std::string> pageInfo;
   size_t pageNum;
   //mode, 0 for normal, 1 for win, 2 for lose
-  size_t goPageNum;
   int pageType;
-  std::vector<std::string> pageText;
   bool referenced;
   bool visited;
+  std::vector<std::string> pageText;
   std::vector<Choice *> choices;
   Variables * pageVariables;
 
@@ -41,9 +40,6 @@ class Page {
   ~Page();
   size_t getPageNum() const { return pageNum; }
   int getPageType() const { return pageType; }
-  size_t getDestination() const { return goPageNum; }
-  void printPage() const;
-  void printChoices() const;
   void addChoices(const std::string option, int lineType);
   size_t getChoiceSize() const { return choices.size(); }
   std::vector<Choice *> getChoices() const { return choices; }
@@ -56,44 +52,9 @@ class Page {
   bool checkReferenced() const { return referenced; }
   bool isWinPage() const { return pageType == 1; }
   bool isLostPage() const { return pageType == 2; }
+  void printPage() const;
+  void printChoices() const;
 };
-
-//Rule of three
-Page::Page(const Page & rhs) {
-  pageType = rhs.pageType;
-  goPageNum = rhs.goPageNum;
-  pageNum = rhs.pageNum;
-  pageText.clear();
-  pageInfo.clear();
-  for (size_t i = 0; i < rhs.pageInfo.size(); i++) {
-    pageInfo.push_back(rhs.pageInfo[i]);
-  }
-  for (size_t i = 0; i < rhs.pageText.size(); i++) {
-    pageText.push_back(rhs.pageText[i]);
-  }
-  for (size_t i = 0; i < choices.size(); i++) {
-    choices.push_back(rhs.choices[i]);
-  }
-}
-
-Page & Page::operator=(const Page & rhs) {
-  if (this != &rhs) {
-    Page temp(rhs);
-    std::swap(pageType, temp.pageType);
-    std::swap(goPageNum, temp.goPageNum);
-    std::swap(pageNum, temp.pageNum);
-    std::swap(pageInfo, temp.pageInfo);
-    std::swap(pageText, temp.pageText);
-    std::swap(choices, temp.choices);
-  }
-  return *this;
-}
-Page::~Page() {
-  delete pageVariables;
-  for (size_t i = 0; i < choices.size(); i++) {
-    delete choices[i];
-  }
-}
 
 Page::Page(std::string line, const std::string path) {
   visited = false;
@@ -227,5 +188,46 @@ void Page::addChoices(const std::string option, int lineType) {
   else {
     std::cerr << "Invalid Choice!\n";
     exit(EXIT_FAILURE);
+  }
+}
+
+//Rule of three
+Page::Page(const Page & rhs) {
+  pageType = rhs.pageType;
+  pageNum = rhs.pageNum;
+  pageText.clear();
+  pageInfo.clear();
+  for (size_t i = 0; i < rhs.pageInfo.size(); i++) {
+    pageInfo.push_back(rhs.pageInfo[i]);
+  }
+  for (size_t i = 0; i < rhs.pageText.size(); i++) {
+    pageText.push_back(rhs.pageText[i]);
+  }
+  for (size_t i = 0; i < rhs.choices.size(); i++) {
+    Choice * current = new Choice();
+    *current = (*(rhs.choices[i]));
+    choices.push_back(current);
+  }
+  pageVariables = new Variables();
+  *pageVariables = *(rhs.pageVariables);
+}
+
+Page & Page::operator=(const Page & rhs) {
+  if (this != &rhs) {
+    Page temp(rhs);
+    std::swap(pageType, temp.pageType);
+    std::swap(pageNum, temp.pageNum);
+    std::swap(pageInfo, temp.pageInfo);
+    std::swap(pageText, temp.pageText);
+    std::swap(choices, temp.choices);
+    std::swap(*pageVariables, *rhs.pageVariables);
+  }
+  return *this;
+}
+
+Page::~Page() {
+  delete pageVariables;
+  for (size_t i = 0; i < choices.size(); i++) {
+    delete choices[i];
   }
 }
