@@ -1,6 +1,6 @@
-Grading at 12/08/2022:22:12:47.764905
-For commit ID 3f9086962e501d7f7c234541203b555432f21830
-Grading at Thu Dec  8 05:11:37 PM EST 2022
+Grading at 12/08/2022:22:19:06.177223
+For commit ID e9f6df7b5495177f2ab41eacfd711bebe7818e4b
+Grading at Thu Dec  8 05:18:03 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -57,26 +57,26 @@ The choice cannot be matched with the current page.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1923516== Memcheck, a memory error detector
-==1923516== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1923516== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1923516== Command: ./cyoa-step1 storyTest3
-==1923516== Parent PID: 1923515
-==1923516== 
-==1923516== Conditional jump or move depends on uninitialised value(s)
-==1923516==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:126)
-==1923516==    by 0x10E536: main (cyoa-step1.cpp:16)
-==1923516== 
-==1923516== 
-==1923516== HEAP SUMMARY:
-==1923516==     in use at exit: 14,306 bytes in 62 blocks
-==1923516==   total heap usage: 228 allocs, 166 frees, 123,817 bytes allocated
-==1923516== 
-==1923516== For a detailed leak analysis, rerun with: --leak-check=full
-==1923516== 
-==1923516== Use --track-origins=yes to see where uninitialised values come from
-==1923516== For lists of detected and suppressed errors, rerun with: -s
-==1923516== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1933248== Memcheck, a memory error detector
+==1933248== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1933248== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1933248== Command: ./cyoa-step1 storyTest3
+==1933248== Parent PID: 1933247
+==1933248== 
+==1933248== Conditional jump or move depends on uninitialised value(s)
+==1933248==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:126)
+==1933248==    by 0x10E536: main (cyoa-step1.cpp:16)
+==1933248== 
+==1933248== 
+==1933248== HEAP SUMMARY:
+==1933248==     in use at exit: 14,306 bytes in 62 blocks
+==1933248==   total heap usage: 228 allocs, 166 frees, 123,817 bytes allocated
+==1933248== 
+==1933248== For a detailed leak analysis, rerun with: --leak-check=full
+==1933248== 
+==1933248== Use --track-origins=yes to see where uninitialised values come from
+==1933248== For lists of detected and suppressed errors, rerun with: -s
+==1933248== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 1.6: Current test is ./cyoa-step1 storyTest4 < /dev/null
@@ -91,9 +91,9 @@ Valgrind was clean
 
 1.7: Current test is ./cyoa-step1 storyTest5 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains page that the destination page of its choice does not exist.
+But we did not.
 
 
 1.8: Current test is ./cyoa-step1 storyTest6 < /dev/null
@@ -122,26 +122,26 @@ The choice cannot be matched with the current page.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1923757== Memcheck, a memory error detector
-==1923757== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1923757== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1923757== Command: ./cyoa-step1 storyTest8
-==1923757== Parent PID: 1923756
-==1923757== 
-==1923757== Conditional jump or move depends on uninitialised value(s)
-==1923757==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:126)
-==1923757==    by 0x10E536: main (cyoa-step1.cpp:16)
-==1923757== 
-==1923757== 
-==1923757== HEAP SUMMARY:
-==1923757==     in use at exit: 11,562 bytes in 33 blocks
-==1923757==   total heap usage: 108 allocs, 75 frees, 107,300 bytes allocated
-==1923757== 
-==1923757== For a detailed leak analysis, rerun with: --leak-check=full
-==1923757== 
-==1923757== Use --track-origins=yes to see where uninitialised values come from
-==1923757== For lists of detected and suppressed errors, rerun with: -s
-==1923757== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1933397== Memcheck, a memory error detector
+==1933397== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1933397== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1933397== Command: ./cyoa-step1 storyTest8
+==1933397== Parent PID: 1933396
+==1933397== 
+==1933397== Conditional jump or move depends on uninitialised value(s)
+==1933397==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:126)
+==1933397==    by 0x10E536: main (cyoa-step1.cpp:16)
+==1933397== 
+==1933397== 
+==1933397== HEAP SUMMARY:
+==1933397==     in use at exit: 11,562 bytes in 33 blocks
+==1933397==   total heap usage: 108 allocs, 75 frees, 107,300 bytes allocated
+==1933397== 
+==1933397== For a detailed leak analysis, rerun with: --leak-check=full
+==1933397== 
+==1933397== Use --track-origins=yes to see where uninitialised values come from
+==1933397== For lists of detected and suppressed errors, rerun with: -s
+==1933397== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 1.11: Current test is ./cyoa-step1 storyTest9 < /dev/null
@@ -168,36 +168,40 @@ But you did not (exit status was EXIT_SUCCESS).
 
 1.14: Current test is ./cyoa-step1 storyTest12 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+There are pages that are not referenced in this story.
+But we did not.
 
 
 1.15: Current test is ./cyoa-step1 storyTest13 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+There are pages that are not referenced in this story.
+But we did not.
 
 
 1.16: Current test is ./cyoa-step1 storyTest14 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+No win or No lose page in this storty.
+But we did not.
 
 
 1.17: Current test is ./cyoa-step1 storyTest15 < /dev/null
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains page that the destination page of its choice does not exist.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 1.18: Current test is ./cyoa-step1 storyTest16 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains page that the destination page of its choice does not exist.
+But we did not.
 No request to check for intermediate deadline completion on step 1
 
 Step 2
