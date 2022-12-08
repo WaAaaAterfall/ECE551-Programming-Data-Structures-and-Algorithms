@@ -1,8 +1,6 @@
 cyoa-step1 /usr/local/ece551/cyoa/story1
 cyoa-step1 /usr/local/ece551/cyoa/story2
 
-
-
 cyoa-step1 storyTest
 cyoa-step1 storyTest2
 cyoa-step1 storyTest3
@@ -20,4 +18,28 @@ cyoa-step1 storyTest14
 cyoa-step1 storyTest15
 cyoa-step1 storyTest16
 
+
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input0.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input1.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input2.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input3.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input4.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input5.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input6.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input7.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input8.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input9.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input10.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input11.txt
+cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input12.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input0.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input1.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input2.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input3.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input4.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input5.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input6.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input7.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input8.txt
+cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input9.txt
 

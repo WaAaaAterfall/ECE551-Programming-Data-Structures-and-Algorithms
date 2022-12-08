@@ -22,6 +22,8 @@ bool checkValidNum(const std::string num) {
   std::string trimNum = num.substr(index);
   for (size_t i = 0; i < trimNum.length(); i++) {
     if (!std::isdigit(trimNum[i])) {
+      std::cerr << "The story contains invalid number.\n";
+      exit(EXIT_FAILURE);
       return false;
     }
   }
@@ -39,6 +41,8 @@ bool checkValidLong(const std::string num) {
   std::string trimNum = num.substr(index);
   for (size_t i = 0; i < trimNum.length(); i++) {
     if (!std::isdigit(trimNum[i])) {
+      std::cerr << "The story contains invalid long number. \n";
+      exit(EXIT_FAILURE);
       return false;
     }
   }
