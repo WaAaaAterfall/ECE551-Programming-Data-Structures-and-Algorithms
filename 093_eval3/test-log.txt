@@ -39,5 +39,6 @@ storyTest23: The variable is required by a choice but the story does not have va
 
 step2:
 storyTest24: Test page number with blank, should be true
-storyTest17: What if the input cannot reach the story end (Should be an error)
+storyTest25: What if the input cannot reach the story end (Should be an error)
 storyTest26: test nothing in the page number nd variable value, should be an error
+storyTest27: a page is referenced by itself
