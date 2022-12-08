@@ -14,6 +14,7 @@ int main(int argc, char ** argv) {
   }
   std::string path = argv[1];
   Story story(path);
+  story.checkStory();
   story.printStory();
 
   // std::string input = "0@N:page0.txt\n";
