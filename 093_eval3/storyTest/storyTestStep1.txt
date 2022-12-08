@@ -17,7 +17,3 @@
 6@L:page6.txt
 7@L:page7.txt
 8@W:page8.txt
-
-
-
-

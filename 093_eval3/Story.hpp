@@ -139,12 +139,13 @@ Story::Story(const std::string path) {
       std::string pageNum = line.substr(0, findTerm);
       size_t pageNumber = std::strtoul(pageNum.c_str(), NULL, 10);
       Page * currentPage = pageVec[pageNumber];
-      std::string variable = line.substr(findTerm + 1);
+      std::string varAndVal = line.substr(findTerm + 1);
+      size_t findEq = varAndVal.find("=");
       //If it is a new variable, add it into the story variable aray
-      if (isNewVariable(variable)) {
-        storyVar[variable] = 0;
+      if (isNewVariable(varAndVal.substr(0, findEq))) {
+        storyVar[varAndVal.substr(0, findEq)] = 0;
       }
-      currentPage->addUpdateVarable(variable);
+      currentPage->addUpdateVarable(varAndVal);
     }
     else {
       std::cerr << "Wrong storyLine type.\n";
@@ -159,6 +160,11 @@ void Story::updateStoryVar(Page * currentPage) {
   Page::Variables * pageVar = currentPage->getPageVar();
   std::vector<std::pair<std::string, long> >::iterator it = pageVar->variables.begin();
   while (it != pageVar->variables.end()) {
+    if (storyVar.find((*it).first) == storyVar.end()) {
+      std::cerr << "The story contians page in which the variable of the choices does "
+                   "not exist.";
+      exit(EXIT_FAILURE);
+    }
     storyVar[(*it).first] = (*it).second;
     it++;
   }
@@ -169,11 +175,6 @@ void Story::updatePageValidChoice(Page * currentPage) {
   std::vector<Page::Choice *> pageChoice = currentPage->getChoices();
   for (size_t i = 0; i < pageChoice.size(); i++) {
     std::pair<std::string, long> choiceCondition = pageChoice[i]->choiceCondition;
-    if (storyVar.find(choiceCondition.first) == storyVar.end()) {
-      std::cerr << "The story contians page in which the variable of the choices does "
-                   "not exist.";
-      exit(EXIT_FAILURE);
-    }
     if (storyVar[choiceCondition.first] != choiceCondition.second) {
       pageChoice[i]->isAvailable = false;
     }
