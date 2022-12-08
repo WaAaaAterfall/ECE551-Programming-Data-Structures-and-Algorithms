@@ -367,6 +367,7 @@ void Story::searchSuccessPath() {
 void Story::printSuccessPath() const {
   if (successPath.size() == 0) {
     std::cout << "This story is unwinnable!\n";
+    return;
   }
   for (size_t i = 0; i < successPath.size(); i++) {
     std::vector<std::pair<int, int> > currentPath = successPath[i];
