@@ -30,6 +30,7 @@ class Story {
   size_t getStorySize() const { return pageVec.size(); }
   std::vector<Page *> & getPages() { return pageVec; }
   void printStory() const;
+  void checkStoryFormat() const;
   void checkStory() const;
   void printStoryByInput() const;
   size_t getValidInput(std::string input, Page * curr) const;
@@ -206,12 +207,16 @@ void Story::printStory() const {
   }
 }
 
-//Check if this story has valid format
-void Story::checkStory() const {
-  size_t prevPage = -1;
-  bool hasWin = false;
-  bool hasLose = false;
-  for (size_t j = 0; j < getStorySize(); j++) {
+//Check if the story has the correct format(Step1)
+void Story::checkStoryFormat() const {
+  size_t prevPage = 0;
+  Page * first = pageVec[0];
+  if (first->getPageNum() != 0) {
+    std::cerr << "The story does not have page0/\n";
+    exit(EXIT_FAILURE);
+  }
+
+  for (size_t j = 1; j < getStorySize(); j++) {
     Page * current = pageVec[j];
     //check if the page is in order and consecutive
     if (current->getPageNum() != prevPage + 1) {
@@ -221,21 +226,36 @@ void Story::checkStory() const {
     else {
       prevPage = current->getPageNum();
     }
-
-    //If this is a win or lose page, update the hasWin/Lose flag and assert they have no choice
+    //If this is a win or lose page, assert they have no choice
     if (current->getPageType() == 1) {
-      hasWin = true;
       if (current->getChoiceSize() != 0) {
         std::cerr << "The win page of the story has choices, but it shouldn't.\n";
+        exit(EXIT_FAILURE);
       }
     }
     else if (current->getPageType() == 2) {
-      hasLose = true;
       if (current->getChoiceSize() != 0) {
         std::cerr << "The lose page of the story has choices, but it shouldn't.\n";
+        exit(EXIT_FAILURE);
       }
     }
+  }
+}
 
+//Check if this story is valid (Step 2)
+void Story::checkStory() const {
+  checkStoryFormat();
+  bool hasWin = false;
+  bool hasLose = false;
+  for (size_t j = 1; j < getStorySize(); j++) {
+    Page * current = pageVec[j];
+    //If the page is win or lose, update the flags
+    if (current->getPageType() == 1) {
+      hasWin = true;
+    }
+    else if (current->getPageType() == 2) {
+      hasLose = true;
+    }
     //If the page is neither win or lose, check the choices
     else {
       std::vector<Page::Choice *> choices = current->getChoices();
@@ -265,7 +285,6 @@ void Story::checkStory() const {
       }
     }
   }
-
   //After looping, check if there are win and lose page, and every page is referenced at least once by others
   if ((!hasWin) || (!hasLose)) {
     std::cerr << "No win or No lose page in this storty.\n";
