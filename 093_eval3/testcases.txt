@@ -55,5 +55,3 @@ cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input23.txt
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input24.txt
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input25.txt
-
-ec:step4
