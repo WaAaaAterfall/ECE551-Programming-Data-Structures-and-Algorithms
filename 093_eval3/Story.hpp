@@ -247,7 +247,7 @@ void Story::checkStory() const {
   checkStoryFormat();
   bool hasWin = false;
   bool hasLose = false;
-  for (size_t j = 1; j < getStorySize(); j++) {
+  for (size_t j = 0; j < getStorySize(); j++) {
     Page * current = pageVec[j];
     //If the page is win or lose, update the flags
     if (current->getPageType() == 1) {
