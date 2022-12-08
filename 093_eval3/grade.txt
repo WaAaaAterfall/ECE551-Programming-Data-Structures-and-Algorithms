@@ -1,6 +1,6 @@
-Grading at 12/08/2022:22:36:46.574483
-For commit ID f34934245642a460cb9d59c24dc9da7c7f868638
-Grading at Thu Dec  8 05:36:21 PM EST 2022
+Grading at 12/08/2022:22:55:12.539188
+For commit ID b61f66a5ac4bcd5fc13bc63ad2a3d27cc430816e
+Grading at Thu Dec  8 05:54:02 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -57,26 +57,26 @@ The choice cannot be matched with the current page.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1964194== Memcheck, a memory error detector
-==1964194== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1964194== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1964194== Command: ./cyoa-step1 storyTest3
-==1964194== Parent PID: 1964193
-==1964194== 
-==1964194== Conditional jump or move depends on uninitialised value(s)
-==1964194==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
-==1964194==    by 0x10E618: main (cyoa-step1.cpp:16)
-==1964194== 
-==1964194== 
-==1964194== HEAP SUMMARY:
-==1964194==     in use at exit: 14,306 bytes in 62 blocks
-==1964194==   total heap usage: 228 allocs, 166 frees, 123,817 bytes allocated
-==1964194== 
-==1964194== For a detailed leak analysis, rerun with: --leak-check=full
-==1964194== 
-==1964194== Use --track-origins=yes to see where uninitialised values come from
-==1964194== For lists of detected and suppressed errors, rerun with: -s
-==1964194== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1983554== Memcheck, a memory error detector
+==1983554== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1983554== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1983554== Command: ./cyoa-step1 storyTest3
+==1983554== Parent PID: 1983553
+==1983554== 
+==1983554== Conditional jump or move depends on uninitialised value(s)
+==1983554==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
+==1983554==    by 0x10E618: main (cyoa-step1.cpp:16)
+==1983554== 
+==1983554== 
+==1983554== HEAP SUMMARY:
+==1983554==     in use at exit: 14,306 bytes in 62 blocks
+==1983554==   total heap usage: 228 allocs, 166 frees, 123,817 bytes allocated
+==1983554== 
+==1983554== For a detailed leak analysis, rerun with: --leak-check=full
+==1983554== 
+==1983554== Use --track-origins=yes to see where uninitialised values come from
+==1983554== For lists of detected and suppressed errors, rerun with: -s
+==1983554== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 1.6: Current test is ./cyoa-step1 storyTest4 < /dev/null
@@ -122,26 +122,26 @@ The choice cannot be matched with the current page.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1964334== Memcheck, a memory error detector
-==1964334== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1964334== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1964334== Command: ./cyoa-step1 storyTest8
-==1964334== Parent PID: 1964333
-==1964334== 
-==1964334== Conditional jump or move depends on uninitialised value(s)
-==1964334==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
-==1964334==    by 0x10E618: main (cyoa-step1.cpp:16)
-==1964334== 
-==1964334== 
-==1964334== HEAP SUMMARY:
-==1964334==     in use at exit: 11,562 bytes in 33 blocks
-==1964334==   total heap usage: 108 allocs, 75 frees, 107,300 bytes allocated
-==1964334== 
-==1964334== For a detailed leak analysis, rerun with: --leak-check=full
-==1964334== 
-==1964334== Use --track-origins=yes to see where uninitialised values come from
-==1964334== For lists of detected and suppressed errors, rerun with: -s
-==1964334== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1983713== Memcheck, a memory error detector
+==1983713== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1983713== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1983713== Command: ./cyoa-step1 storyTest8
+==1983713== Parent PID: 1983712
+==1983713== 
+==1983713== Conditional jump or move depends on uninitialised value(s)
+==1983713==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
+==1983713==    by 0x10E618: main (cyoa-step1.cpp:16)
+==1983713== 
+==1983713== 
+==1983713== HEAP SUMMARY:
+==1983713==     in use at exit: 11,562 bytes in 33 blocks
+==1983713==   total heap usage: 108 allocs, 75 frees, 107,300 bytes allocated
+==1983713== 
+==1983713== For a detailed leak analysis, rerun with: --leak-check=full
+==1983713== 
+==1983713== Use --track-origins=yes to see where uninitialised values come from
+==1983713== For lists of detected and suppressed errors, rerun with: -s
+==1983713== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 1.11: Current test is ./cyoa-step1 storyTest9 < /dev/null
@@ -225,163 +225,163 @@ Now running YOUR tests for step 2
 
 2.1: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.2: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.3: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input2.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.4: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.5: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input4.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.6: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input5.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.7: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.8: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.9: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.10: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.11: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.12: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input11.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.13: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input12.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.14: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.15: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input1.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.16: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input2.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.17: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input3.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.18: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input4.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.19: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input5.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.20: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input6.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.21: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input7.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.22: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input8.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.23: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input9.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -397,16 +397,16 @@ Now running YOUR tests for step 3
 
 3.1: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story1 < /dev/null
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 3.2: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story2 < /dev/null
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 No request to check for intermediate deadline completion on step 3
 
 Step 4
@@ -422,184 +422,184 @@ Now running YOUR tests for step 4
 
 4.1: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.2: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.3: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.4: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.5: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.6: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.7: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.8: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.9: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.10: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input9.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.11: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input10.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.12: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input11.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.13: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input12.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.14: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input13.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.15: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input14.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.16: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.17: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.18: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.19: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.20: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.21: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input20.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.22: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input21.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.23: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input22.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.24: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input23.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.25: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input24.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.26: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input25.txt
 -----------------------------
-You considered this a failure case:
-There are pages that are not referenced in this story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 No request to check for intermediate deadline completion on step 4
 
 You have NOT passed your test cases!
