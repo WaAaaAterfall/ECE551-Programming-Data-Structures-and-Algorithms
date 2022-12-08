@@ -1,0 +1,16 @@
+storyTest: storyTest.txt convers lines that is not N or L or W
+storyTest2: page file does not exist
+storyTest3: invalid page number for declaration
+storyTest4: invalid page number for choices
+storyTest5: invalid destination page
+storyTest6: text oof the choice is null
+
+
+storyTest7: page does not declared in order
+storyTest8: page number is negative
+storyTest9: choices appear earlier than page declaration
+storyTest10: win page has choices
+storyTest11: lose page has choices
+storyTest12: The show up order of choices is different
+
+step2:
