@@ -3,8 +3,9 @@
 #include <iostream>
 #include <vector>
 
+#include "Page.hpp"
 #include "Story.hpp"
-//#include "Page.hpp"
+#include "util.hpp"
 
 int main(int argc, char ** argv) {
   if (argc != 2) {

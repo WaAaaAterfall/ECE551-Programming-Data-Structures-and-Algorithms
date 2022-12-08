@@ -27,3 +27,20 @@ bool checkValidNum(const std::string num) {
   }
   return true;
 }
+
+bool checkValidLong(const std::string num) {
+  size_t index = 0;
+  while (num[index] == ' ') {
+    index++;
+  }
+  if (num[index] == '-' && index != (num.size() - 1)) {
+    index++;
+  }
+  std::string trimNum = num.substr(index);
+  for (size_t i = 0; i < trimNum.length(); i++) {
+    if (!std::isdigit(trimNum[i])) {
+      return false;
+    }
+  }
+  return true;
+}
