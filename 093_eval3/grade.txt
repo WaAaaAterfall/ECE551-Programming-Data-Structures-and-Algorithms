@@ -1,6 +1,6 @@
-Grading at 12/08/2022:22:55:12.539188
-For commit ID b61f66a5ac4bcd5fc13bc63ad2a3d27cc430816e
-Grading at Thu Dec  8 05:54:02 PM EST 2022
+Grading at 12/08/2022:22:59:21.738260
+For commit ID c1fa7d4a9444a16241c1af6ed482e0a21cdbd601
+Grading at Thu Dec  8 05:58:59 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -57,26 +57,26 @@ The choice cannot be matched with the current page.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1983554== Memcheck, a memory error detector
-==1983554== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1983554== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1983554== Command: ./cyoa-step1 storyTest3
-==1983554== Parent PID: 1983553
-==1983554== 
-==1983554== Conditional jump or move depends on uninitialised value(s)
-==1983554==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
-==1983554==    by 0x10E618: main (cyoa-step1.cpp:16)
-==1983554== 
-==1983554== 
-==1983554== HEAP SUMMARY:
-==1983554==     in use at exit: 14,306 bytes in 62 blocks
-==1983554==   total heap usage: 228 allocs, 166 frees, 123,817 bytes allocated
-==1983554== 
-==1983554== For a detailed leak analysis, rerun with: --leak-check=full
-==1983554== 
-==1983554== Use --track-origins=yes to see where uninitialised values come from
-==1983554== For lists of detected and suppressed errors, rerun with: -s
-==1983554== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1991742== Memcheck, a memory error detector
+==1991742== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1991742== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1991742== Command: ./cyoa-step1 storyTest3
+==1991742== Parent PID: 1991741
+==1991742== 
+==1991742== Conditional jump or move depends on uninitialised value(s)
+==1991742==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
+==1991742==    by 0x10E618: main (cyoa-step1.cpp:16)
+==1991742== 
+==1991742== 
+==1991742== HEAP SUMMARY:
+==1991742==     in use at exit: 14,306 bytes in 62 blocks
+==1991742==   total heap usage: 228 allocs, 166 frees, 123,817 bytes allocated
+==1991742== 
+==1991742== For a detailed leak analysis, rerun with: --leak-check=full
+==1991742== 
+==1991742== Use --track-origins=yes to see where uninitialised values come from
+==1991742== For lists of detected and suppressed errors, rerun with: -s
+==1991742== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 1.6: Current test is ./cyoa-step1 storyTest4 < /dev/null
@@ -122,26 +122,26 @@ The choice cannot be matched with the current page.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1983713== Memcheck, a memory error detector
-==1983713== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1983713== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1983713== Command: ./cyoa-step1 storyTest8
-==1983713== Parent PID: 1983712
-==1983713== 
-==1983713== Conditional jump or move depends on uninitialised value(s)
-==1983713==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
-==1983713==    by 0x10E618: main (cyoa-step1.cpp:16)
-==1983713== 
-==1983713== 
-==1983713== HEAP SUMMARY:
-==1983713==     in use at exit: 11,562 bytes in 33 blocks
-==1983713==   total heap usage: 108 allocs, 75 frees, 107,300 bytes allocated
-==1983713== 
-==1983713== For a detailed leak analysis, rerun with: --leak-check=full
-==1983713== 
-==1983713== Use --track-origins=yes to see where uninitialised values come from
-==1983713== For lists of detected and suppressed errors, rerun with: -s
-==1983713== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1992107== Memcheck, a memory error detector
+==1992107== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1992107== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1992107== Command: ./cyoa-step1 storyTest8
+==1992107== Parent PID: 1992106
+==1992107== 
+==1992107== Conditional jump or move depends on uninitialised value(s)
+==1992107==    at 0x10C99B: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:127)
+==1992107==    by 0x10E618: main (cyoa-step1.cpp:16)
+==1992107== 
+==1992107== 
+==1992107== HEAP SUMMARY:
+==1992107==     in use at exit: 11,562 bytes in 33 blocks
+==1992107==   total heap usage: 108 allocs, 75 frees, 107,300 bytes allocated
+==1992107== 
+==1992107== For a detailed leak analysis, rerun with: --leak-check=full
+==1992107== 
+==1992107== Use --track-origins=yes to see where uninitialised values come from
+==1992107== For lists of detected and suppressed errors, rerun with: -s
+==1992107== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 1.11: Current test is ./cyoa-step1 storyTest9 < /dev/null
@@ -221,167 +221,6 @@ Executable cyoa-step2 exists (good)
 ------------------------------------
 Now running YOUR tests for step 2
 ------------------------------------
-
-
-2.1: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.2: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.3: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.4: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.5: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input4.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.6: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input5.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.7: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.8: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.9: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.10: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.11: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.12: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input11.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.13: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input12.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.14: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.15: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.16: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.17: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input3.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.18: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input4.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.19: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input5.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.20: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input6.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.21: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input7.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.22: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.23: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -393,20 +232,6 @@ Executable cyoa-step3 exists (good)
 ------------------------------------
 Now running YOUR tests for step 3
 ------------------------------------
-
-
-3.1: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story1 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-3.2: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story2 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
 No request to check for intermediate deadline completion on step 3
 
 Step 4
@@ -418,188 +243,6 @@ Executable cyoa-step4 exists (good)
 ------------------------------------
 Now running YOUR tests for step 4
 ------------------------------------
-
-
-4.1: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.2: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.3: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.4: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.5: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.6: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.7: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.8: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.9: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.10: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.11: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input10.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.12: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input11.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.13: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input12.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.14: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input13.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.15: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input14.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.16: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.17: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.18: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.19: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.20: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.21: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input20.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.22: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input21.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.23: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input22.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.24: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input23.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.25: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input24.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.26: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input25.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
 No request to check for intermediate deadline completion on step 4
 
 You have NOT passed your test cases!
