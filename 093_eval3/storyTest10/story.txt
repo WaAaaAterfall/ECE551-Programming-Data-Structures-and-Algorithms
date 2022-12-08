@@ -4,7 +4,7 @@
 1:2:Choose the magic whistle.
 1:3:Choose the magic shoes.
 1:4:Choose the magic toaster.
-2@hgfdghd:page2.txt
+2@N:page2.txt
 2:5:Go to Denevieve for help.
 2:6:Go to Grew for help.
 2:7:Go alone.
@@ -17,3 +17,4 @@
 6@L:page6.txt
 7@L:page7.txt
 8@W:page8.txt
+8:7:Win page has a choice! Cannot be

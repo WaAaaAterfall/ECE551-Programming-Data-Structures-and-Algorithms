@@ -1,0 +1,43 @@
+storyTest: storyTest.txt convers lines that is not N or L or W
+storyTest2: page file does not exist
+storyTest3: invalid page number for declaration
+storyTest4: invalid page number for choices
+storyTest5: invalid destination page
+storyTest6: text oof the choice is null
+
+
+storyTest7: page does not declared in order
+storyTest8: page number is negative
+storyTest9: choices appear earlier than page declaration
+storyTest10: win page has choices
+storyTest11: lose page has choices
+storyTest12: The show up order of choices is different
+
+step2:
+storyTest13: A page is not referenced
+storyTest14: No win page
+storyTest15: No lose page
+storyTest16: the destination of a choice does not exist
+
+User input:
+using storyTest
+input0: normal
+input1: input contains string
+input2:input contains negative number
+input3:input contains choice that does not exist
+
+Step3:
+storyTest17: There is no winning path in the story
+storyTest18: A story of loop, win or lose page is not in the loop
+
+Step4:
+storyTest19: The third type of line has wrong format
+storyTest20: The forth type of line has wrong format
+storyTest21: Test choosing the unavailable option
+storyTest22: The value of a variable is negative
+storyTest23: The variable is required by a choice but the story does not have variable
+
+step2:
+storyTest24: Test page number with blank, should be true
+storyTest17: What if the input cannot reach the story end (Should be an error)
+storyTest26: test nothing in the page number nd variable value, should be an error

@@ -28,7 +28,6 @@ cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/
 cyoa-step3 /usr/local/ece551/cyoa/story1
 cyoa-step3 /usr/local/ece551/cyoa/story2
 
-
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input0.txt
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input1.txt
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input2.txt
@@ -57,9 +56,22 @@ cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input25.txt
 
 
-cyoa-step1: cyoa-step1.cpp Story.o Page.o util.o
-	g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp util.cpp
-cyoa-step2: cyoa-step2.cpp Story.o Page.o util.o
-	g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp util.cpp
-cyoa-step3: cyoa-step3.cpp Story.o Page.o util.o
-	g++ -o cyoa-step3 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step3.cpp util.cpp
+
+cyoa-step1 storyTest
+cyoa-step1 storyTest2
+cyoa-step1 storyTest3
+cyoa-step1 storyTest4
+cyoa-step1 storyTest5
+cyoa-step1 storyTest6
+cyoa-step1 storyTest7
+cyoa-step1 storyTest8
+cyoa-step1 storyTest9
+cyoa-step1 storyTest10
+cyoa-step1 storyTest11
+cyoa-step1 storyTest12
+cyoa-step1 storyTest13
+cyoa-step1 storyTest14
+cyoa-step1 storyTest15
+cyoa-step1 storyTest16
+
+

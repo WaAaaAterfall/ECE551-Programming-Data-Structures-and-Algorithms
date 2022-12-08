@@ -184,6 +184,7 @@ void Page::printPage() const {
     std::cerr << "Wrong pageType\n";
   }
 }
+
 //When read the story.txt, if this page changes the story variable, add it into the variables object
 //If the page is visited when playing, we weill change the story variable according to this object
 void Page ::addUpdateVarable(const std::string line) {
@@ -204,7 +205,6 @@ std::pair<std::string, size_t> Page::setChoiceCondition(const std::string option
   std::string condition =
       option.substr((option.find("[") + 1), option.find("]") - option.find("["));
   size_t findEq = condition.find("=");
-
   std::string var = condition.substr(0, findEq);
   std::string val = condition.substr(findEq + 1);
   long value = std::strtol(val.c_str(), NULL, 10);
