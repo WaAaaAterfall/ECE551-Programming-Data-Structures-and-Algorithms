@@ -12,7 +12,8 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   std::string path = argv[1];
-  Story story(path);
+  Story storyTestRF3(path);
+  Story story(storyTestRF3);
   story.checkStory();
   std::vector<Page *> Pages = story.getPages();
   Page * currentPage = Pages[0];
