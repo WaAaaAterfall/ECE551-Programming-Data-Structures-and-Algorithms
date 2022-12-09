@@ -67,3 +67,9 @@ cyoa-step2 storyTest < storyTest/inputs/input4.txt
 cyoa-step2 storyTest < storyTest/inputs/input5.txt
 cyoa-step2 storyTest24 < storyTest24/inputs/input0.txt
 cyoa-step2 storyTest25 < storyTest25/inputs/input0.txt
+
+cyoa-step3 /usr/local/ece551/cyoa/story1
+cyoa-step3 /usr/local/ece551/cyoa/story2
+cyoa-step3 storyTest
+cyoa-step3 storyTest17
+
