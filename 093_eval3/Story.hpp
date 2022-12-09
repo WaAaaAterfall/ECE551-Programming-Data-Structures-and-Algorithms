@@ -343,19 +343,33 @@ void Story::dfs(Page * current, std::vector<std::pair<int, int> > path) {
     current->setVisited();
     std::vector<Page::Choice *> currentChoice = current->getChoices();
     std::vector<Page::Choice *>::iterator it = currentChoice.begin();
-    int choiceNum = 1;
+    size_t choiceNum = 1;
     //Loop all the possible direct destination from the current page
     while (it != currentChoice.end()) {
-      path.push_back(std::make_pair(current->getPageNum(), choiceNum));
-      //Check the destination page for this chice
-      Page * dest = pageVec[(*it)->choiceContent.first];
-      dfs(dest, path);
-      //this dest is either a wil page (stored the path, clean the visited record and start a new one)
-      //or not eligible (wipe the visited record and start a new path)
-      dest->eraseVisited();
-      path.pop_back();
-      choiceNum++;
-      it++;
+      size_t i = 0;
+      //Check if there are different choices with same destination page
+      for (i = 0; i < choiceNum - 1; i++) {
+        if ((*it)->choiceContent.first == currentChoice[i]->choiceContent.first) {
+          break;
+        }
+      }
+      if (i < choiceNum - 1) {
+        choiceNum++;
+        it++;
+        continue;
+      }
+      else {
+        path.push_back(std::make_pair(current->getPageNum(), choiceNum));
+        //Check the destination page for this chice
+        Page * dest = pageVec[(*it)->choiceContent.first];
+        dfs(dest, path);
+        //this dest is either a wil page (stored the path, clean the visited record and start a new one)
+        //or not eligible (wipe the visited record and start a new path)
+        dest->eraseVisited();
+        path.pop_back();
+        choiceNum++;
+        it++;
+      }
     }
   }
 }
