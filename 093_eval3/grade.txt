@@ -1,6 +1,6 @@
-Grading at 12/09/2022:00:27:48.319097
-For commit ID c6173e486fa93d48ae64ace15256e030bb8bbbb8
-Grading at Thu Dec  8 07:26:43 PM EST 2022
+Grading at 12/09/2022:01:03:49.794945
+For commit ID d99a8facdab8a917d5e1994c78bfac09841c5b4e
+Grading at Thu Dec  8 08:02:38 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -688,6 +688,34 @@ Executable cyoa-step3 exists (good)
 ------------------------------------
 Now running YOUR tests for step 3
 ------------------------------------
+
+
+3.1: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story1 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+3.2: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story2 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+3.3: Current test is ./cyoa-step3 storyTest < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+3.4: Current test is ./cyoa-step3 storyTest17 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 No request to check for intermediate deadline completion on step 3
 
 Step 4
