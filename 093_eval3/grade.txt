@@ -1,6 +1,6 @@
-Grading at 12/09/2022:14:58:04.830616
-For commit ID c22bed1a7e7304d2a409be1d2377a77770035c05
-Grading at Fri Dec  9 09:56:10 AM EST 2022
+Grading at 12/09/2022:15:19:39.002005
+For commit ID 10ff308a37f4aed9356456a6369476f045fb0b59
+Grading at Fri Dec  9 10:17:43 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -562,6 +562,13 @@ There are pages that are not referenced in this story.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
+
+
+2.48: Current test is ./cyoa-step2 storyTest31  <  storyTest31/inputs/input0.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -607,6 +614,16 @@ Valgrind was clean
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+3.6: Current test is ./cyoa-step3 storyTest30 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+There are pages that are not referenced in this story.
+-----------------------------------------
+Lets check if it valgrinds:
 Valgrind was clean
 No request to check for intermediate deadline completion on step 3
 
