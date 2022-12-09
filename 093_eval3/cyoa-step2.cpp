@@ -12,8 +12,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   std::string path = argv[1];
-  Story storyTestrf3(path);
-  Story story(storyTestrf3);
+  Story story(path);
   story.checkStory();
   std::vector<Page *> Pages = story.getPages();
   Page * currentPage = Pages[0];
@@ -21,8 +20,9 @@ int main(int argc, char ** argv) {
     currentPage->printPage();
     std::string inputChoice;
     std::cin >> inputChoice;
-    size_t destinationPage = 0;
-    while (destinationPage == 0) {
+    //The sieze_t bigger than the story size indicates we haven't found the valid destination page
+    size_t destinationPage = story.getStorySize() + 10;
+    while (destinationPage > story.getStorySize()) {
       try {
         size_t choiceNum = story.getValidInput(inputChoice, currentPage);
         destinationPage = currentPage->getChoices()[choiceNum - 1]->choiceContent.first;

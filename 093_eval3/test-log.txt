@@ -18,6 +18,7 @@ storyTest13: A page is not referenced
 storyTest14: No win page
 storyTest15: No lose page
 storyTest16: the destination of a choice does not exist
+storyTest31: some Page will go to page 0
 
 User input:
 using storyTest
@@ -31,6 +32,7 @@ input5:input cannot finish the story(error)
 Step3:
 storyTest17: There is no winning path in the story
 storyTest18: There are multiple choices of a page points to the same destination
+storyTest30: The page 0 is the win page
 
 Step4:
 storyTest19: The third type of line has wrong format(missing $)
