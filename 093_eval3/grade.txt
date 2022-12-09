@@ -1,12 +1,11 @@
-Grading at 12/08/2022:23:54:33.545269
-For commit ID 372e270a403327ea6da1d32c06f8f9870796d71a
-Grading at Thu Dec  8 06:53:23 PM EST 2022
+Grading at 12/09/2022:00:27:48.319097
+For commit ID c6173e486fa93d48ae64ace15256e030bb8bbbb8
+Grading at Thu Dec  8 07:26:43 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  cyoa-step1.o  cyoa-step2.o  cyoa-step3.o  cyoa-step4.o
-g++    -c -o util.o util.cpp
 g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp util.cpp
 The code compiled (good)
 Executable cyoa-step1 exists (good)
@@ -509,36 +508,6 @@ Valgrind was clean
 
 2.41: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input1.txt
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.42: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input2.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.43: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input3.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The input cannot finish the story.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.44: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input4.txt
------------------------------
 It looks like you got different output from us on that case.
 Here is the diff (yours on left, ours on right):
 
@@ -576,8 +545,9 @@ What would you like to do?					What would you like to do?
  1. Choose the magic whistle.					 1. Choose the magic whistle.
  2. Choose the magic shoes.					 2. Choose the magic shoes.
  3. Choose the magic toaster.					 3. Choose the magic toaster.
-That is not a valid choice, please try again		      <
-							      <
+That is not a valid choice, please try again			That is not a valid choice, please try again
+							      |	That is not a valid choice, please try again
+							      >	That is not a valid choice, please try again
 As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
 puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
 set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
@@ -656,6 +626,27 @@ You have been eaten by a dragon.				You have been eaten by a dragon.
 Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
 Your file did not match the expected output
 
+
+
+2.42: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+2.43: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+2.44: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.45: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input5.txt
