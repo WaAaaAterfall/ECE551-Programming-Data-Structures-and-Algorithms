@@ -35,6 +35,13 @@ int main(int argc, char ** argv) {
           exit(EXIT_FAILURE);
         }
       }
+      catch (EmptyInputException & e) {
+        getline(std::cin, inputChoice);
+        if (std::cin.eof()) {
+          std::cerr << "The input cannot finish the story.\n";
+          exit(EXIT_FAILURE);
+        }
+      }
     }
   }
   currentPage->printPage();

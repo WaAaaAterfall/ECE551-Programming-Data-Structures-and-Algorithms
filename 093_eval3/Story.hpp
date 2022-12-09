@@ -305,7 +305,10 @@ size_t Story::getValidInput(std::string input, Page * currentPage) const {
   //invalid case:No input/input is not a number
   //The input is not a valid choice for current page
   //The input choice is unavailable under the story variables
-  if (input.empty() || !checkValidNum(input)) {
+  if (input.empty()) {
+    throw EmptyInputException();
+  }
+  if (!checkValidInputNum(input)) {
     throw UserInputException();
   }
   size_t choice = std::strtoul(input.c_str(), NULL, 10);

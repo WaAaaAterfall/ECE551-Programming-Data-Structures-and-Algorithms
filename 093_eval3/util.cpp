@@ -14,6 +14,20 @@ std::string generatePath(const std::string path, const std::string file) {
   return filePath;
 }
 
+bool checkValidInputNum(const std::string num) {
+  int index = 0;
+  while (num[index] == ' ') {
+    index++;
+  }
+  std::string trimNum = num.substr(index);
+  for (size_t i = 0; i < trimNum.length(); i++) {
+    if (!std::isdigit(trimNum[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 bool checkValidNum(const std::string num) {
   int index = 0;
   while (num[index] == ' ') {

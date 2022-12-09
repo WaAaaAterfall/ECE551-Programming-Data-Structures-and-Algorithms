@@ -7,6 +7,11 @@
 #include <string>
 #include <vector>
 
+class EmptyInputException : public std::exception {
+ public:
+  const char * what() const throw() { return "That choice is empty, please try again\n"; }
+};
+
 class UserInputException : public std::exception {
  public:
   const char * what() const throw() {
@@ -22,6 +27,8 @@ class InvalidChoiceException : public std::exception {
 };
 
 std::string generatePath(const std::string path, const std::string file);
+
+bool checkValidInputNum(const std::string num);
 
 bool checkValidNum(const std::string num);
 
