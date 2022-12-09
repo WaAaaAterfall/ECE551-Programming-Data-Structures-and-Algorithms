@@ -44,7 +44,7 @@ class Page {
   bool referenced;
   bool visited;
   std::vector<std::string> pageText;
-  std::vector<Choice &> choices;
+  std::vector<Choice *> choices;
   Variables * pageVariables;
   int extractPageType(std::string typeOfPage);
   std::pair<std::string, size_t> setChoiceCondition(const std::string option);
