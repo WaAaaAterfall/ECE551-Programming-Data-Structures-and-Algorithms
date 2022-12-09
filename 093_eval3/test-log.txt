@@ -4,7 +4,7 @@ storyTest3: invalid page number for declaration
 storyTest4: invalid page number for choices
 storyTest5: invalid destination page
 storyTest6: text oof the choice is null
-
+storyTest32: Does not have page 0
 
 storyTest7: page does not declared in order
 storyTest8: page number is negative

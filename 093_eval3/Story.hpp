@@ -220,21 +220,16 @@ void Story::printStory() const {
 
 //Check if the story has the correct format(Step1)
 void Story::checkStoryFormat() const {
-  size_t prevPage = 0;
-  Page * first = pageVec[0];
-  if (first->getPageNum() != 0) {
-    std::cerr << "The story does not have page0/\n";
-    exit(EXIT_FAILURE);
-  }
-  for (size_t j = 1; j < getStorySize(); j++) {
+  size_t nextPage = 1;
+  for (size_t j = 0; j < getStorySize(); j++) {
     Page * current = pageVec[j];
     //check if the page is in order and consecutive
-    if (current->getPageNum() != prevPage + 1) {
+    if ((current->getPageNum() + 1) != nextPage) {
       std::cerr << "The pages in this story are not consecutive.\n";
       exit(EXIT_FAILURE);
     }
     else {
-      prevPage = current->getPageNum();
+      nextPage++;
     }
     //If this is a win or lose page, assert they have no choice
     if (current->getPageType() == 1) {
