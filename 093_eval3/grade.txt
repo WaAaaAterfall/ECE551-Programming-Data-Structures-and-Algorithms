@@ -1,6 +1,6 @@
-Grading at 12/09/2022:03:31:58.270655
-For commit ID deeac9881f8818aa7afa5f6f2bf675df05c2140e
-Grading at Thu Dec  8 10:30:21 PM EST 2022
+Grading at 12/09/2022:05:28:48.492845
+For commit ID 85cf45f419503314393f00251a39a23d05f40a78
+Grading at Fri Dec  9 12:27:10 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -508,127 +508,9 @@ Valgrind was clean
 
 2.41: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input1.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-Welcome to choose your own adventure.				Welcome to choose your own adventure.
-Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
-Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
-Will you be eaten by a dragon?					Will you be eaten by a dragon?
-
-Only you can decide....						Only you can decide....
-
-What would you like to do?					What would you like to do?
-
- 1. I am ready for this story!					 1. I am ready for this story!
-One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
-there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
-why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
-
-The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
-else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
-dragon." 							dragon." 
-
-The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
-your quest. 							your quest. 
-
-The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
-want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
-air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
-into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
-and/or jam). 							and/or jam). 
-
-"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
-
-What would you like to do?					What would you like to do?
-
- 1. Choose the magic whistle.					 1. Choose the magic whistle.
- 2. Choose the magic shoes.					 2. Choose the magic shoes.
- 3. Choose the magic toaster.					 3. Choose the magic toaster.
-That is not a valid choice, please try again			That is not a valid choice, please try again
-							      |	That is not a valid choice, please try again
-							      >	That is not a valid choice, please try again
-							      >	That is not a valid choice, please try again
-							      >	That is not a valid choice, please try again
-							      >	That is not a valid choice, please try again
-As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
-puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
-set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
-school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
-
-You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
-think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
-works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
-and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
-
-Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
-not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
-alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
-other hand, help might be useful.				other hand, help might be useful.
-
-Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
-live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
-decide whom to go to for help.					decide whom to go to for help.
-
-What would you like to do?					What would you like to do?
-
- 1. Go to Denevieve for help.					 1. Go to Denevieve for help.
- 2. Go to Grew for help.					 2. Go to Grew for help.
- 3. Go alone.							 3. Go alone.
-After thinking about it a bit, you decide that Denevieve is p	After thinking about it a bit, you decide that Denevieve is p
-better choice. After all, her singing skills are likely to co	better choice. After all, her singing skills are likely to co
-especially with your magic whistle. Maybe dragons can be tame	especially with your magic whistle. Maybe dragons can be tame
-music and bird calls? That could be right, but you aren't sur	music and bird calls? That could be right, but you aren't sur
-through that day of Magical Creature Biology class. 		through that day of Magical Creature Biology class. 
-
-After knocking on the door, Denevieve is surprised to hear ab	After knocking on the door, Denevieve is surprised to hear ab
-threat but is happy to help you. After all, you were her best	threat but is happy to help you. After all, you were her best
-tested every piece of code extensively and incrementally. Sur	tested every piece of code extensively and incrementally. Sur
-trusted with a quest about dragons.				trusted with a quest about dragons.
-
-The two of you set off into the hills and find the cave of th	The two of you set off into the hills and find the cave of th
-take a minute to confer about your musical options and come u	take a minute to confer about your musical options and come u
-list of three possible combinations to tame the dragon. 	list of three possible combinations to tame the dragon. 
-
-What would you like to do?					What would you like to do?
-
- 1. Silent Night, accompanied by raven calls			 1. Silent Night, accompanied by raven calls
-As you take the magic toaster from the wizard's hand, he disa	As you take the magic toaster from the wizard's hand, he disa
-puff of smoke. You decide that you should give the toaster a 	puff of smoke. You decide that you should give the toaster a 
-set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
-school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
-
-Having not had any breakfast, you are quite hungry, so testin	Having not had any breakfast, you are quite hungry, so testin
-seems like a great solution to two problems. You grab a rock 	seems like a great solution to two problems. You grab a rock 
-ground, stuff it in, and think of delicious toast with raspbe	ground, stuff it in, and think of delicious toast with raspbe
-seconds later, out pops the most perfectly done toast with ju	seconds later, out pops the most perfectly done toast with ju
-amount of butter and jam. Wow that is good! You spend a while	amount of butter and jam. Wow that is good! You spend a while
-testing the toaster again and again "just to be sure". After 	testing the toaster again and again "just to be sure". After 
-stuffed on toast, you start to wonder how this will help you 	stuffed on toast, you start to wonder how this will help you 
-dragon. 							dragon. 
-
-Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
-not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
-alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
-other hand, help might be useful.				other hand, help might be useful.
-
-Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
-live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
-decide whom to go to for help.					decide whom to go to for help.
-
-What would you like to do?					What would you like to do?
-
- 1. Go alone.							 1. Go alone.
-After thinking about it for a bit, you decide to go alone. Yo	After thinking about it for a bit, you decide to go alone. Yo
-into the hills by yourself in search of the dragon. Unfortuna	into the hills by yourself in search of the dragon. Unfortuna
-you are walking and trying to think up a plan, the dragon swo	you are walking and trying to think up a plan, the dragon swo
-behind you and devours you. 					behind you and devours you. 
-
-You have been eaten by a dragon.				You have been eaten by a dragon.
-
-Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 2.42: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input2.txt
@@ -782,100 +664,36 @@ Valgrind was clean
 
 4.6: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The input cannot finish the story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.7: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The input cannot finish the story.
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.8: Current test is ./cyoa-step4 story3Test22  <  story3Test22/inputs/input17.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-timeout: the monitored command dumped core
+The story contains invalid number.
 -----------------------------------------
 Lets check if it valgrinds:
-Valgrind reported errors:
-==2530909== Memcheck, a memory error detector
-==2530909== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2530909== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==2530909== Command: ./cyoa-step4 story3Test22
-==2530909== Parent PID: 2530908
-==2530909== 
-==2530909== Invalid read of size 8
-==2530909==    at 0x10B36E: Page::addUpdateVarable(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Page.hpp:200)
-==2530909==    by 0x10CC93: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:149)
-==2530909==    by 0x10E6FE: main (cyoa-step4.cpp:15)
-==2530909==  Address 0x58 is not stack'd, malloc'd or (recently) free'd
-==2530909== 
-==2530909== 
-==2530909== Process terminating with default action of signal 11 (SIGSEGV)
-==2530909==  Access not within mapped region at address 0x58
-==2530909==    at 0x10B36E: Page::addUpdateVarable(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Page.hpp:200)
-==2530909==    by 0x10CC93: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:149)
-==2530909==    by 0x10E6FE: main (cyoa-step4.cpp:15)
-==2530909==  If you believe this happened as a result of a stack
-==2530909==  overflow in your program's main thread (unlikely but
-==2530909==  possible), you can try to increase the size of the
-==2530909==  main thread stack using the --main-stacksize= flag.
-==2530909==  The main thread stack size used in this run was 8388608.
-==2530909== 
-==2530909== HEAP SUMMARY:
-==2530909==     in use at exit: 84,339 bytes in 44 blocks
-==2530909==   total heap usage: 153 allocs, 109 frees, 125,417 bytes allocated
-==2530909== 
-==2530909== For a detailed leak analysis, rerun with: --leak-check=full
-==2530909== 
-==2530909== For lists of detected and suppressed errors, rerun with: -s
-==2530909== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+Valgrind was clean
 
 
 4.9: Current test is ./cyoa-step4 story3Test22  <  story3Test22/inputs/input16.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-timeout: the monitored command dumped core
+The story contains invalid number.
 -----------------------------------------
 Lets check if it valgrinds:
-Valgrind reported errors:
-==2530948== Memcheck, a memory error detector
-==2530948== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2530948== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==2530948== Command: ./cyoa-step4 story3Test22
-==2530948== Parent PID: 2530947
-==2530948== 
-==2530948== Invalid read of size 8
-==2530948==    at 0x10B36E: Page::addUpdateVarable(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Page.hpp:200)
-==2530948==    by 0x10CC93: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:149)
-==2530948==    by 0x10E6FE: main (cyoa-step4.cpp:15)
-==2530948==  Address 0x58 is not stack'd, malloc'd or (recently) free'd
-==2530948== 
-==2530948== 
-==2530948== Process terminating with default action of signal 11 (SIGSEGV)
-==2530948==  Access not within mapped region at address 0x58
-==2530948==    at 0x10B36E: Page::addUpdateVarable(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Page.hpp:200)
-==2530948==    by 0x10CC93: Story::Story(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Story.hpp:149)
-==2530948==    by 0x10E6FE: main (cyoa-step4.cpp:15)
-==2530948==  If you believe this happened as a result of a stack
-==2530948==  overflow in your program's main thread (unlikely but
-==2530948==  possible), you can try to increase the size of the
-==2530948==  main thread stack using the --main-stacksize= flag.
-==2530948==  The main thread stack size used in this run was 8388608.
-==2530948== 
-==2530948== HEAP SUMMARY:
-==2530948==     in use at exit: 84,339 bytes in 44 blocks
-==2530948==   total heap usage: 153 allocs, 109 frees, 125,417 bytes allocated
-==2530948== 
-==2530948== For a detailed leak analysis, rerun with: --leak-check=full
-==2530948== 
-==2530948== For lists of detected and suppressed errors, rerun with: -s
-==2530948== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+Valgrind was clean
 
 
 4.10: Current test is ./cyoa-step4 story3Test23  <  story3Test23/inputs/input17.txt
@@ -934,8 +752,8 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 No request to check for intermediate deadline completion on step 4
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
