@@ -73,6 +73,7 @@ int Story::getLineType(std::string & line) {
   if (line.size() == 0) {
     return 0;
   }
+  //Case one sign: contains @ and :
   size_t findAt = line.find("@");
   if (findAt != std::string::npos) {
     size_t findCol = line.find(":");
@@ -80,20 +81,21 @@ int Story::getLineType(std::string & line) {
       return 1;
     }
   }
+  //Case 2 sign: two different :
   size_t findCol = line.find(":");
   if (findCol != std::string::npos) {
     size_t secondCol = line.substr(findCol + 1).find(":");
     if (secondCol != std::string::npos) {
-      size_t findLeftBracket = line.substr(0, findCol).find("[");
-      size_t findRightBracket = line.substr(0, findCol).find("[");
-      size_t findEq = line.substr(0, findCol).find("=");
-      if (findLeftBracket != std::string::npos && findRightBracket != std::string::npos &&
-          findEq != std::string::npos) {
-        return 4;
+      std::string pageAndCond = line.substr(0, findCol);
+      size_t findLeftBracket = pageAndCond.find("[");
+      if (findLeftBracket != std::string::npos) {
+        size_t findRightBracket = pageAndCond.substr(findLeftBracket).find("]");
+        if (findRightBracket != std::string::npos) {
+          return 4;
+        }
       }
-      else {
-        return 2;
-      }
+      //If there is no [ and ], take it as case 2
+      return 2;
     }
   }
   if ((line.find("=") != std::string::npos) && (line.find("$") != std::string::npos)) {
@@ -116,17 +118,17 @@ Story::Story(const std::string & path) {
   //Read the story line by line
   std::string line;
   while (getline(storyFile, line)) {
-    //If it is the  page declaration line
+    //Case 1, If it is the  page declaration line
     if (getLineType(line) == 1) {
       //Page * currentPage = new Page(line, path);
       pageVec.push_back(new Page(line, path));
     }
-    //If the line is empty
+    //Case 0: If the line is empty
     else if (getLineType(line) == 0) {
       continue;
     }
 
-    //If it is a choice line (With or without condition)
+    //Case2 & 4: If it is a choice line (With or without condition)
     else if (getLineType(line) == 2 || getLineType(line) == 4) {
       size_t findCol = line.find(":");
       size_t findBr = line.find("[");
@@ -149,7 +151,7 @@ Story::Story(const std::string & path) {
             << "The current page of the choice shows up before the page declaration.\n";
         exit(EXIT_FAILURE);
       }
-      //It is valid, so find the page
+      //It is valid a valid page, so find the page
       Page * currentPage = pageVec[pageNumber];
       if (pageNumber != currentPage->getPageNum()) {
         std::cerr << "The choice cannot be matched with the current page.\n";
@@ -160,7 +162,7 @@ Story::Story(const std::string & path) {
       currentPage->addChoices(line, type);
     }
 
-    //If it is the line that change the story variable
+    //Case3: If it is the line that change the story variable
     else if (getLineType(line) == 3) {
       size_t findTerm = line.find("$");
       std::string pageNum = line.substr(0, findTerm);
@@ -173,7 +175,7 @@ Story::Story(const std::string & path) {
         Page * currentPage = pageVec[pageNumber];
         std::string varAndVal = line.substr(findTerm + 1);
         size_t findEq = varAndVal.find("=");
-        //If it is a new variable, add it into the story variable aray
+        //If it is a new variable, add it into the story variable array
         std::string variable = varAndVal.substr(0, findEq);
         if (isNewVariable(variable)) {
           storyVar[variable] = 0;
@@ -181,6 +183,8 @@ Story::Story(const std::string & path) {
         currentPage->addUpdateVarable(varAndVal);
       }
     }
+
+    //If the line is not the above five cases, it should be an error
     else {
       std::cerr << "Wrong storyLine type.\n";
       exit(EXIT_FAILURE);
@@ -189,7 +193,7 @@ Story::Story(const std::string & path) {
   storyFile.close();
 }
 
-//When the page that changes the story variable is called, update the variable status in the variable array
+//When the page that changes the story variable is called, update the variable status in the variable array(Step4)
 void Story::updateStoryVar(Page * currentPage) {
   std::vector<std::pair<std::string, long> > pageVar = currentPage->getPageVar();
   std::vector<std::pair<std::string, long> >::iterator it = pageVar.begin();
@@ -204,7 +208,7 @@ void Story::updateStoryVar(Page * currentPage) {
   }
 }
 
-//Everytime the story variable changes, update the choice status of the current page
+//Everytime the story variable changes, update the choice status of the current page(Step4)
 void Story::updatePageValidChoice(Page * currentPage) {
   std::vector<Page::Choice *> pageChoice = currentPage->getChoices();
   for (size_t i = 0; i < pageChoice.size(); i++) {
@@ -232,6 +236,7 @@ bool Story::isNewVariable(std::string & variable) {
   return true;
 }
 
+//Directly print the whole story (step1)
 void Story::printStory() const {
   std::vector<Page *>::const_iterator it = pageVec.begin();
   while (it != pageVec.end()) {
@@ -290,7 +295,7 @@ void Story::checkStory() const {
       std::vector<Page::Choice *> choices = current->getChoices();
       for (size_t i = 0; i < choices.size(); i++) {
         Page::Choice * currentChoice = choices[i];
-        //If the destination page does not exist
+        //If the destination page does not exist, not page to reference
         if (currentChoice->choiceContent.first < 0 ||
             currentChoice->choiceContent.first >= getStorySize()) {
           std::cerr << "The story contains page that the destination page of its choice "
@@ -377,6 +382,7 @@ void Story::dfs(Page * current, std::vector<std::pair<int, int> > path) {
     while (it != currentChoice.end()) {
       size_t i = 0;
       //Check if there are different choices with same destination page
+      //If yes, skip this choice
       for (i = 0; i < choiceNum - 1; i++) {
         if ((*it)->choiceContent.first == currentChoice[i]->choiceContent.first) {
           break;
@@ -410,6 +416,7 @@ void Story::searchSuccessPath() {
   dfs(current, path);
 }
 
+//Print the successful in correct formaty (Step3)
 void Story::printSuccessPath() const {
   if (successPath.size() == 0) {
     std::cout << "This story is unwinnable!\n";
