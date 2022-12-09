@@ -15,6 +15,11 @@ int main(int argc, char ** argv) {
   Story storyTestRF3(path);
   Story story(storyTestRF3);
   story.checkStory();
+
+  Story * storyTest = new Story(path);
+  story = *storyTest;
+  story.checkStory();
+  delete storyTest;
   std::vector<Page *> Pages = story.getPages();
   Page * currentPage = Pages[0];
   while (!currentPage->isWinPage() && !currentPage->isLostPage()) {
