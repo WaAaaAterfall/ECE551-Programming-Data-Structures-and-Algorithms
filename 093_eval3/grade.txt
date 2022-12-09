@@ -1,6 +1,6 @@
-Grading at 12/09/2022:15:19:39.002005
-For commit ID 10ff308a37f4aed9356456a6369476f045fb0b59
-Grading at Fri Dec  9 10:17:43 AM EST 2022
+Grading at 12/09/2022:15:33:33.578694
+For commit ID 9964f69f545b9641a7a5e38cf53fc7e52490e98d
+Grading at Fri Dec  9 10:31:39 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -569,6 +569,16 @@ Valgrind was clean
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
+
+
+2.49: Current test is ./cyoa-step2 storyTest32  <  storyTest32/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The current page of the choice shows up before the page declaration.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -621,7 +631,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-There are pages that are not referenced in this story.
+The win page of the story has choices, but it shouldn't.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
