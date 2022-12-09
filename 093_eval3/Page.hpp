@@ -30,11 +30,6 @@ class Page {
         isAvailable(avail){};
   };
 
-  class Variables {
-   public:
-    std::vector<std::pair<std::string, long> > variables;
-  };
-
  private:
   //which page is it?
   std::vector<std::string> pageInfo;
@@ -45,7 +40,7 @@ class Page {
   bool visited;
   std::vector<std::string> pageText;
   std::vector<Choice *> choices;
-  Variables * pageVariables;
+  std::vector<std::pair<std::string, long> > pageVariables;
   int extractPageType(std::string typeOfPage);
   std::pair<std::string, size_t> setChoiceCondition(const std::string option);
 
@@ -60,7 +55,7 @@ class Page {
   void addChoices(const std::string option, int lineType);
   size_t getChoiceSize() const { return choices.size(); }
   std::vector<Choice *> getChoices() const { return choices; }
-  Variables * getPageVar() const { return pageVariables; }
+  std::vector<std::pair<std::string, long> > getPageVar() const { return pageVariables; }
   void setVisited() { visited = true; }
   void setReferenced() { referenced = true; }
   void eraseVisited() { visited = false; }
@@ -98,7 +93,6 @@ Page::Page(std::string line, const std::string path) {
   //initialize variables of a new page
   visited = false;
   referenced = false;
-  pageVariables = new Variables();
 
   size_t findAt = line.find("@");
   //The first type of input lines (The one contains @)
@@ -196,6 +190,7 @@ void Page::printPage() const {
   //The pagetype is not a valid type. This situation should never exist
   else {
     std::cerr << "Wrong pageType\n";
+    exit(EXIT_FAILURE);
   }
 }
 
@@ -211,7 +206,7 @@ void Page ::addUpdateVarable(const std::string line) {
   }
   long value = std::strtol(val.c_str(), NULL, 10);
   std::pair<std::string, long> variable = std::make_pair(var, value);
-  pageVariables->variables.push_back(variable);
+  pageVariables.push_back(variable);
 }
 
 //Extract the choice condition from the input line
@@ -246,6 +241,7 @@ void Page::addChoices(const std::string option, int lineType) {
       else {
         std::cerr << "The story contains line that the destination of the choice is a "
                      "invalid Page number.\n";
+        exit(EXIT_FAILURE);
       }
       //Initialize a new choice object and write the info of this choice into it
       std::string opContent = option.substr(findCol + firstCol + 2);
@@ -282,12 +278,15 @@ Page::Page(const Page & rhs) {
     pageText.push_back(rhs.pageText[i]);
   }
   for (size_t i = 0; i < rhs.choices.size(); i++) {
-    Choice * current = new Choice();
-    *current = (*(rhs.choices[i]));
+    Choice * current = new Choice(rhs.choices[i]->choiceContent,
+                                  rhs.choices[i]->choiceCondition,
+                                  rhs.choices[i]->hasCon,
+                                  rhs.choices[i]->isAvailable);
     choices.push_back(current);
   }
-  pageVariables = new Variables();
-  *pageVariables = *(rhs.pageVariables);
+  for (size_t i = 0; i < rhs.pageVariables.size(); i++) {
+    pageVariables.push_back(rhs.pageVariables[i]);
+  }
 }
 
 Page & Page::operator=(const Page & rhs) {
@@ -298,13 +297,12 @@ Page & Page::operator=(const Page & rhs) {
     std::swap(pageInfo, temp.pageInfo);
     std::swap(pageText, temp.pageText);
     std::swap(choices, temp.choices);
-    std::swap(*pageVariables, *rhs.pageVariables);
+    std::swap(pageVariables, temp.pageVariables);
   }
   return *this;
 }
 
 Page::~Page() {
-  delete pageVariables;
   for (size_t i = 0; i < choices.size(); i++) {
     delete choices[i];
   }

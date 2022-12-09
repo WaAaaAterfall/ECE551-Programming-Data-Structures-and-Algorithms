@@ -12,18 +12,17 @@
 #include "util.hpp"
 
 class Story {
-  std::vector<std::string> storyLines;
   std::vector<Page *> pageVec;
   std::vector<std::vector<std::pair<int, int> > > successPath;
   std::map<std::string, long> storyVar;
-  int getLineType(std::string);
+  int getLineType(std::string & line);
   void dfs(Page *, std::vector<std::pair<int, int> > path);
   //return the index of var, if not exist, return -1
-  bool isNewVariable(std::string variable);
+  bool isNewVariable(std::string & variable);
 
  public:
   Story(){};
-  Story(const std::string filePath);
+  Story(const std::string & filePath);
   Story(const Story & rhs);
   Story & operator=(const Story & rhs);
   ~Story();
@@ -33,10 +32,10 @@ class Story {
   void checkStoryFormat() const;
   void checkStory() const;
   void printStoryByInput() const;
-  size_t getValidInput(std::string input, Page * curr) const;
+  size_t getValidInput(std::string & input, Page * curr) const;
   void printSuccessPath() const;
   void searchSuccessPath();
-  void setStoryVar(std::string, long value);
+  void setStoryVar(std::string & var, long value);
   void updateStoryVar(Page * currentPage);
   void updatePageValidChoice(Page * currentPage);
 };
@@ -47,7 +46,7 @@ class Story {
 //2. Add choice without condition
 //3. Save story variable to the page
 //4. Add choice with condition
-int Story::getLineType(std::string line) {
+int Story::getLineType(std::string & line) {
   if (line.size() == 0) {
     return 0;
   }
@@ -82,7 +81,7 @@ int Story::getLineType(std::string line) {
 }
 
 //Input: the path of the story directory
-Story::Story(const std::string path) {
+Story::Story(const std::string & path) {
   //Merge the directory with the story.txt
   std::string storyPath = generatePath(path, "story.txt");
   std::ifstream storyFile;
@@ -94,11 +93,10 @@ Story::Story(const std::string path) {
   //Read the story line by line
   std::string line;
   while (getline(storyFile, line)) {
-    storyLines.push_back(line);
     //If it is the  page declaration line
     if (getLineType(line) == 1) {
-      Page * currentPage = new Page(line, path);
-      pageVec.push_back(currentPage);
+      //Page * currentPage = new Page(line, path);
+      pageVec.push_back(new Page(line, path));
     }
     //If the line is empty
     else if (getLineType(line) == 0) {
@@ -117,7 +115,10 @@ Story::Story(const std::string path) {
       else {
         numOfPage = line.substr(0, findCol);
       }
-      assert(checkValidNum(numOfPage));
+      if (!checkValidNum(numOfPage)) {
+        std::cerr << "The pagenumber is not valid in the story.\n";
+        exit(EXIT_FAILURE);
+      }
       size_t pageNumber = std::strtoul(numOfPage.c_str(), NULL, 10);
       if (pageNumber >= pageVec.size()) {
         std::cerr
@@ -141,13 +142,17 @@ Story::Story(const std::string path) {
       std::string pageNum = line.substr(0, findTerm);
       if (checkValidNum(pageNum)) {
         size_t pageNumber = std::strtoul(pageNum.c_str(), NULL, 10);
-        assert(pageNumber < pageVec.size());
+        if (pageNumber >= pageVec.size()) {
+          std::cerr << "The page does not exist for its variable.\n";
+          exit(EXIT_FAILURE);
+        }
         Page * currentPage = pageVec[pageNumber];
         std::string varAndVal = line.substr(findTerm + 1);
         size_t findEq = varAndVal.find("=");
         //If it is a new variable, add it into the story variable aray
-        if (isNewVariable(varAndVal.substr(0, findEq))) {
-          storyVar[varAndVal.substr(0, findEq)] = 0;
+        std::string variable = varAndVal.substr(0, findEq);
+        if (isNewVariable(variable)) {
+          storyVar[variable] = 0;
         }
         currentPage->addUpdateVarable(varAndVal);
       }
@@ -162,9 +167,9 @@ Story::Story(const std::string path) {
 
 //When the page that changes the story variable is called, update the variable status in the variable array
 void Story::updateStoryVar(Page * currentPage) {
-  Page::Variables * pageVar = currentPage->getPageVar();
-  std::vector<std::pair<std::string, long> >::iterator it = pageVar->variables.begin();
-  while (it != pageVar->variables.end()) {
+  std::vector<std::pair<std::string, long> > pageVar = currentPage->getPageVar();
+  std::vector<std::pair<std::string, long> >::iterator it = pageVar.begin();
+  while (it != pageVar.end()) {
     if (storyVar.find((*it).first) == storyVar.end()) {
       std::cerr << "The story contians page in which the variable of the choices does "
                    "not exist.";
@@ -192,7 +197,7 @@ void Story::updatePageValidChoice(Page * currentPage) {
 }
 
 //When read the line of story variable, check if it is new variable
-bool Story::isNewVariable(std::string variable) {
+bool Story::isNewVariable(std::string & variable) {
   std::map<std::string, long>::iterator it = storyVar.begin();
   while (it != storyVar.end()) {
     if ((*it).first.compare(variable) == 0) {
@@ -306,7 +311,7 @@ void Story::checkStory() const {
 }
 
 //Check if the user input is a valid one
-size_t Story::getValidInput(std::string input, Page * currentPage) const {
+size_t Story::getValidInput(std::string & input, Page * currentPage) const {
   //invalid case:No input/input is not a number
   //The input is not a valid choice for current page
   //The input choice is unavailable under the story variables
@@ -407,7 +412,6 @@ void Story::printSuccessPath() const {
 
 //Rule of Three
 Story::Story(const Story & rhs) {
-  storyLines = rhs.storyLines;
   successPath = rhs.successPath;
   storyVar = rhs.storyVar;
   for (size_t i = 0; i < rhs.pageVec.size(); i++) {
@@ -419,7 +423,6 @@ Story::Story(const Story & rhs) {
 Story & Story::operator=(const Story & rhs) {
   if (this != &rhs) {
     Story temp(rhs);
-    std::swap(storyLines, temp.storyLines);
     std::swap(pageVec, temp.pageVec);
     std::swap(successPath, temp.successPath);
     std::swap(storyVar, temp.storyVar);
