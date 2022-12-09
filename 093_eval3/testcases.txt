@@ -18,32 +18,6 @@ cyoa-step1 storyTest14
 cyoa-step1 storyTest15
 cyoa-step1 storyTest16
 
-
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input0.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input1.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input2.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input3.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input4.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input5.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input6.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input7.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input8.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input9.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input10.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input11.txt
-cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input12.txt
-
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input0.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input1.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input2.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input3.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input4.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input5.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input6.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input7.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input8.txt
-cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input9.txt
-
 cyoa-step2 storyTest < storyTest/inputs/input0.txt
 cyoa-step2 storyTest1 < storyTest1/inputs/input0.txt
 cyoa-step2 storyTest2 < storyTest2/inputs/input0.txt
@@ -72,7 +46,6 @@ cyoa-step2 storyTest31 < storyTest31/inputs/input0.txt
 cyoa-step2 storyTest32 < storyTest32/inputs/input0.txt
 
 cyoa-step3 /usr/local/ece551/cyoa/story1
-cyoa-step3 /usr/local/ece551/cyoa/story2
 cyoa-step3 storyTest
 cyoa-step3 storyTest17
 cyoa-step3 storyTest18
@@ -114,3 +87,26 @@ cyoa-step4 story3Test28 < story3Test28/inputs/input16.txt
 cyoa-step4 story3Test29 < story3Test29/inputs/input17.txt
 cyoa-step4 story3Test29 < story3Test29/inputs/input16.txt
 
+cyoa-step4 storyTest1 < storyTest1/inputs/input0.txt
+cyoa-step4 storyTest2 < storyTest2/inputs/input0.txt
+cyoa-step4 storyTest3 < storyTest3/inputs/input0.txt
+cyoa-step4 storyTest4 < storyTest4/inputs/input0.txt
+cyoa-step4 storyTest5 < storyTest5/inputs/input0.txt
+cyoa-step4 storyTest6 < storyTest6/inputs/input0.txt
+cyoa-step4 storyTest7 < storyTest7/inputs/input0.txt
+cyoa-step4 storyTest8 < storyTest8/inputs/input0.txt
+cyoa-step4 storyTest9 < storyTest9/inputs/input0.txt
+cyoa-step4 storyTest10 < storyTest10/inputs/input0.txt
+cyoa-step4 storyTest11 < storyTest11/inputs/input0.txt
+cyoa-step4 storyTest12 < storyTest12/inputs/input0.txt
+cyoa-step4 storyTest13 < storyTest13/inputs/input0.txt
+cyoa-step4 storyTest14 < storyTest14/inputs/input0.txt
+cyoa-step4 storyTest15 < storyTest15/inputs/input0.txt
+cyoa-step4 storyTest16 < storyTest16/inputs/input0.txt
+cyoa-step4 storyTest < storyTest/inputs/input1.txt
+cyoa-step4 storyTest < storyTest/inputs/input2.txt
+cyoa-step4 storyTest < storyTest/inputs/input3.txt
+cyoa-step4 storyTest < storyTest/inputs/input4.txt
+cyoa-step4 storyTest < storyTest/inputs/input5.txt
+cyoa-step4 storyTest24 < storyTest24/inputs/input0.txt
+cyoa-step4 storyTest25 < storyTest25/inputs/input0.txt

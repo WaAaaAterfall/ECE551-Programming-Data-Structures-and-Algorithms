@@ -47,6 +47,7 @@ class Page {
   std::vector<Choice *> choices;
   //All the variable page needed to check the availability of choices
   std::vector<std::pair<std::string, long> > pageVariables;
+  //Get the page type
   int extractPageType(std::string typeOfPage);
   //If the chice has condition
   std::pair<std::string, size_t> setChoiceCondition(const std::string option);
@@ -72,15 +73,23 @@ class Page {
   std::vector<std::pair<std::string, long> > getPageVar() const { return pageVariables; }
   //set the visited as true is the page is visited
   void setVisited() { visited = true; }
-  //set
+  //set the page is referenced
   void setReferenced() { referenced = true; }
+  //Erase the visited status of the page
   void eraseVisited() { visited = false; }
+  //check if the pas is visited
   bool checkVisited() const { return visited; }
+  //check if the page is referenced
   bool checkReferenced() const { return referenced; }
+  //che k if the page is a win page
   bool isWinPage() const { return pageType == 1; }
+  //check if the page is a lose page
   bool isLostPage() const { return pageType == 2; }
+  //if there is a new variable for the page, add into the array of page variable
   void addUpdateVarable(const std::string line);
+  //print the content of the page
   void printPage() const;
+  //print the choice of the page
   void printChoices() const;
 };
 
@@ -181,6 +190,7 @@ void Page::printChoices() const {
   }
 }
 
+//Display all the content of the current page
 void Page::printPage() const {
   std::vector<std::string>::const_iterator it = pageText.begin();
   //First print out the content of the page
@@ -232,6 +242,11 @@ std::pair<std::string, size_t> Page::setChoiceCondition(const std::string option
   size_t findEq = condition.find("=");
   std::string var = condition.substr(0, findEq);
   std::string val = condition.substr(findEq + 1);
+  //var could be empty, but the value should always be long
+  if (checkValidLong(val) == false) {
+    std::cerr << "The value of the variable of a choice is not a long.\n";
+    exit(EXIT_FAILURE);
+  }
   long value = std::strtol(val.c_str(), NULL, 10);
   std::pair<std::string, long> choiceCond = std::make_pair(var, value);
   return choiceCond;
