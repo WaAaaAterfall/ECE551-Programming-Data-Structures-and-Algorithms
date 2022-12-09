@@ -1,6 +1,6 @@
-Grading at 12/09/2022:20:00:30.986536
-For commit ID f562f010f4b772408cfe644c04c1418bcbba68a8
-Grading at Fri Dec  9 02:57:54 PM EST 2022
+Grading at 12/09/2022:20:23:30.447052
+For commit ID 351025571665e4e470b70d490939bd3cf1423951
+Grading at Fri Dec  9 03:21:29 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -178,175 +178,14 @@ Now running YOUR tests for step 2
 ------------------------------------
 
 
-2.1: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
+2.1: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input0.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-2.2: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.3: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.4: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.5: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input4.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.6: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input5.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.7: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.8: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.9: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.10: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.11: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.12: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input11.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.13: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input12.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.14: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.15: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.16: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.17: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input3.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.18: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input4.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.19: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input5.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.20: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input6.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.21: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input7.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.22: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input8.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.23: Current test is ./cyoa-step2 /usr/local/ece551/cyoa/story2  <  /usr/local/ece551/cyoa/story2/inputs/input9.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.24: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.25: Current test is ./cyoa-step2 storyTest1  <  storyTest1/inputs/input0.txt
+2.2: Current test is ./cyoa-step2 storyTest1  <  storyTest1/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -356,7 +195,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.26: Current test is ./cyoa-step2 storyTest2  <  storyTest2/inputs/input0.txt
+2.3: Current test is ./cyoa-step2 storyTest2  <  storyTest2/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -366,7 +205,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.27: Current test is ./cyoa-step2 storyTest3  <  storyTest3/inputs/input0.txt
+2.4: Current test is ./cyoa-step2 storyTest3  <  storyTest3/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -376,7 +215,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.28: Current test is ./cyoa-step2 storyTest4  <  storyTest4/inputs/input0.txt
+2.5: Current test is ./cyoa-step2 storyTest4  <  storyTest4/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -386,7 +225,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.29: Current test is ./cyoa-step2 storyTest5  <  storyTest5/inputs/input0.txt
+2.6: Current test is ./cyoa-step2 storyTest5  <  storyTest5/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -396,7 +235,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.30: Current test is ./cyoa-step2 storyTest6  <  storyTest6/inputs/input0.txt
+2.7: Current test is ./cyoa-step2 storyTest6  <  storyTest6/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -406,7 +245,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.31: Current test is ./cyoa-step2 storyTest7  <  storyTest7/inputs/input0.txt
+2.8: Current test is ./cyoa-step2 storyTest7  <  storyTest7/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -416,7 +255,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.32: Current test is ./cyoa-step2 storyTest8  <  storyTest8/inputs/input0.txt
+2.9: Current test is ./cyoa-step2 storyTest8  <  storyTest8/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -426,7 +265,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.33: Current test is ./cyoa-step2 storyTest9  <  storyTest9/inputs/input0.txt
+2.10: Current test is ./cyoa-step2 storyTest9  <  storyTest9/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -436,7 +275,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.34: Current test is ./cyoa-step2 storyTest10  <  storyTest10/inputs/input0.txt
+2.11: Current test is ./cyoa-step2 storyTest10  <  storyTest10/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -446,7 +285,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.35: Current test is ./cyoa-step2 storyTest11  <  storyTest11/inputs/input0.txt
+2.12: Current test is ./cyoa-step2 storyTest11  <  storyTest11/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -456,7 +295,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.36: Current test is ./cyoa-step2 storyTest12  <  storyTest12/inputs/input0.txt
+2.13: Current test is ./cyoa-step2 storyTest12  <  storyTest12/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -466,7 +305,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.37: Current test is ./cyoa-step2 storyTest13  <  storyTest13/inputs/input0.txt
+2.14: Current test is ./cyoa-step2 storyTest13  <  storyTest13/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -476,7 +315,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.38: Current test is ./cyoa-step2 storyTest14  <  storyTest14/inputs/input0.txt
+2.15: Current test is ./cyoa-step2 storyTest14  <  storyTest14/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -486,7 +325,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.39: Current test is ./cyoa-step2 storyTest15  <  storyTest15/inputs/input0.txt
+2.16: Current test is ./cyoa-step2 storyTest15  <  storyTest15/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -496,7 +335,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.40: Current test is ./cyoa-step2 storyTest16  <  storyTest16/inputs/input0.txt
+2.17: Current test is ./cyoa-step2 storyTest16  <  storyTest16/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -506,35 +345,35 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.41: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input1.txt
+2.18: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-2.42: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input2.txt
+2.19: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-2.43: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input3.txt
+2.20: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-2.44: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input4.txt
+2.21: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input4.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-2.45: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input5.txt
+2.22: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input5.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -544,7 +383,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.46: Current test is ./cyoa-step2 storyTest24  <  storyTest24/inputs/input0.txt
+2.23: Current test is ./cyoa-step2 storyTest24  <  storyTest24/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -554,7 +393,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.47: Current test is ./cyoa-step2 storyTest25  <  storyTest25/inputs/input0.txt
+2.24: Current test is ./cyoa-step2 storyTest25  <  storyTest25/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -564,14 +403,14 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.48: Current test is ./cyoa-step2 storyTest31  <  storyTest31/inputs/input0.txt
+2.25: Current test is ./cyoa-step2 storyTest31  <  storyTest31/inputs/input0.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-2.49: Current test is ./cyoa-step2 storyTest32  <  storyTest32/inputs/input0.txt
+2.26: Current test is ./cyoa-step2 storyTest32  <  storyTest32/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -581,7 +420,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.50: Current test is ./cyoa-step2 storyTest46  <  storyTest46/inputs/input0.txt
+2.27: Current test is ./cyoa-step2 storyTest46  <  storyTest46/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -591,7 +430,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.51: Current test is ./cyoa-step2 storyTest45  <  storyTest45/inputs/input0.txt
+2.28: Current test is ./cyoa-step2 storyTest45  <  storyTest45/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -601,7 +440,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.52: Current test is ./cyoa-step2 storyTest44  <  storyTest44/inputs/input0.txt
+2.29: Current test is ./cyoa-step2 storyTest44  <  storyTest44/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -611,7 +450,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.53: Current test is ./cyoa-step2 storyTest43  <  storyTest43/inputs/input0.txt
+2.30: Current test is ./cyoa-step2 storyTest43  <  storyTest43/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -621,7 +460,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.54: Current test is ./cyoa-step2 storyTest42  <  storyTest42/inputs/input0.txt
+2.31: Current test is ./cyoa-step2 storyTest42  <  storyTest42/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -631,7 +470,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.55: Current test is ./cyoa-step2 storyTest41  <  storyTest41/inputs/input0.txt
+2.32: Current test is ./cyoa-step2 storyTest41  <  storyTest41/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -641,7 +480,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.56: Current test is ./cyoa-step2 storyTest40  <  storyTest40/inputs/input0.txt
+2.33: Current test is ./cyoa-step2 storyTest40  <  storyTest40/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -669,35 +508,28 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-3.2: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story2 < /dev/null
+3.2: Current test is ./cyoa-step3 storyTest < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-3.3: Current test is ./cyoa-step3 storyTest < /dev/null
+3.3: Current test is ./cyoa-step3 storyTest17 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-3.4: Current test is ./cyoa-step3 storyTest17 < /dev/null
+3.4: Current test is ./cyoa-step3 storyTest18 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-3.5: Current test is ./cyoa-step3 storyTest18 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-3.6: Current test is ./cyoa-step3 storyTest30 < /dev/null
+3.5: Current test is ./cyoa-step3 storyTest30 < /dev/null
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -720,9 +552,9 @@ Now running YOUR tests for step 4
 
 4.1: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/inputTestInvalidVar.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.2: Current test is ./cyoa-step4 story3Test47  <  story3Test47/inputs/input0.txt
@@ -777,15 +609,19 @@ Valgrind was clean
 
 4.7: Current test is ./cyoa-step4 story3Test52  <  story3Test52/inputs/input0.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains invalid long number. 
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.8: Current test is ./cyoa-step4 story3Test53  <  story3Test53/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-The story contains invalid number.
+The story contains invalid long number. 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -793,16 +629,16 @@ Valgrind was clean
 
 4.9: Current test is ./cyoa-step4 story3Test54  <  story3Test54/inputs/input0.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.10: Current test is ./cyoa-step4 story3  <  story3/inputs/input17.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.11: Current test is ./cyoa-step4 story3Test19  <  story3Test19/inputs/input17.txt
@@ -827,37 +663,37 @@ Valgrind was clean
 
 4.13: Current test is ./cyoa-step4 story3Test20  <  story3Test20/inputs/input17.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.14: Current test is ./cyoa-step4 story3Test20  <  story3Test20/inputs/input16.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.15: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input17.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.16: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input16.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.17: Current test is ./cyoa-step4 story3Test22  <  story3Test22/inputs/input17.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-The story contains invalid number.
+The story contains invalid long number. 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -867,7 +703,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-The story contains invalid number.
+The story contains invalid long number. 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -875,57 +711,393 @@ Valgrind was clean
 
 4.19: Current test is ./cyoa-step4 story3Test23  <  story3Test23/inputs/input17.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.20: Current test is ./cyoa-step4 story3Test23  <  story3Test23/inputs/input16.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.21: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/input17.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.22: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/input16.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.23: Current test is ./cyoa-step4 story3Test28  <  story3Test28/inputs/input17.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.24: Current test is ./cyoa-step4 story3Test28  <  story3Test28/inputs/input16.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
 
 
 4.25: Current test is ./cyoa-step4 story3Test29  <  story3Test29/inputs/input17.txt
 -----------------------------
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
+
+
+4.26: Current test is ./cyoa-step4 story3Test29  <  story3Test29/inputs/input16.txt
+-----------------------------
+You considered this a failure case:
+The story contains invalid long number. 
+But we did not.
+
+
+4.27: Current test is ./cyoa-step4 storyTest1  <  storyTest1/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+This story contains undefined page (not N, W nor L).
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.28: Current test is ./cyoa-step4 storyTest2  <  storyTest2/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains page declaration line that its page file cannot be opened.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.29: Current test is ./cyoa-step4 storyTest3  <  storyTest3/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains invalid number.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.30: Current test is ./cyoa-step4 storyTest4  <  storyTest4/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains invalid number.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.31: Current test is ./cyoa-step4 storyTest5  <  storyTest5/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains page that the destination page of its choice does not exist.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.32: Current test is ./cyoa-step4 storyTest6  <  storyTest6/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The input cannot finish the story.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.33: Current test is ./cyoa-step4 storyTest7  <  storyTest7/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The choice cannot be matched with the current page.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.34: Current test is ./cyoa-step4 storyTest8  <  storyTest8/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains invalid number.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.35: Current test is ./cyoa-step4 storyTest9  <  storyTest9/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The current page of the choice shows up before the page declaration.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.36: Current test is ./cyoa-step4 storyTest10  <  storyTest10/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The win page of the story has choices, but it shouldn't.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.37: Current test is ./cyoa-step4 storyTest11  <  storyTest11/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The lose page of the story has choices, but it shouldn't.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.38: Current test is ./cyoa-step4 storyTest12  <  storyTest12/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+There are pages that are not referenced in this story.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.39: Current test is ./cyoa-step4 storyTest13  <  storyTest13/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+There are pages that are not referenced in this story.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.40: Current test is ./cyoa-step4 storyTest14  <  storyTest14/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+No win or No lose page in this storty.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.41: Current test is ./cyoa-step4 storyTest15  <  storyTest15/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The pages in this story are not consecutive.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.42: Current test is ./cyoa-step4 storyTest16  <  storyTest16/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The story contains page that the destination page of its choice does not exist.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.43: Current test is ./cyoa-step4 storyTest  <  storyTest/inputs/input1.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1. I am ready for this story!					 1. I am ready for this story!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1. Choose the magic whistle.					 1. Choose the magic whistle.
+ 2. Choose the magic shoes.					 2. Choose the magic shoes.
+ 3. Choose the magic toaster.					 3. Choose the magic toaster.
+That is not a valid choice, please try again			That is not a valid choice, please try again
+							      |	That is not a valid choice, please try again
+							      >	That is not a valid choice, please try again
+							      >	That is not a valid choice, please try again
+							      >	That is not a valid choice, please try again
+							      >	That is not a valid choice, please try again
+As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
+puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
+works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
+and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1. Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2. Go to Grew for help.					 2. Go to Grew for help.
+ 3. Go alone.							 3. Go alone.
+After thinking about it a bit, you decide that Denevieve is p	After thinking about it a bit, you decide that Denevieve is p
+better choice. After all, her singing skills are likely to co	better choice. After all, her singing skills are likely to co
+especially with your magic whistle. Maybe dragons can be tame	especially with your magic whistle. Maybe dragons can be tame
+music and bird calls? That could be right, but you aren't sur	music and bird calls? That could be right, but you aren't sur
+through that day of Magical Creature Biology class. 		through that day of Magical Creature Biology class. 
+
+After knocking on the door, Denevieve is surprised to hear ab	After knocking on the door, Denevieve is surprised to hear ab
+threat but is happy to help you. After all, you were her best	threat but is happy to help you. After all, you were her best
+tested every piece of code extensively and incrementally. Sur	tested every piece of code extensively and incrementally. Sur
+trusted with a quest about dragons.				trusted with a quest about dragons.
+
+The two of you set off into the hills and find the cave of th	The two of you set off into the hills and find the cave of th
+take a minute to confer about your musical options and come u	take a minute to confer about your musical options and come u
+list of three possible combinations to tame the dragon. 	list of three possible combinations to tame the dragon. 
+
+What would you like to do?					What would you like to do?
+
+ 1. Silent Night, accompanied by raven calls			 1. Silent Night, accompanied by raven calls
+As you take the magic toaster from the wizard's hand, he disa	As you take the magic toaster from the wizard's hand, he disa
+puff of smoke. You decide that you should give the toaster a 	puff of smoke. You decide that you should give the toaster a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+Having not had any breakfast, you are quite hungry, so testin	Having not had any breakfast, you are quite hungry, so testin
+seems like a great solution to two problems. You grab a rock 	seems like a great solution to two problems. You grab a rock 
+ground, stuff it in, and think of delicious toast with raspbe	ground, stuff it in, and think of delicious toast with raspbe
+seconds later, out pops the most perfectly done toast with ju	seconds later, out pops the most perfectly done toast with ju
+amount of butter and jam. Wow that is good! You spend a while	amount of butter and jam. Wow that is good! You spend a while
+testing the toaster again and again "just to be sure". After 	testing the toaster again and again "just to be sure". After 
+stuffed on toast, you start to wonder how this will help you 	stuffed on toast, you start to wonder how this will help you 
+dragon. 							dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1. Go alone.							 1. Go alone.
+After thinking about it for a bit, you decide to go alone. Yo	After thinking about it for a bit, you decide to go alone. Yo
+into the hills by yourself in search of the dragon. Unfortuna	into the hills by yourself in search of the dragon. Unfortuna
+you are walking and trying to think up a plan, the dragon swo	you are walking and trying to think up a plan, the dragon swo
+behind you and devours you. 					behind you and devours you. 
+
+You have been eaten by a dragon.				You have been eaten by a dragon.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+4.44: Current test is ./cyoa-step4 storyTest  <  storyTest/inputs/input2.txt
+-----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 
-4.26: Current test is ./cyoa-step4 story3Test29  <  story3Test29/inputs/input16.txt
+4.45: Current test is ./cyoa-step4 storyTest  <  storyTest/inputs/input3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+4.46: Current test is ./cyoa-step4 storyTest  <  storyTest/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+
+4.47: Current test is ./cyoa-step4 storyTest  <  storyTest/inputs/input5.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+The input cannot finish the story.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.48: Current test is ./cyoa-step4 storyTest24  <  storyTest24/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+no char is a valid number.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.49: Current test is ./cyoa-step4 storyTest25  <  storyTest25/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+There are pages that are not referenced in this story.
+-----------------------------------------
+Lets check if it valgrinds:
 Valgrind was clean
 No request to check for intermediate deadline completion on step 4
 
