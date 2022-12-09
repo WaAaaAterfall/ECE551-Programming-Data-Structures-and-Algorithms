@@ -12,31 +12,54 @@
 #include "util.hpp"
 
 class Story {
+  //A vector to store all the pages in the story
   std::vector<Page *> pageVec;
+  //A vector ro store all the possible success path (step 3)
   std::vector<std::vector<std::pair<int, int> > > successPath;
+  //A map to store all the variables for this story(step4)
   std::map<std::string, long> storyVar;
+
+  //private functions
+  //get the type of the line
+  //1: page declaration
+  //2:choice without condition
+  //3: page update variable
+  //4: choice with condition
   int getLineType(std::string & line);
+  //dfs algirirhm for step3
   void dfs(Page *, std::vector<std::pair<int, int> > path);
+  //check if the variable is new to the story when read type 3 input line
   //return the index of var, if not exist, return -1
   bool isNewVariable(std::string & variable);
 
  public:
   Story(){};
+  //A constructor with story path
   Story(const std::string & filePath);
+  //rule of three
   Story(const Story & rhs);
   Story & operator=(const Story & rhs);
   ~Story();
+  //return the page number of the story
   size_t getStorySize() const { return pageVec.size(); }
+  //get the array of all the page
   std::vector<Page *> & getPages() { return pageVec; }
+  //print the whole story(step1)
   void printStory() const;
+  //Check if the story have the correct format (step1)
   void checkStoryFormat() const;
+  //check if it is a valid story (step 2)
   void checkStory() const;
-  void printStoryByInput() const;
+  //check if the user input is valid and return the valid number of choice
   size_t getValidInput(std::string & input, Page * curr) const;
+  //print the successful path in right format
   void printSuccessPath() const;
+  //search all the successful path in the story using dfs
   void searchSuccessPath();
-  void setStoryVar(std::string & var, long value);
+  //update the story variable when visiting a new page
   void updateStoryVar(Page * currentPage);
+  //Every time visit a new page, update the variables it needs for choices
+  //according to the current story variable
   void updatePageValidChoice(Page * currentPage);
 };
 
@@ -115,6 +138,7 @@ Story::Story(const std::string & path) {
       else {
         numOfPage = line.substr(0, findCol);
       }
+      //check if it is a valid page number
       if (!checkValidNum(numOfPage)) {
         std::cerr << "The pagenumber is not valid in the story.\n";
         exit(EXIT_FAILURE);
@@ -125,12 +149,12 @@ Story::Story(const std::string & path) {
             << "The current page of the choice shows up before the page declaration.\n";
         exit(EXIT_FAILURE);
       }
+      //It is valid, so find the page
       Page * currentPage = pageVec[pageNumber];
       if (pageNumber != currentPage->getPageNum()) {
         std::cerr << "The choice cannot be matched with the current page.\n";
         exit(EXIT_FAILURE);
       }
-      // std::string option = line.substr(0, line.size() - 1);
       //add the choice into the current page
       int type = getLineType(line);
       currentPage->addChoices(line, type);

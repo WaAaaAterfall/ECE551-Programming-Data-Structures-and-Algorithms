@@ -1,5 +1,5 @@
 cyoa-step1 /usr/local/ece551/cyoa/story1
-cyoa-step1 /usr/local/ece551/cyoa/story2
+cyoa-step2 storyTest31 < storyTest31/inputs/input0.txtcyoa-step1 /usr/local/ece551/cyoa/story2
 
 cyoa-step1 storyTest
 cyoa-step1 storyTest2
@@ -122,3 +122,5 @@ cyoa-step4 story3Test28 < story3Test28/inputs/input17.txt
 cyoa-step4 story3Test28 < story3Test28/inputs/input16.txt
 cyoa-step4 story3Test29 < story3Test29/inputs/input17.txt
 cyoa-step4 story3Test29 < story3Test29/inputs/input16.txt
+
+cyoa-step4 story3Test26 < story3Test26/inputs/inputTestInvalidVar.txt
