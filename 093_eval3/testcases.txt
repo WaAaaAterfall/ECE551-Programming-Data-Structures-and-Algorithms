@@ -32,6 +32,7 @@ cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input9.txt
 cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input10.txt
 cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input11.txt
 cyoa-step2 story1 < /usr/local/ece551/cyoa/story1/inputs/input12.txt
+
 cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input0.txt
 cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input1.txt
 cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input2.txt
