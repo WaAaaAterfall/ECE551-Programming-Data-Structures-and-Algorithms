@@ -30,13 +30,28 @@ int main(int argc, char ** argv) {
         story.updatePageValidChoice(currentPage);
       }
       catch (UserInputException & e) {
-        std::cout << e.what();
+        std::cout << e.what() << "\n";
         getline(std::cin, inputChoice);
+        if (std::cin.eof()) {
+          std::cerr << "The input cannot finish the story.\n";
+          exit(EXIT_FAILURE);
+        }
+      }
+      catch (EmptyInputException & e) {
+        getline(std::cin, inputChoice);
+        if (std::cin.eof()) {
+          std::cerr << "The input cannot finish the story.\n";
+          exit(EXIT_FAILURE);
+        }
       }
       catch (InvalidChoiceException & e) {
         std::cout << e.what();
         // currentPage->printChoices();
         getline(std::cin, inputChoice);
+        if (std::cin.eof()) {
+          std::cerr << "The input cannot finish the story.\n";
+          exit(EXIT_FAILURE);
+        }
       }
     }
   }
