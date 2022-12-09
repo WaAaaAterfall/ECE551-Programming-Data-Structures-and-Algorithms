@@ -72,7 +72,7 @@ cyoa-step3 /usr/local/ece551/cyoa/story1
 cyoa-step3 /usr/local/ece551/cyoa/story2
 cyoa-step3 storyTest
 cyoa-step3 storyTest17
-
+cyoa-step3 storyTest18
 
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input0.txt
 cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input1.txt
