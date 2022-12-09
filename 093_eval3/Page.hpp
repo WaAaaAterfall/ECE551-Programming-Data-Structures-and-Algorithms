@@ -243,10 +243,6 @@ std::pair<std::string, size_t> Page::setChoiceCondition(const std::string option
   std::string var = condition.substr(0, findEq);
   std::string val = condition.substr(findEq + 1);
   //var could be empty, but the value should always be long
-  if (checkValidLong(val) == false) {
-    std::cerr << "The value of the variable of a choice is not a long.\n";
-    exit(EXIT_FAILURE);
-  }
   long value = std::strtol(val.c_str(), NULL, 10);
   std::pair<std::string, long> choiceCond = std::make_pair(var, value);
   return choiceCond;
