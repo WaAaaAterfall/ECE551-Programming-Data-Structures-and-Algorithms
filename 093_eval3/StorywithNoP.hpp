@@ -13,32 +13,32 @@
 
 class Story {
   std::vector<std::string> storyLines;
-  std::vector<Page *> pageVec;
+  std::vector<Page> pageVec;
   std::vector<std::vector<std::pair<int, int> > > successPath;
   std::map<std::string, long> storyVar;
-  int getLineType(std::string);
-  void dfs(Page *, std::vector<std::pair<int, int> > path);
+  int getLineType(std::string & line);
+  void dfs(Page & page, std::vector<std::pair<int, int> > path);
   //return the index of var, if not exist, return -1
   bool isNewVariable(std::string variable);
 
  public:
   Story(){};
-  Story(const std::string filePath);
+  Story(const std::string & filePath);
   Story(const Story & rhs);
   Story & operator=(const Story & rhs);
   ~Story();
   size_t getStorySize() const { return pageVec.size(); }
-  std::vector<Page *> & getPages() { return pageVec; }
+  std::vector<Page> & getPages() { return pageVec; }
   void printStory() const;
   void checkStoryFormat() const;
   void checkStory() const;
   void printStoryByInput() const;
-  size_t getValidInput(std::string input, Page * curr) const;
+  size_t getValidInput(std::string & input, Page & curr) const;
   void printSuccessPath() const;
   void searchSuccessPath();
-  void setStoryVar(std::string, long value);
-  void updateStoryVar(Page * currentPage);
-  void updatePageValidChoice(Page * currentPage);
+  void setStoryVar(std::string & var, long value);
+  void updateStoryVar(Page & currentPage);
+  void updatePageValidChoice(Page & currentPage);
 };
 
 //Check the type of the line
@@ -47,7 +47,7 @@ class Story {
 //2. Add choice without condition
 //3. Save story variable to the page
 //4. Add choice with condition
-int Story::getLineType(std::string line) {
+int Story::getLineType(std::string & line) {
   if (line.size() == 0) {
     return 0;
   }
@@ -82,7 +82,7 @@ int Story::getLineType(std::string line) {
 }
 
 //Input: the path of the story directory
-Story::Story(const std::string path) {
+Story::Story(const std::string & path) {
   //Merge the directory with the story.txt
   std::string storyPath = generatePath(path, "story.txt");
   std::ifstream storyFile;
@@ -97,7 +97,7 @@ Story::Story(const std::string path) {
     storyLines.push_back(line);
     //If it is the  page declaration line
     if (getLineType(line) == 1) {
-      Page * currentPage = new Page(line, path);
+      Page currentPage = Page(line, path);
       pageVec.push_back(currentPage);
     }
     //If the line is empty
@@ -124,15 +124,15 @@ Story::Story(const std::string path) {
             << "The current page of the choice shows up before the page declaration.\n";
         exit(EXIT_FAILURE);
       }
-      Page * currentPage = pageVec[pageNumber];
-      if (pageNumber != currentPage->getPageNum()) {
+      Page currentPage = pageVec[pageNumber];
+      if (pageNumber != currentPage.getPageNum()) {
         std::cerr << "The choice cannot be matched with the current page.\n";
         exit(EXIT_FAILURE);
       }
       // std::string option = line.substr(0, line.size() - 1);
       //add the choice into the current page
       int type = getLineType(line);
-      currentPage->addChoices(line, type);
+      currentPage.addChoices(line, type);
     }
 
     //If it is the line that change the story variable
@@ -142,14 +142,14 @@ Story::Story(const std::string path) {
       if (checkValidNum(pageNum)) {
         size_t pageNumber = std::strtoul(pageNum.c_str(), NULL, 10);
         assert(pageNumber < pageVec.size());
-        Page * currentPage = pageVec[pageNumber];
+        Page currentPage = pageVec[pageNumber];
         std::string varAndVal = line.substr(findTerm + 1);
         size_t findEq = varAndVal.find("=");
         //If it is a new variable, add it into the story variable aray
         if (isNewVariable(varAndVal.substr(0, findEq))) {
           storyVar[varAndVal.substr(0, findEq)] = 0;
         }
-        currentPage->addUpdateVarable(varAndVal);
+        currentPage.addUpdateVarable(varAndVal);
       }
     }
     else {
@@ -161,8 +161,8 @@ Story::Story(const std::string path) {
 }
 
 //When the page that changes the story variable is called, update the variable status in the variable array
-void Story::updateStoryVar(Page * currentPage) {
-  Page::Variables * pageVar = currentPage->getPageVar();
+void Story::updateStoryVar(Page & currentPage) {
+  Page::Variables * pageVar = currentPage.getPageVar();
   std::vector<std::pair<std::string, long> >::iterator it = pageVar->variables.begin();
   while (it != pageVar->variables.end()) {
     if (storyVar.find((*it).first) == storyVar.end()) {
@@ -176,8 +176,8 @@ void Story::updateStoryVar(Page * currentPage) {
 }
 
 //Everytime the story variable changes, update the choice status of the current page
-void Story::updatePageValidChoice(Page * currentPage) {
-  std::vector<Page::Choice *> pageChoice = currentPage->getChoices();
+void Story::updatePageValidChoice(Page & currentPage) {
+  std::vector<Page::Choice *> pageChoice = currentPage.getChoices();
   for (size_t i = 0; i < pageChoice.size(); i++) {
     if (pageChoice[i]->hasCon) {
       std::pair<std::string, long> choiceCondition = pageChoice[i]->choiceCondition;
@@ -204,11 +204,11 @@ bool Story::isNewVariable(std::string variable) {
 }
 
 void Story::printStory() const {
-  std::vector<Page *>::const_iterator it = pageVec.begin();
+  std::vector<Page>::const_iterator it = pageVec.begin();
   while (it != pageVec.end()) {
-    std::cout << "Page " << (*it)->getPageNum() << "\n";
+    std::cout << "Page " << (*it).getPageNum() << "\n";
     std::cout << "==========\n";
-    (*it)->printPage();
+    (*it).printPage();
     it++;
   }
 }
@@ -216,30 +216,30 @@ void Story::printStory() const {
 //Check if the story has the correct format(Step1)
 void Story::checkStoryFormat() const {
   size_t prevPage = 0;
-  Page * first = pageVec[0];
-  if (first->getPageNum() != 0) {
+  Page first = pageVec[0];
+  if (first.getPageNum() != 0) {
     std::cerr << "The story does not have page0/\n";
     exit(EXIT_FAILURE);
   }
   for (size_t j = 1; j < getStorySize(); j++) {
-    Page * current = pageVec[j];
+    Page current = pageVec[j];
     //check if the page is in order and consecutive
-    if (current->getPageNum() != prevPage + 1) {
+    if (current.getPageNum() != prevPage + 1) {
       std::cerr << "The pages in this story are not consecutive.\n";
       exit(EXIT_FAILURE);
     }
     else {
-      prevPage = current->getPageNum();
+      prevPage = current.getPageNum();
     }
     //If this is a win or lose page, assert they have no choice
-    if (current->getPageType() == 1) {
-      if (current->getChoiceSize() != 0) {
+    if (current.getPageType() == 1) {
+      if (current.getChoiceSize() != 0) {
         std::cerr << "The win page of the story has choices, but it shouldn't.\n";
         exit(EXIT_FAILURE);
       }
     }
-    else if (current->getPageType() == 2) {
-      if (current->getChoiceSize() != 0) {
+    else if (current.getPageType() == 2) {
+      if (current.getChoiceSize() != 0) {
         std::cerr << "The lose page of the story has choices, but it shouldn't.\n";
         exit(EXIT_FAILURE);
       }
@@ -253,17 +253,17 @@ void Story::checkStory() const {
   bool hasWin = false;
   bool hasLose = false;
   for (size_t j = 0; j < getStorySize(); j++) {
-    Page * current = pageVec[j];
+    Page current = pageVec[j];
     //If the page is win or lose, update the flags
-    if (current->getPageType() == 1) {
+    if (current.getPageType() == 1) {
       hasWin = true;
     }
-    else if (current->getPageType() == 2) {
+    else if (current.getPageType() == 2) {
       hasLose = true;
     }
     //If the page is neither win or lose, check the choices
     else {
-      std::vector<Page::Choice *> choices = current->getChoices();
+      std::vector<Page::Choice *> choices = current.getChoices();
       for (size_t i = 0; i < choices.size(); i++) {
         Page::Choice * currentChoice = choices[i];
         //If the destination page does not exist
@@ -273,19 +273,19 @@ void Story::checkStory() const {
                        "does not exist.\n";
           exit(EXIT_FAILURE);
         }
-        Page * jumpToPage = pageVec[currentChoice->choiceContent.first];
+        Page jumpToPage = pageVec[currentChoice->choiceContent.first];
         //The actual destination page is different from what we want
         //This situation should never happen, just in case
-        if (jumpToPage->getPageNum() != currentChoice->choiceContent.first) {
+        if (jumpToPage.getPageNum() != currentChoice->choiceContent.first) {
           std::cerr << "The page number is not a match.\n";
           exit(EXIT_FAILURE);
         }
-        if (jumpToPage->getPageNum() == current->getPageNum()) {
+        if (jumpToPage.getPageNum() == current.getPageNum()) {
           //This dest page of current choice is the same of its current page, we should not set this page as referenced
           continue;  //should it be an error? Check later
         }
         else {
-          jumpToPage->setReferenced();
+          jumpToPage.setReferenced();
         }
       }
     }
@@ -297,8 +297,8 @@ void Story::checkStory() const {
   }
   //Start from 1, we don't need to check if page 0 is referenced by others
   for (size_t k = 1; k < getStorySize(); k++) {
-    Page * currPage = pageVec[k];
-    if (!currPage->checkReferenced()) {
+    Page currPage = pageVec[k];
+    if (!currPage.checkReferenced()) {
       std::cerr << "There are pages that are not referenced in this story.\n";
       exit(EXIT_FAILURE);
     }
@@ -306,7 +306,7 @@ void Story::checkStory() const {
 }
 
 //Check if the user input is a valid one
-size_t Story::getValidInput(std::string input, Page * currentPage) const {
+size_t Story::getValidInput(std::string & input, Page & currentPage) const {
   //invalid case:No input/input is not a number
   //The input is not a valid choice for current page
   //The input choice is unavailable under the story variables
@@ -317,10 +317,10 @@ size_t Story::getValidInput(std::string input, Page * currentPage) const {
     throw UserInputException();
   }
   size_t choice = std::strtoul(input.c_str(), NULL, 10);
-  if (choice <= 0 || choice > currentPage->getChoiceSize()) {
+  if (choice <= 0 || choice > currentPage.getChoiceSize()) {
     throw UserInputException();
   }
-  std::vector<Page::Choice *> currentChoices = currentPage->getChoices();
+  std::vector<Page::Choice *> currentChoices = currentPage.getChoices();
   if (!currentChoices[choice - 1]->isAvailable) {
     throw InvalidChoiceException();
   }
@@ -328,25 +328,25 @@ size_t Story::getValidInput(std::string input, Page * currentPage) const {
 }
 
 //dfs algorithm
-void Story::dfs(Page * current, std::vector<std::pair<int, int> > path) {
+void Story::dfs(Page & current, std::vector<std::pair<int, int> > path) {
   //Base Case: We found a win/lose page,
   //or the page has already been visited, which means this path is a loop, go back
-  if (current->isWinPage()) {
-    path.push_back(std::make_pair(current->getPageNum(), -1));
+  if (current.isWinPage()) {
+    path.push_back(std::make_pair(current.getPageNum(), -1));
     std::vector<std::pair<int, int> > pathCopy(path);
     successPath.push_back(pathCopy);
     return;
   }
-  else if (current->isLostPage()) {
+  else if (current.isLostPage()) {
     return;
   }
-  else if (current->checkVisited() == true) {
+  else if (current.checkVisited() == true) {
     return;
   }
   else {
     //Set the current page as visited
-    current->setVisited();
-    std::vector<Page::Choice *> currentChoice = current->getChoices();
+    current.setVisited();
+    std::vector<Page::Choice *> currentChoice = current.getChoices();
     std::vector<Page::Choice *>::iterator it = currentChoice.begin();
     size_t choiceNum = 1;
     //Loop all the possible direct destination from the current page
@@ -364,13 +364,13 @@ void Story::dfs(Page * current, std::vector<std::pair<int, int> > path) {
         continue;
       }
       else {
-        path.push_back(std::make_pair(current->getPageNum(), choiceNum));
+        path.push_back(std::make_pair(current.getPageNum(), choiceNum));
         //Check the destination page for this chice
-        Page * dest = pageVec[(*it)->choiceContent.first];
+        Page dest = pageVec[(*it)->choiceContent.first];
         dfs(dest, path);
         //this dest is either a wil page (stored the path, clean the visited record and start a new one)
         //or not eligible (wipe the visited record and start a new path)
-        dest->eraseVisited();
+        dest.eraseVisited();
         path.pop_back();
         choiceNum++;
         it++;
@@ -381,7 +381,7 @@ void Story::dfs(Page * current, std::vector<std::pair<int, int> > path) {
 
 //Invoke dfs to search for success path
 void Story::searchSuccessPath() {
-  Page * current = pageVec[0];
+  Page current = pageVec[0];
   std::vector<std::pair<int, int> > path(0);
   dfs(current, path);
 }
@@ -411,7 +411,7 @@ Story::Story(const Story & rhs) {
   successPath = rhs.successPath;
   storyVar = rhs.storyVar;
   for (size_t i = 0; i < rhs.pageVec.size(); i++) {
-    Page * copyPage = new Page(*(rhs.pageVec[i]));
+    Page copyPage((rhs.pageVec[i]));
     pageVec.push_back(copyPage);
   }
 }
@@ -428,10 +428,6 @@ Story & Story::operator=(const Story & rhs) {
 }
 
 Story::~Story() {
-  size_t size = pageVec.size();
-  for (size_t i = 0; i < size; i++) {
-    delete pageVec[i];
-  }
   pageVec.clear();
 }
 
