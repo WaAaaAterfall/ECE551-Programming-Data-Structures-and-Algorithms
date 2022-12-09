@@ -1,6 +1,6 @@
-Grading at 12/09/2022:20:50:21.231369
-For commit ID 97b70779c548d8125461bf3e2d8cec11b6008261
-Grading at Fri Dec  9 03:48:55 PM EST 2022
+Grading at 12/09/2022:21:13:22.395706
+For commit ID 471232c683826ef84aa6b855243943c2091c2e62
+Grading at Fri Dec  9 04:11:17 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -224,9 +224,9 @@ Now running YOUR tests for step 4
 
 4.1: Current test is ./cyoa-step4 story3  <  story3/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.2: Current test is ./cyoa-step4 story3Test19  <  story3Test19/inputs/input17.txt
@@ -251,37 +251,37 @@ Valgrind was clean
 
 4.4: Current test is ./cyoa-step4 story3Test20  <  story3Test20/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.5: Current test is ./cyoa-step4 story3Test20  <  story3Test20/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.6: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.7: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.8: Current test is ./cyoa-step4 story3Test22  <  story3Test22/inputs/input17.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-The story contains invalid long number. 
+The story contains invalid number.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -291,7 +291,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-The story contains invalid long number. 
+The story contains invalid number.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -299,58 +299,58 @@ Valgrind was clean
 
 4.10: Current test is ./cyoa-step4 story3Test23  <  story3Test23/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.11: Current test is ./cyoa-step4 story3Test23  <  story3Test23/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.12: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.13: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.14: Current test is ./cyoa-step4 story3Test28  <  story3Test28/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.15: Current test is ./cyoa-step4 story3Test28  <  story3Test28/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.16: Current test is ./cyoa-step4 story3Test29  <  story3Test29/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.17: Current test is ./cyoa-step4 story3Test29  <  story3Test29/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.18: Current test is ./cyoa-step4 storyTest1  <  storyTest1/inputs/input0.txt
@@ -573,188 +573,188 @@ Valgrind was clean
 
 4.41: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.42: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.43: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.44: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.45: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.46: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.47: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.48: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.49: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.50: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input9.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.51: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input10.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.52: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input11.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.53: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input12.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.54: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input13.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.55: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input14.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.56: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.57: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.58: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.59: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.60: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.61: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input20.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.62: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input21.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.63: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input22.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.64: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input23.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.65: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input24.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 4.66: Current test is ./cyoa-step4 /usr/local/ece551/cyoa/story3  <  /usr/local/ece551/cyoa/story3/inputs/input25.txt
 -----------------------------
-You considered this a failure case:
-The story contains invalid long number. 
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 No request to check for intermediate deadline completion on step 4
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
