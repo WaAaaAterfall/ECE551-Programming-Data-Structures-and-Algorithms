@@ -12,14 +12,11 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   std::string path = argv[1];
-  Story storyTestRF3(path);
-  Story story(storyTestRF3);
+  Story * storyTestRF3 = new Story(path);
+  Story story(*storyTestRF3);
+  delete storyTestRF3;
   story.checkStory();
 
-  Story * storyTest = new Story(path);
-  story = *storyTest;
-  story.checkStory();
-  delete storyTest;
   std::vector<Page *> Pages = story.getPages();
   Page * currentPage = Pages[0];
   while (!currentPage->isWinPage() && !currentPage->isLostPage()) {
