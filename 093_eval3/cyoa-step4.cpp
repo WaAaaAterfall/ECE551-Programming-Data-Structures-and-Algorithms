@@ -19,26 +19,28 @@ int main(int argc, char ** argv) {
   while (!currentPage->isWinPage() && !currentPage->isLostPage()) {
     currentPage->printPage();
     std::string inputChoice;
-    getline(std::cin, inputChoice);
-    size_t destinationPage = 0;
-    while (destinationPage == 0) {
+    std::cin >> inputChoice;
+    //The sieze_t bigger than the story size indicates we haven't found the valid destination page
+    size_t destinationPage = story.getStorySize() + 10;
+    while (destinationPage > story.getStorySize()) {
       try {
         size_t choiceNum = story.getValidInput(inputChoice, currentPage);
         destinationPage = currentPage->getChoices()[choiceNum - 1]->choiceContent.first;
         currentPage = Pages[destinationPage];
+        //update the variable in both page and story
         story.updateStoryVar(currentPage);
         story.updatePageValidChoice(currentPage);
       }
       catch (UserInputException & e) {
-        std::cout << e.what() << "\n";
-        getline(std::cin, inputChoice);
+        std::cout << e.what();
+        std::cin >> inputChoice;
         if (std::cin.eof()) {
           std::cerr << "The input cannot finish the story.\n";
           exit(EXIT_FAILURE);
         }
       }
       catch (EmptyInputException & e) {
-        getline(std::cin, inputChoice);
+        std::cin >> inputChoice;
         if (std::cin.eof()) {
           std::cerr << "The input cannot finish the story.\n";
           exit(EXIT_FAILURE);
@@ -47,7 +49,7 @@ int main(int argc, char ** argv) {
       catch (InvalidChoiceException & e) {
         std::cout << e.what();
         // currentPage->printChoices();
-        getline(std::cin, inputChoice);
+        std::cin >> inputChoice;
         if (std::cin.eof()) {
           std::cerr << "The input cannot finish the story.\n";
           exit(EXIT_FAILURE);
