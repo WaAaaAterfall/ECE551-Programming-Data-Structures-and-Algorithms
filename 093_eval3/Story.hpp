@@ -117,6 +117,7 @@ Story::Story(const std::string path) {
       else {
         numOfPage = line.substr(0, findCol);
       }
+      assert(checkValidNum(numOfPage));
       size_t pageNumber = std::strtoul(numOfPage.c_str(), NULL, 10);
       if (pageNumber >= pageVec.size()) {
         std::cerr
@@ -138,15 +139,18 @@ Story::Story(const std::string path) {
     else if (getLineType(line) == 3) {
       size_t findTerm = line.find("$");
       std::string pageNum = line.substr(0, findTerm);
-      size_t pageNumber = std::strtoul(pageNum.c_str(), NULL, 10);
-      Page * currentPage = pageVec[pageNumber];
-      std::string varAndVal = line.substr(findTerm + 1);
-      size_t findEq = varAndVal.find("=");
-      //If it is a new variable, add it into the story variable aray
-      if (isNewVariable(varAndVal.substr(0, findEq))) {
-        storyVar[varAndVal.substr(0, findEq)] = 0;
+      if (checkValidNum(pageNum)) {
+        size_t pageNumber = std::strtoul(pageNum.c_str(), NULL, 10);
+        assert(pageNumber < pageVec.size());
+        Page * currentPage = pageVec[pageNumber];
+        std::string varAndVal = line.substr(findTerm + 1);
+        size_t findEq = varAndVal.find("=");
+        //If it is a new variable, add it into the story variable aray
+        if (isNewVariable(varAndVal.substr(0, findEq))) {
+          storyVar[varAndVal.substr(0, findEq)] = 0;
+        }
+        currentPage->addUpdateVarable(varAndVal);
       }
-      currentPage->addUpdateVarable(varAndVal);
     }
     else {
       std::cerr << "Wrong storyLine type.\n";
@@ -175,12 +179,14 @@ void Story::updateStoryVar(Page * currentPage) {
 void Story::updatePageValidChoice(Page * currentPage) {
   std::vector<Page::Choice *> pageChoice = currentPage->getChoices();
   for (size_t i = 0; i < pageChoice.size(); i++) {
-    std::pair<std::string, long> choiceCondition = pageChoice[i]->choiceCondition;
-    if (storyVar[choiceCondition.first] != choiceCondition.second) {
-      pageChoice[i]->isAvailable = false;
-    }
-    else {
-      pageChoice[i]->isAvailable = true;
+    if (pageChoice[i]->hasCon) {
+      std::pair<std::string, long> choiceCondition = pageChoice[i]->choiceCondition;
+      if (storyVar[choiceCondition.first] != choiceCondition.second) {
+        pageChoice[i]->isAvailable = false;
+      }
+      else {
+        pageChoice[i]->isAvailable = true;
+      }
     }
   }
 }
@@ -215,7 +221,6 @@ void Story::checkStoryFormat() const {
     std::cerr << "The story does not have page0/\n";
     exit(EXIT_FAILURE);
   }
-
   for (size_t j = 1; j < getStorySize(); j++) {
     Page * current = pageVec[j];
     //check if the page is in order and consecutive

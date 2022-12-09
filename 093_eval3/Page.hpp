@@ -15,10 +15,19 @@ class Page {
    public:
     std::pair<size_t, std::string> choiceContent;
     std::pair<std::string, long> choiceCondition;
+    bool hasCon;
     bool isAvailable;
     Choice(){};
-    Choice(std::pair<size_t, std::string> content, bool available) :
-        choiceContent(content), isAvailable(available){};
+    Choice(std::pair<size_t, std::string> content, bool hasCon, bool avail) :
+        choiceContent(content), hasCon(hasCon), isAvailable(avail){};
+    Choice(std::pair<size_t, std::string> content,
+           std::pair<std::string, long> choiceCond,
+           bool hasCon,
+           bool avail) :
+        choiceContent(content),
+        choiceCondition(choiceCond),
+        hasCon(hasCon),
+        isAvailable(avail){};
   };
 
   class Variables {
@@ -145,12 +154,17 @@ void Page::printChoices() const {
   int count = 1;
   while (itC != choices.end()) {
     //If the choice is available under current story variables
-    if ((*itC)->isAvailable) {
+    if (!(*itC)->hasCon) {
       std::cout << " " << count << ". " << (*itC)->choiceContent.second << "\n";
     }
-    //If the choice is not available
     else {
-      std::cout << " " << count << ". <UNAVAILABLE>\n";
+      if ((*itC)->isAvailable) {
+        std::cout << " " << count << ". " << (*itC)->choiceContent.second << "\n";
+      }
+      //If the choice is not available
+      else {
+        std::cout << " " << count << ". <UNAVAILABLE>\n";
+      }
     }
     itC++;
     count++;
@@ -236,13 +250,17 @@ void Page::addChoices(const std::string option, int lineType) {
       //Initialize a new choice object and write the info of this choice into it
       std::string opContent = option.substr(findCol + firstCol + 2);
       std::pair<int, std::string> newOption = std::make_pair(destPage, opContent);
-      Choice * newChoice = new Choice(newOption, true);
       //If this choice requires condition, write the condition into the object
-      //If the choice has no conditon, leave the choiceCondition as it is default initialzied
+      //If the choice has no conditon, do not write the condition
       if (lineType == 4) {
-        newChoice->choiceCondition = setChoiceCondition(option);
+        std::pair<std::string, long> choiceCondition = setChoiceCondition(option);
+        Choice * newChoice = new Choice(newOption, choiceCondition, true, true);
+        choices.push_back(newChoice);
       }
-      choices.push_back(newChoice);
+      else {
+        Choice * newChoice = new Choice(newOption, false, true);
+        choices.push_back(newChoice);
+      }
     }
     else {
       std::cerr << "Invalid Choice!\n";

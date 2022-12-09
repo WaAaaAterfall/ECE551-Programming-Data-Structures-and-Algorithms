@@ -19,7 +19,7 @@ int main(int argc, char ** argv) {
   while (!currentPage->isWinPage() && !currentPage->isLostPage()) {
     currentPage->printPage();
     std::string inputChoice;
-    getline(std::cin, inputChoice);
+    std::cin >> inputChoice;
     size_t destinationPage = 0;
     while (destinationPage == 0) {
       try {
@@ -29,14 +29,14 @@ int main(int argc, char ** argv) {
       }
       catch (UserInputException & e) {
         std::cout << e.what() << "\n";
-        getline(std::cin, inputChoice);
+        std::cin >> inputChoice;
         if (std::cin.eof()) {
           std::cerr << "The input cannot finish the story.\n";
           exit(EXIT_FAILURE);
         }
       }
       catch (EmptyInputException & e) {
-        getline(std::cin, inputChoice);
+        std::cin >> inputChoice;
         if (std::cin.eof()) {
           std::cerr << "The input cannot finish the story.\n";
           exit(EXIT_FAILURE);
