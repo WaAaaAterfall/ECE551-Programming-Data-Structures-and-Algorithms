@@ -1,6 +1,6 @@
-Grading at 12/09/2022:05:28:48.492845
-For commit ID 85cf45f419503314393f00251a39a23d05f40a78
-Grading at Fri Dec  9 12:27:10 AM EST 2022
+Grading at 12/09/2022:05:42:36.036424
+For commit ID 8e7de0c446ca0e4f6e16483b35eeaf38f5951438
+Grading at Fri Dec  9 12:41:08 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -59,7 +59,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-The current page of the choice shows up before the page declaration.
+The story contains invalid number.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -380,7 +380,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-The current page of the choice shows up before the page declaration.
+The story contains invalid number.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
