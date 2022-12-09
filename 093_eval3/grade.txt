@@ -1,6 +1,6 @@
-Grading at 12/09/2022:01:28:22.174273
-For commit ID dbe7fe463862e042a2e46963d52ea4c9d321fdca
-Grading at Thu Dec  8 08:26:11 PM EST 2022
+Grading at 12/09/2022:01:33:26.681998
+For commit ID 7eac8e16b38b55978d42112bbd317163dc1bd745
+Grading at Thu Dec  8 08:30:52 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -720,9 +720,13 @@ Valgrind was clean
 
 3.5: Current test is ./cyoa-step3 storyTest18 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+0(1),1(2),3(1),8(win)						0(1),1(2),3(1),8(win)
+0(1),1(3),3(1),8(win)					      <
+Your file did not match the expected output
+
 No request to check for intermediate deadline completion on step 3
 
 Step 4
