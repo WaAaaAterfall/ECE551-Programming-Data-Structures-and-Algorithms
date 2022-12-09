@@ -11,10 +11,12 @@
 #include "util.hpp"
 class Page {
  public:
+  //A choice class to store the page chices and its condition
   class Choice {
    public:
     std::pair<size_t, std::string> choiceContent;
     std::pair<std::string, long> choiceCondition;
+    //Determine if this choice has condition
     bool hasCon;
     bool isAvailable;
     Choice(){};
@@ -33,30 +35,44 @@ class Page {
  private:
   //which page is it?
   std::vector<std::string> pageInfo;
+  //The number of this page
   size_t pageNum;
-  //mode, 0 for normal, 1 for win, 2 for lose
+  //pageType, 0 for normal, 1 for win, 2 for lose
   int pageType;
+  //Of the page is referenced
   bool referenced;
+  //If the page has been visited(Step3)
   bool visited;
   std::vector<std::string> pageText;
   std::vector<Choice *> choices;
+  //All the variable page needed to check the availability of choices
   std::vector<std::pair<std::string, long> > pageVariables;
   int extractPageType(std::string typeOfPage);
+  //If the chice has condition
   std::pair<std::string, size_t> setChoiceCondition(const std::string option);
 
  public:
   Page() : pageNum(0), pageType(0){};
+  //Set the page based on the file path
   Page(const std::string line, const std::string path);
   Page(const Page & rhs);
   Page & operator=(const Page & rhs);
   ~Page();
+  //return the page number
   size_t getPageNum() const { return pageNum; }
+  //return the type of the page
   int getPageType() const { return pageType; }
+  //Add choice for the page
   void addChoices(const std::string option, int lineType);
+  //return the total number of the chocie of the page
   size_t getChoiceSize() const { return choices.size(); }
+  //return the array of all the choices
   std::vector<Choice *> getChoices() const { return choices; }
+  //return all the variable used in this page
   std::vector<std::pair<std::string, long> > getPageVar() const { return pageVariables; }
+  //set the visited as true is the page is visited
   void setVisited() { visited = true; }
+  //set
   void setReferenced() { referenced = true; }
   void eraseVisited() { visited = false; }
   bool checkVisited() const { return visited; }
