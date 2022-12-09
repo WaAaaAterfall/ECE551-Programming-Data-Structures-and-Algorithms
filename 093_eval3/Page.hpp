@@ -267,6 +267,8 @@ void Page::addChoices(const std::string option, int lineType) {
 
 //Rule of three
 Page::Page(const Page & rhs) {
+  referenced = rhs.referenced;
+  visited = rhs.visited;
   pageType = rhs.pageType;
   pageNum = rhs.pageNum;
   pageText.clear();
@@ -292,6 +294,8 @@ Page::Page(const Page & rhs) {
 Page & Page::operator=(const Page & rhs) {
   if (this != &rhs) {
     Page temp(rhs);
+    std::swap(referenced, temp.referenced);
+    std::swap(visited, temp.visited);
     std::swap(pageType, temp.pageType);
     std::swap(pageNum, temp.pageNum);
     std::swap(pageInfo, temp.pageInfo);
