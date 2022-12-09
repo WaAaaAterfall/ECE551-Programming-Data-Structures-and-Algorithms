@@ -14,17 +14,17 @@ int main(int argc, char ** argv) {
   std::string path = argv[1];
   Story story(path);
   story.checkStory();
-  std::vector<Page *> & Pages = story.getPages();
-  Page * currentPage = Pages[0];
-  while (!currentPage->isWinPage() && !currentPage->isLostPage()) {
-    currentPage->printPage();
+  std::vector<Page> & Pages = story.getPages();
+  Page currentPage = Pages[0];
+  while (!currentPage.isWinPage() && !currentPage.isLostPage()) {
+    currentPage.printPage();
     std::string inputChoice;
     getline(std::cin, inputChoice);
     size_t destinationPage = 0;
     while (destinationPage == 0) {
       try {
         size_t choiceNum = story.getValidInput(inputChoice, currentPage);
-        destinationPage = currentPage->getChoices()[choiceNum - 1]->choiceContent.first;
+        destinationPage = currentPage.getChoices()[choiceNum - 1]->choiceContent.first;
         currentPage = Pages[destinationPage];
         story.updateStoryVar(currentPage);
         story.updatePageValidChoice(currentPage);
@@ -55,6 +55,6 @@ int main(int argc, char ** argv) {
       }
     }
   }
-  currentPage->printPage();
+  currentPage.printPage();
   return EXIT_SUCCESS;
 }

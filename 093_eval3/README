@@ -283,6 +283,7 @@ For this step, you are going to write cyoa-step3 which will help you
 find all cycle-free ways to "win" a given choose your own adventure
 story. Note that this does NOT mean you are to assume the story has no
 cycles. It only means that you should print each way to win that does
+
 not repeat the same page. For example, if the story had a path to win
 like 
 
