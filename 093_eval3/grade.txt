@@ -1,754 +1,358 @@
-Grading at 12/09/2022:21:54:40.943274
+Grading at 12/16/2022:01:08:45.542428
 For commit ID 4a658ee758ed0770c2700bff5f47dac6a376f208
-Grading at Fri Dec  9 04:52:50 PM EST 2022
-Doing some basic checking for your submission
+Grading at Thu Dec 15 08:07:49 PM EST 2022
 
+=========================================================================
 Step 1
+
 Checking that cyoa-step1 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  cyoa-step1.o  cyoa-step2.o  cyoa-step3.o  cyoa-step4.o
 g++ -o cyoa-step1 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step1.cpp util.cpp
-The code compiled (good)
-Executable cyoa-step1 exists (good)
-------------------------------------
-Now running YOUR tests for step 1
-------------------------------------
++-----------------------------------------------------------------------+
+1.1
+./cyoa-step1 /usr/local/ece551/cyoa/storynonexist
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+1.2
+./cyoa-step1 story1
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+1.3
+./cyoa-step1 story1
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+1.4
+./cyoa-step1 story1
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+1.5
+./cyoa-step1 story1
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+1.6
+./cyoa-step1 story1
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+1.7
+./cyoa-step1 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
+                                                         [7/7]
++-----------------------------------------------------------------------+
+1.8
+./cyoa-step1 /usr/local/ece551/cyoa/story2
+Your file matched the expected output
+                                                         [7/7]
 
+Step 1 total                                             [20/20]
 
-1.1: Current test is ./cyoa-step1 storyTest < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-1.2: Current test is ./cyoa-step1 storyTest2 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains page declaration line that its page file cannot be opened.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.3: Current test is ./cyoa-step1 storyTest3 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.4: Current test is ./cyoa-step1 storyTest4 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.5: Current test is ./cyoa-step1 storyTest5 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-1.6: Current test is ./cyoa-step1 storyTest6 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-1.7: Current test is ./cyoa-step1 storyTest7 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The choice cannot be matched with the current page.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.8: Current test is ./cyoa-step1 storyTest8 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.9: Current test is ./cyoa-step1 storyTest9 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The current page of the choice shows up before the page declaration.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.10: Current test is ./cyoa-step1 storyTest10 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The win page of the story has choices, but it shouldn't.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.11: Current test is ./cyoa-step1 storyTest11 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The lose page of the story has choices, but it shouldn't.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.12: Current test is ./cyoa-step1 storyTest12 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-1.13: Current test is ./cyoa-step1 storyTest13 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-1.14: Current test is ./cyoa-step1 storyTest14 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-1.15: Current test is ./cyoa-step1 storyTest15 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The pages in this story are not consecutive.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-1.16: Current test is ./cyoa-step1 storyTest16 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-No request to check for intermediate deadline completion on step 1
-
+=========================================================================
 Step 2
+
 Checking that cyoa-step2 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  cyoa-step1.o  cyoa-step2.o  cyoa-step3.o  cyoa-step4.o
 g++ -o cyoa-step2 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step2.cpp util.cpp
-The code compiled (good)
-Executable cyoa-step2 exists (good)
-------------------------------------
-Now running YOUR tests for step 2
-------------------------------------
-
-
-2.1: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.2: Current test is ./cyoa-step2 storyTest1  <  storyTest1/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-This story contains undefined page (not N, W nor L).
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.3: Current test is ./cyoa-step2 storyTest2  <  storyTest2/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains page declaration line that its page file cannot be opened.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.4: Current test is ./cyoa-step2 storyTest3  <  storyTest3/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.5: Current test is ./cyoa-step2 storyTest4  <  storyTest4/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.6: Current test is ./cyoa-step2 storyTest5  <  storyTest5/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains page that the destination page of its choice does not exist.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.7: Current test is ./cyoa-step2 storyTest6  <  storyTest6/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The input cannot finish the story.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.8: Current test is ./cyoa-step2 storyTest7  <  storyTest7/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The choice cannot be matched with the current page.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.9: Current test is ./cyoa-step2 storyTest8  <  storyTest8/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.10: Current test is ./cyoa-step2 storyTest9  <  storyTest9/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The current page of the choice shows up before the page declaration.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.11: Current test is ./cyoa-step2 storyTest10  <  storyTest10/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The win page of the story has choices, but it shouldn't.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.12: Current test is ./cyoa-step2 storyTest11  <  storyTest11/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The lose page of the story has choices, but it shouldn't.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.13: Current test is ./cyoa-step2 storyTest12  <  storyTest12/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-There are pages that are not referenced in this story.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.14: Current test is ./cyoa-step2 storyTest13  <  storyTest13/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-There are pages that are not referenced in this story.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.15: Current test is ./cyoa-step2 storyTest14  <  storyTest14/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-No win or No lose page in this storty.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.16: Current test is ./cyoa-step2 storyTest15  <  storyTest15/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The pages in this story are not consecutive.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.17: Current test is ./cyoa-step2 storyTest16  <  storyTest16/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains page that the destination page of its choice does not exist.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.18: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.19: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.20: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input3.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.21: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input4.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.22: Current test is ./cyoa-step2 storyTest  <  storyTest/inputs/input5.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The input cannot finish the story.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.23: Current test is ./cyoa-step2 storyTest24  <  storyTest24/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-no char is a valid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.24: Current test is ./cyoa-step2 storyTest25  <  storyTest25/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-There are pages that are not referenced in this story.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.25: Current test is ./cyoa-step2 storyTest31  <  storyTest31/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-2.26: Current test is ./cyoa-step2 storyTest32  <  storyTest32/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The current page of the choice shows up before the page declaration.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.27: Current test is ./cyoa-step2 storyTest46  <  storyTest46/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid input line.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.28: Current test is ./cyoa-step2 storyTest45  <  storyTest45/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-This story contains undefined page (not N, W nor L).
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.29: Current test is ./cyoa-step2 storyTest44  <  storyTest44/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid input line.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.30: Current test is ./cyoa-step2 storyTest43  <  storyTest43/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-no char is a valid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.31: Current test is ./cyoa-step2 storyTest42  <  storyTest42/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid input line.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.32: Current test is ./cyoa-step2 storyTest41  <  storyTest41/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-This story contains undefined page (not N, W nor L).
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.33: Current test is ./cyoa-step2 storyTest40  <  storyTest40/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-There are pages that are not referenced in this story.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-No request to check for intermediate deadline completion on step 2
-
++-----------------------------------------------------------------------+
+2.1
+./cyoa-step2 story1 < story1/inputs/input1.txt
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+2.2
+./cyoa-step2 story1 < story1/inputs/input1.txt
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+2.3
+./cyoa-step2 story1 < story1/inputs/input1.txt
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+2.4
+./cyoa-step2 story1 < short.txt
+Valgrind reported memory errors
+Your program successfully indicated a failure case
+                                                         [.8/1]
++-----------------------------------------------------------------------+
+2.5
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input0.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.6
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input10.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.7
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input11.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.8
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input12.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.9
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input1.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.10
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input2.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.11
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input3.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.12
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input4.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.13
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input5.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.14
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input6.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.15
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input7.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.16
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input8.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.17
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input9.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.18
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input0.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.19
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input1.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.20
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input2.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.21
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input3.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.22
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input4.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.23
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input5.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.24
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input6.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.25
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input7.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.26
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input8.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+2.27
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input9.txt
+Your file matched the expected output
+                                                         [1/1]
+
+Step 2 total                                             [29.8/30]
+
+=========================================================================
 Step 3
+
 Checking that cyoa-step3 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  cyoa-step1.o  cyoa-step2.o  cyoa-step3.o  cyoa-step4.o
 g++ -o cyoa-step3 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step3.cpp util.cpp
-The code compiled (good)
-Executable cyoa-step3 exists (good)
-------------------------------------
-Now running YOUR tests for step 3
-------------------------------------
++-----------------------------------------------------------------------+
+3.1
+./cyoa-step3 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
+                                                         [7/7]
++-----------------------------------------------------------------------+
+3.2
+./cyoa-step3 /usr/local/ece551/cyoa/story2
+Your file matched the expected output
+                                                         [7/7]
++-----------------------------------------------------------------------+
+3.3
+./cyoa-step3 story1
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+3.4
+./cyoa-step3 story1
+Your file matched the expected output
+                                                         [3/3]
 
+Step 3 total                                             [20/20]
 
-3.1: Current test is ./cyoa-step3 /usr/local/ece551/cyoa/story1 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-3.2: Current test is ./cyoa-step3 storyTest < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-3.3: Current test is ./cyoa-step3 storyTest17 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-3.4: Current test is ./cyoa-step3 storyTest18 < /dev/null
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-3.5: Current test is ./cyoa-step3 storyTest30 < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The win page of the story has choices, but it shouldn't.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-No request to check for intermediate deadline completion on step 3
-
+=========================================================================
 Step 4
+
 Checking that cyoa-step4 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4  cyoa-step1.o  cyoa-step2.o  cyoa-step3.o  cyoa-step4.o
 g++ -o cyoa-step4 -ggdb3 -Wall -Werror -pedantic -std=gnu++98 cyoa-step4.cpp util.cpp
-The code compiled (good)
-Executable cyoa-step4 exists (good)
-------------------------------------
-Now running YOUR tests for step 4
-------------------------------------
++-----------------------------------------------------------------------+
+4.1
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input0.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.2
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input1.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.3
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input2.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.4
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input3.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.5
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input5.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.6
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input6.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.7
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input7.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.8
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input8.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.9
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input9.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.10
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input10.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.11
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input12.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.12
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input13.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.13
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input14.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.14
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input16.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.15
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input17.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.16
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input19.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.17
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input20.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.18
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input22.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.19
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input23.txt
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+4.20
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input25.txt
+Your file matched the expected output
+                                                         [1/1]
 
+Step 4 total                                             [20/20]
 
-4.1: Current test is ./cyoa-step4 story3  <  story3/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+=========================================================================
+Code quality
 
+OOP:           Excellent
+Abstration:    Good
+Naming:        Excellent
+Formatting:    Excellent
+Documentation: Excellent
+Comments from your grader:
+Good job! Excellent in OOP design, Naming, Formatting and Documentation. I like 
+your OOP design! Maybe you could improve your abstarction to avoid some too 
+long functions.
+Quality total                                            [9.7/10]
 
-4.2: Current test is ./cyoa-step4 story3Test19  <  story3Test19/inputs/input17.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid input line.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
+=========================================================================
+Step 1 EC: yes
+Step 2 EC: yes
+Step 3 EC: yes
+Step 4 EC: yes
+EC points: 12
 
-
-4.3: Current test is ./cyoa-step4 story3Test19  <  story3Test19/inputs/input16.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid input line.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.4: Current test is ./cyoa-step4 story3Test20  <  story3Test20/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.5: Current test is ./cyoa-step4 story3Test20  <  story3Test20/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.6: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.7: Current test is ./cyoa-step4 story3Test21  <  story3Test21/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.8: Current test is ./cyoa-step4 story3Test22  <  story3Test22/inputs/input17.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.9: Current test is ./cyoa-step4 story3Test22  <  story3Test22/inputs/input16.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.10: Current test is ./cyoa-step4 story3Test23  <  story3Test23/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.11: Current test is ./cyoa-step4 story3Test23  <  story3Test23/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.12: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.13: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.14: Current test is ./cyoa-step4 story3Test28  <  story3Test28/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.15: Current test is ./cyoa-step4 story3Test28  <  story3Test28/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.16: Current test is ./cyoa-step4 story3Test29  <  story3Test29/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.17: Current test is ./cyoa-step4 story3Test29  <  story3Test29/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.18: Current test is ./cyoa-step4 story3Test26  <  story3Test26/inputs/inputTestInvalidVar.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-
-4.19: Current test is ./cyoa-step4 story3Test47  <  story3Test47/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid input line.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.20: Current test is ./cyoa-step4 story3Test48  <  story3Test48/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid input line.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.21: Current test is ./cyoa-step4 story3Test49  <  story3Test49/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid long number. 
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.22: Current test is ./cyoa-step4 story3Test50  <  story3Test50/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.23: Current test is ./cyoa-step4 story3Test51  <  story3Test51/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.24: Current test is ./cyoa-step4 story3Test52  <  story3Test52/inputs/input0.txt
------------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
-
-
-4.25: Current test is ./cyoa-step4 story3Test53  <  story3Test53/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-The story contains invalid number.
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.26: Current test is ./cyoa-step4 story3Test54  <  story3Test54/inputs/input0.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-No request to check for intermediate deadline completion on step 4
-
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
-
-Overall Grade: NO GRADE YET
+Overall Grade: 112
